@@ -1,9 +1,11 @@
 import superagentPromise from 'superagent-promise';
 import _superagent from 'superagent';
+import axios from 'axios';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://conduit.productionready.io/api';
+// const API_ROOT = 'https://www.snowaddict.net/api';
+const API_ROOT = 'http://127.0.0.1:8000/api'
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -23,8 +25,19 @@ const requests = {
   put: (url, body) =>
     superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
   post: (url, body) =>
-    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody)
+    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
+  postwithfile: (url, body) =>
+    axios.post(`${API_ROOT}${url}`, body, {
+      headers: {
+        'content-type': 'multipart/form-data',
+        'Authorization': `token ${token}`
+      }
+    })
+  .then(responseBody)
+        .catch(err => console.log(err))
+
 };
+
 
 const Auth = {
   current: () =>
@@ -57,7 +70,7 @@ const Articles = {
   favoritedBy: (author, page) =>
     requests.get(`/articles?favorited=${encode(author)}&${limit(5, page)}`),
   feed: () =>
-    requests.get('/articles/feed?limit=10&offset=0'),
+    requests.get('/articles/feed/'),
   get: slug =>
     requests.get(`/articles/${slug}`),
   unfavorite: slug =>
@@ -83,7 +96,42 @@ const Profile = {
   get: username =>
     requests.get(`/profiles/${username}`),
   unfollow: username =>
-    requests.del(`/profiles/${username}/follow`)
+    requests.del(`/profiles/${username}/follow`),
+  byGear: (gear,page) =>
+    requests.get(`/profiles/?gear=${encode(gear)}&${limit(10, page)}`),
+  all: page =>
+    requests.get(`/profiles?${limit(10, page)}`),
+};
+
+const People = {
+  byGear: (gear,page) =>
+    requests.get(`/people/?gear=${encode(gear)}&${limit(10, page)}`),
+  all: page =>
+    requests.get(`/people?${limit(10, page)}`),
+  get: name =>
+    requests.get(`/people?name=${name}`),
+  retrieve: () =>
+    requests.get(`/people`),    
+  create: formdata =>
+    requests.postwithfile('/people',  formdata )
+};
+
+
+const Gears = {
+  all: gear =>
+    requests.get(`/gears?${limit(10, gear)}`),
+  byPerson: (person, page) =>
+    requests.get(`/gears?person=${encode(person)}&${limit(5, page)}`),
+  byCategory: (category, page) =>
+    requests.get(`/gears?category=${encode(category)}&${limit(10, page)}`),
+  get: slug =>
+    requests.get(`/gears/${slug}`)
+};
+
+
+
+const Categories = {
+  all: categories => requests.get('/gear/category/')
 };
 
 export default {
@@ -92,5 +140,8 @@ export default {
   Comments,
   Profile,
   Tags,
+  Gears,
+  People,
+  Categories,
   setToken: _token => { token = _token; }
 };

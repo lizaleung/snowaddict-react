@@ -14,11 +14,12 @@ import {
   PROFILE_FAVORITES_PAGE_UNLOADED,
   SETTINGS_PAGE_UNLOADED,
   LOGIN_PAGE_UNLOADED,
-  REGISTER_PAGE_UNLOADED
+  REGISTER_PAGE_UNLOADED,
+  GEARS_PAGE_UNLOADED
 } from '../constants/actionTypes';
 
 const defaultState = {
-  appName: 'Conduit',
+  appName: 'snow addict niseko',
   token: null,
   viewChangeCounter: 0
 };
@@ -64,6 +65,7 @@ export default (state = defaultState, action) => {
     case LOGIN_PAGE_UNLOADED:
     case REGISTER_PAGE_UNLOADED:
       return { ...state, viewChangeCounter: state.viewChangeCounter + 1 };
+    case GEARS_PAGE_UNLOADED:
     default:
       return state;
   }
