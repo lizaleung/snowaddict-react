@@ -35,104 +35,12 @@ export default function SectionContact() {
             Want to work with us?
           </h2>
           <h4 className={classNames(classes.description, classes.textCenter)}>
-            We enjoy partnership with ski resort business, and are open to collaboration ideas. We are looking for freelancer photographers and bloggers to contribute to our community as well. Talk to us!
+            We are looking for more ways to improve our platform and are open to 
+            collaboration ideas. Whether you are a business, freelancer 
+            photographers and bloggers, or general users, if you have an idea or 
+            suggestion, feel free to email us!
           </h4>
-          <form>
-            <GridContainer>
-              <GridItem md={4} sm={4}>
-                <CustomInput
-                  labelText="Your name"
-                  formControlProps={{
-                    fullWidth: true
-                  }}
-                />
-              </GridItem>
-              <GridItem md={4} sm={4}>
-                <CustomInput
-                  labelText="Your email"
-                  formControlProps={{
-                    fullWidth: true
-                  }}
-                />
-              </GridItem>
-              <GridItem md={4} sm={4}>
-                <FormControl
-                  fullWidth
-                  className={
-                    classes.selectFormControl +
-                    " " +
-                    classes.selectUnderlineRoot
-                  }
-                >
-                  <Select
-                    MenuProps={{
-                      className: classes.selectMenu
-                    }}
-                    classes={{
-                      select: classes.select
-                    }}
-                    value={specialitySelect}
-                    onChange={handleSpeciality}
-                    inputProps={{
-                      name: "specialitySelect",
-                      id: "speciality-select"
-                    }}
-                  >
-                    <MenuItem
-                      disabled
-                      classes={{
-                        root: classes.selectMenuItem
-                      }}
-                    >
-                      Speciality
-                    </MenuItem>
-                    <MenuItem
-                      classes={{
-                        root: classes.selectMenuItem,
-                        selected: classes.selectMenuItemSelected
-                      }}
-                      value="1"
-                    >
-                      I{"'"}m a Business
-                    </MenuItem>
-                    <MenuItem
-                      classes={{
-                        root: classes.selectMenuItem,
-                        selected: classes.selectMenuItemSelected
-                      }}
-                      value="2"
-                    >
-                      I{"'"}m a Freelancer
-                    </MenuItem>
-                    <MenuItem
-                      classes={{
-                        root: classes.selectMenuItem,
-                        selected: classes.selectMenuItemSelected
-                      }}
-                      value="3"
-                    >
-                      I{"'"}m a Hero
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-              </GridItem>
-            </GridContainer>
-            <GridContainer>
-              <GridItem
-                md={4}
-                sm={4}
-                className={classNames(
-                  classes.mrAuto,
-                  classes.mlAuto,
-                  classes.textCenter
-                )}
-              >
-                <Button color="primary" round>
-                  Let{"'"}s talk
-                </Button>
-              </GridItem>
-            </GridContainer>
-          </form>
+
         </GridItem>
       </GridContainer>
     </div>

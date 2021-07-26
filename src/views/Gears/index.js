@@ -70,6 +70,7 @@ class Gears extends React.Component {
             <GridItem xs={12} sm={12} md={12}>
     
             <BrowsePerson persons={peoples} />
+            <br></br>
     
             <BrowseCategory categories={categories} />
   

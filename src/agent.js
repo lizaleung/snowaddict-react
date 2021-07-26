@@ -50,6 +50,11 @@ const Auth = {
     requests.put('/user', { user })
 };
 
+const Subscribe = {
+  add: (email) =>
+    requests.post('/subscribe', { email } )
+};
+
 const Tags = {
   getAll: () => requests.get('/tags')
 };
@@ -137,6 +142,7 @@ const Categories = {
 export default {
   Articles,
   Auth,
+  Subscribe,
   Comments,
   Profile,
   Tags,

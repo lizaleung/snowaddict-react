@@ -15,7 +15,10 @@ import {
   SETTINGS_PAGE_UNLOADED,
   LOGIN_PAGE_UNLOADED,
   REGISTER_PAGE_UNLOADED,
-  GEARS_PAGE_UNLOADED
+  GEARS_PAGE_UNLOADED,
+  SUBSCRIBE_NEW,
+  SUBSCRIBE_UNLOADED,
+  UPDATE_SUBSCRIBE_NEW_EMAIL  
 } from '../constants/actionTypes';
 
 const defaultState = {
@@ -66,6 +69,17 @@ export default (state = defaultState, action) => {
     case REGISTER_PAGE_UNLOADED:
       return { ...state, viewChangeCounter: state.viewChangeCounter + 1 };
     case GEARS_PAGE_UNLOADED:
+    case SUBSCRIBE_NEW:
+      return {
+        ...state,
+        success: action.success,
+        inProgress: false,
+        errors: action.error ? action.payload.errors : null
+      };
+    case UPDATE_SUBSCRIBE_NEW_EMAIL:
+      return { ...state, [action.key]: action.value };
+    case SUBSCRIBE_UNLOADED:
+      return {};
     default:
       return state;
   }

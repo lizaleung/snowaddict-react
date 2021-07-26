@@ -21,12 +21,15 @@ export default function SectionDescription() {
           sm={8}
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
+          <h2 className={classes.title}>We are a group of snow addicts!</h2>
+
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            Snow Addict is a ski and snowboard gear and travel website that provides 
+            information and reviews for those researching  about their next snow destination 
+            and gears. The aim of our website is to provide a platform faciliting information 
+            and experience sharing about anything related to snow rides! 
+
+
           </h5>
         </GridItem>
       </GridContainer>

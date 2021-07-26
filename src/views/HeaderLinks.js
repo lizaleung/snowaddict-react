@@ -172,9 +172,6 @@ export default function HeaderLinks(props) {
             }}
             buttonIcon={ViewCarousel}
             dropdownList={[
-              <Link to="/about-us" className={classes.dropdownLink}>
-                <AccountBalance className={classes.dropdownIcons} /> About Us
-              </Link>,
               <Link to="/blog-post" className={classes.dropdownLink}>
                 <ArtTrack className={classes.dropdownIcons} /> Blog Post
               </Link>,
@@ -183,12 +180,6 @@ export default function HeaderLinks(props) {
               </Link>,
               <Link to="/contact-us" className={classes.dropdownLink}>
                 <LocationOn className={classes.dropdownIcons} /> Contact Us
-              </Link>,
-              <Link to="/landing-page" className={classes.dropdownLink}>
-                <ViewDay className={classes.dropdownIcons} /> Landing Page
-              </Link>,
-              <Link to="/login-page" className={classes.dropdownLink}>
-                <Fingerprint className={classes.dropdownIcons} /> Login Page
               </Link>,
               <Link to="/pricing" className={classes.dropdownLink}>
                 <AttachMoney className={classes.dropdownIcons} /> Pricing Page
@@ -204,12 +195,6 @@ export default function HeaderLinks(props) {
               </Link>,
               <Link to="/profile-page" className={classes.dropdownLink}>
                 <AccountCircle className={classes.dropdownIcons} /> Profile Page
-              </Link>,
-              <Link to="/signup-page" className={classes.dropdownLink}>
-                <PersonAdd className={classes.dropdownIcons} /> Signup Page
-              </Link>,
-              <Link to="/error-page" className={classes.dropdownLink}>
-                <Error className={classes.dropdownIcons} /> Error Page
               </Link>
             ]}
           />
@@ -319,9 +304,6 @@ export default function HeaderLinks(props) {
             }}
             buttonIcon={ViewCarousel}
             dropdownList={[
-              <Link to="/about-us" className={classes.dropdownLink}>
-                <AccountBalance className={classes.dropdownIcons} /> About Us
-              </Link>,
               <Link to="/blog-post" className={classes.dropdownLink}>
                 <ArtTrack className={classes.dropdownIcons} /> Blog Post
               </Link>,
@@ -330,12 +312,6 @@ export default function HeaderLinks(props) {
               </Link>,
               <Link to="/contact-us" className={classes.dropdownLink}>
                 <LocationOn className={classes.dropdownIcons} /> Contact Us
-              </Link>,
-              <Link to="/landing-page" className={classes.dropdownLink}>
-                <ViewDay className={classes.dropdownIcons} /> Landing Page
-              </Link>,
-              <Link to="/login-page" className={classes.dropdownLink}>
-                <Fingerprint className={classes.dropdownIcons} /> Login Page
               </Link>,
               <Link to="/pricing" className={classes.dropdownLink}>
                 <AttachMoney className={classes.dropdownIcons} /> Pricing Page
@@ -351,12 +327,6 @@ export default function HeaderLinks(props) {
               </Link>,
               <Link to="/profile-page" className={classes.dropdownLink}>
                 <AccountCircle className={classes.dropdownIcons} /> Profile Page
-              </Link>,
-              <Link to="/signup-page" className={classes.dropdownLink}>
-                <PersonAdd className={classes.dropdownIcons} /> Signup Page
-              </Link>,
-              <Link to="/error-page" className={classes.dropdownLink}>
-                <Error className={classes.dropdownIcons} /> Error Page
               </Link>
             ]}
           />

@@ -59,6 +59,7 @@ class Login extends React.Component {
     this.submitForm = (email, password) => ev => {
       ev.preventDefault();
       this.props.onSubmit(email, password);
+      console.log(this.props)
     };
   }
 
@@ -104,7 +105,7 @@ class Login extends React.Component {
 
                     <fieldset className="form-group">
                       <input
-                        className="form-control form-control-lg"
+                        className="form-control"
                         type="email"
                         placeholder="Email"
                         value={email}
@@ -113,7 +114,7 @@ class Login extends React.Component {
 
                     <fieldset className="form-group">
                       <input
-                        className="form-control form-control-lg"
+                        className="form-control"
                         type="password"
                         placeholder="Password"
                         value={password}

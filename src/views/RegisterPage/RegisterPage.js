@@ -126,12 +126,12 @@ class RegisterPage extends React.Component {
                       />
                     </GridItem>
                     <GridItem xs={12} sm={5} md={5}>
-
+                      <br></br>
                       <form className={classes.form} onSubmit={this.submitForm(username, email, password)}>
 
                         <fieldset className="form-group">
                           <input
-                            className="form-control form-control-lg"
+                            className="form-control"
                             type="text"
                             placeholder="Username"
                             value={this.props.username}
@@ -140,7 +140,7 @@ class RegisterPage extends React.Component {
 
                         <fieldset className="form-group">
                           <input
-                            className="form-control form-control-lg"
+                            className="form-control"
                             type="email"
                             placeholder="Email"
                             value={this.props.email}
@@ -149,7 +149,7 @@ class RegisterPage extends React.Component {
 
                         <fieldset className="form-group">
                           <input
-                            className="form-control form-control-lg"
+                            className="form-control"
                             type="password"
                             placeholder="Password"
                             value={this.props.password}
@@ -157,7 +157,7 @@ class RegisterPage extends React.Component {
                         </fieldset>
 
                         <div className={classes.textCenter}>
-                          <Button size="lg" color="warning" type="submit"
+                          <Button size="md" color="warning" type="submit"
                             disabled={this.props.inProgress}>
                             SUBMIT
                           </Button>

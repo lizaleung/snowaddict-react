@@ -48,19 +48,16 @@ export default function AboutUsPage() {
               )}
             >
               <h1 className={classes.title}>About Us</h1>
-              <h4>
-                Meet the amazing team behind this project and find out more
-                about how we work.
-              </h4>
+
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          {/* <SectionDescription /> */}
+          {/* <SectionDescription /> */ }
           <SectionTeam />
-          <SectionServices />
+          { /* <SectionServices /> */ }
           <SectionOffice />
           <SectionContact />
         </div>

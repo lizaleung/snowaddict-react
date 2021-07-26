@@ -37,8 +37,10 @@ export default function SectionTeam() {
         >
           <h2 className={classes.title}>We are a group of snow addicts!</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            team. Keep you user engaged by providing meaningful information.
+            Snow Addict is a ski and snowboard gear and travel website that provides 
+            information and reviews for those researching  about their next snow destination 
+            and gears. The aim of our website is to provide a platform faciliting information 
+            and experience sharing about anything related to snow rides! 
           </h5>
         </GridItem>
       </GridContainer>

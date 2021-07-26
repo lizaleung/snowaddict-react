@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ReactLoading from "react-loading";
+import LoadingAnimation from "views/LoadingAnimation.js";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -72,12 +72,8 @@ const BrowsePerson = props => {
     );
   } else {
     return (
-      <div className={classes.section}>
-        <GridContainer justify="center">     
-        <GridItem xs={12} sm={6} md={3}> 
-          <ReactLoading type="bubbles" color="#000" />
-        </GridItem>
-        </GridContainer>
+      <div className={classes.section} className="center">
+        <LoadingAnimation />
       </div>
     );
   }

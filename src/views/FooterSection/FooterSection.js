@@ -2,12 +2,32 @@
 import React from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import agent from '../../agent';
+import {
+  SUBSCRIBE_NEW,
+  SUBSCRIBE_UNLOADED,
+  UPDATE_SUBSCRIBE_NEW_EMAIL
+} from 'constants/actionTypes';
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+
+
+// @material-ui/icons
+import Check from "@material-ui/icons/Check";
+import Warning from "@material-ui/icons/Warning";
+// core components
+import SnackbarContent from "components/Snackbar/SnackbarContent.js";
+import Clearfix from "components/Clearfix/Clearfix.js";
+import notificationsStyles from "assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.js";
+
+import ListErrors from 'views/ListErrors';
+
 
 // @material-ui/icons
 import Mail from "@material-ui/icons/Mail";
@@ -20,22 +40,58 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Footer from "components/Footer/Footer.js";
 
 
-import face1 from "assets/img/faces/card-profile6-square.jpg";
-import face2 from "assets/img/faces/christian.jpg";
-import face3 from "assets/img/faces/card-profile4-square.jpg";
-import face4 from "assets/img/faces/card-profile1-square.jpg";
-import face5 from "assets/img/faces/marc.jpg";
-import face6 from "assets/img/faces/kendall.jpg";
-import face7 from "assets/img/faces/card-profile5-square.jpg";
-import face8 from "assets/img/faces/card-profile2-square.jpg";
+
+import { withStyles } from "@material-ui/core/styles";
+
 
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/footerStyle.js";
 
-const useStyles = makeStyles(styles);
 
-export default function FooterSection() {
-  const classes = useStyles();
-  return (
+const mapStateToProps = state => ({ ...state.common });
+
+
+const mapDispatchToProps = dispatch => ({
+  onChangeEmail: value =>
+    dispatch({ type: UPDATE_SUBSCRIBE_NEW_EMAIL, key: 'email', value }),
+  onSubmit: (email) => {
+    const payload = agent.Subscribe.add(email);
+    dispatch({ type: SUBSCRIBE_NEW, payload })
+  },
+  onUnload: () =>
+    dispatch({ type: SUBSCRIBE_UNLOADED })
+});
+
+
+
+class FooterSection extends React.Component {
+  constructor() {
+
+    super();
+    this.changeEmail = ev => this.props.onChangeEmail(ev.target.value);
+    this.submitForm = (email) => ev => {
+      ev.preventDefault();
+      this.props.onSubmit(email);
+      this.props.onChangeEmail("");
+    };
+
+  }
+
+
+
+
+  componentWillUnmount() {
+    this.props.onUnload();
+  }
+
+
+
+
+  render() {
+    const  { classes } = this.props;
+
+
+    return (
+
     <div className={classes.section}>
 
         <Footer
@@ -44,17 +100,12 @@ export default function FooterSection() {
             <div>
               <ul className={classes.socialButtons}>
                 <li>
-                  <Button justIcon simple href="#pablo" color="twitter">
-                    <i className="fab fa-twitter" />
-                  </Button>
-                </li>
-                <li>
                   <Button justIcon simple href="#pablo" color="facebook">
                     <i className="fab fa-facebook-square" />
                   </Button>
                 </li>
                 <li>
-                  <Button justIcon simple href="#pablo" color="facebook">
+                  <Button justIcon simple href="https://www.instagram.com/powderatlas/" color="facebook">
                     <i className="fab fa-instagram" />
                   </Button>
                 </li>
@@ -67,7 +118,7 @@ export default function FooterSection() {
                   href="http://www.arcticspark.co"
                   target="_blank"
                 >
-                  arcticspark
+                  Arctic Spark
                 </a>{" "}
               </div>
             </div>
@@ -130,33 +181,54 @@ export default function FooterSection() {
                   </li>
                 </ul>
               </GridItem>
-              <GridItem xs={12} sm={2} md={2}>
+              <GridItem xs={12} sm={1} md={1}>
 
               </GridItem>
-              <GridItem xs={12} sm={3} md={3}>
+              <GridItem xs={12} sm={4} md={4}>
                 <h5>Subscribe to Newsletter</h5>
                 <p>
                   Get the latest snow gear news and trends
                 </p>
-                <form>
-                  <CustomInput
-                    id="footeremail"
-                    formControlProps={{
-                      fullWidth: false,
-                      className: classes.customFormControl
-                    }}
-                    inputProps={{
-                      placeholder: "Your Email..."
-                    }}
-                  />
-                  <Button color="primary" justIcon>
+                <form onSubmit={this.submitForm(this.props.email)}>
+                        <fieldset className="form-group">
+                          <input
+                            className="form-control"
+                            type="email"
+                            placeholder="Enter email..."
+                            value={this.props.email}
+                            onChange={this.changeEmail} />
+                        </fieldset>
+
+                  <Button color="primary" justIcon type="submit" 
+                       disabled={this.props.inProgress}
+                  >
                     <Mail />
                   </Button>
                 </form>
+                { this.props.success && 
+      <SnackbarContent
+        message={
+            "Success"
+        }
+        close
+        color="success"
+        icon={Check}
+      />
+
+                 }
+                <ListErrors errors={this.props.errors} />
+
+
               </GridItem>
             </GridContainer>
           </div>
         </Footer>
+
+
     </div>
-  );
+    );
+  }
 }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(FooterSection));
