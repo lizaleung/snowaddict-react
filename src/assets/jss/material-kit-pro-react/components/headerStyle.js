@@ -70,6 +70,11 @@ const headerStyle = theme => ({
       }
     }
   },
+  
+  logo: {
+    maxWidth: 160,
+  },
+
   appResponsive: {
     margin: "20px 10px",
     marginTop: "0px"

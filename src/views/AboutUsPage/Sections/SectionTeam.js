@@ -44,6 +44,7 @@ export default function SectionTeam() {
           </h5>
         </GridItem>
       </GridContainer>
+      {/*
       <GridContainer justify="center">
         <GridItem md={3} sm={3}>
           <Card profile plain>
@@ -105,8 +106,9 @@ export default function SectionTeam() {
             </CardFooter>
           </Card>
         </GridItem>
-
       </GridContainer>
+      */}
+
     </div>
   );
 }

@@ -13,3 +13,7 @@ To get the frontend running locally:
 If you want to change the API URL to a local server, simply edit `src/agent.js` and change `API_ROOT` to the local server's URL (i.e. `http://localhost:3000/api`)
 
 
+
+Front End Deployed like this:
+Maybe try this on GCP?
+https://www.youtube.com/watch?v=PnIjfte7284

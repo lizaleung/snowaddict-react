@@ -50,6 +50,8 @@ import { store } from '../store';
 import { push } from 'react-router-redux';
 
 
+import brandLogo from "assets/img/snowaddictnet/logo-snowaddict-word.png";
+
 // pages for this product
 // import Components from "../views/Components/Components.js";
 import LandingPage from "../views/LandingPage";
@@ -101,7 +103,7 @@ class App extends React.Component {
 
           <Header
             color="transparent"
-            brand="snow addict"
+            brandimg={brandLogo}
             links={<HeaderLinks 
                   appName={this.props.appName}
                   currentUser={this.props.currentUser} 

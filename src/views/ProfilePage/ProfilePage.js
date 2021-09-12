@@ -28,7 +28,7 @@ import Badge from "components/Badge/Badge.js";
 
 import PromptNewProfile from "./Sections/PromptNewProfile.js";
 import ProfileBottomTabs from "./Sections/ProfileBottomTabs.js"
-
+import ProfileTopSection from "./Sections/ProfileTopSection.js"
 
 
 
@@ -81,134 +81,26 @@ class ProfilePage extends React.Component {
       classes.imgRoundedCircle,
       classes.imgFluid
     );
-    // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    console.log("this.props.match.params.displaynameslug " + this.props.match.params.displaynameslug)
-    
-    if (this.props.currentUser) {
-      console.log("this.props.currentUser.username " + this.props.currentUser.username)
-    }
-    if (!this.props.people ) {
-      return null;
-    } else {
 
-      const peopleCount = this.props.peopleCount
-      const people = this.props.people[0]
-    
-      console.log("peopleCount "+ peopleCount + " people " + people)
-  
-      if ( peopleCount > 0 ) {
-        const roles = people.get_roles.join(' ') 
-  
-        return (
-          <div>
-            <Parallax
-              image={require("assets/img/bg7.jpg")}
-              filter="dark"
-              className={classes.parallax}
-            />
-            <div className={classNames(classes.main, classes.mainRaised)}>
-              <div className={classes.container}>
-                <GridContainer justify="center">
-                  <GridItem xs={12} sm={12} md={6}>
-                    <div className={classes.profile}>
-                      <div>
-                        <img src={people.avatar} alt="..." className={imageClasses} />
-                      </div>
-                      <div className={classes.name}>
-                        <h3 className={classes.title}>{people.full_name}</h3>
-                        <h6>@{people.display_name}</h6>
-                        <h6>
-                          {
-                            people.get_roles.map(role => {
-                              return (
-                                <Badge color="warning">{role}</Badge>
-                              );
-                            })
-                          }
-                        </h6>
 
-                        <Button
-                          justIcon
-                          simple
-                          color="facebook"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fa fa-link"} />
-                        </Button>
 
-                        <Button
-                          justIcon
-                          simple
-                          color="instagram"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-instagram"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          simple
-                          color="twitter"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-twitter"} />
-                        </Button>
 
-                      </div>
-                    </div>
-                    <div className={classes.follow}>
-                      <Tooltip
-                        id="tooltip-top"
-                        title="Follow this user"
-                        placement="top"
-                        classes={{ tooltip: classes.tooltip }}
-                      >
-                        <Button
-                          justIcon
-                          round
-                          color="primary"
-                          className={classes.followButton}
-                        >
-                          <Add className={classes.followIcon} />
-                        </Button>
-                      </Tooltip>
-                    </div>
-                  </GridItem>
-                </GridContainer>
-                <div className={classNames(classes.description, classes.textCenter)}>
-                  <p>{people.bio}{" "}</p>
-                </div>
-                <ProfileBottomTabs />
-                <Clearfix />
-              </div>
+    return(
+        <div>
+          <Parallax
+            image={require("assets/img/bg7.jpg")}
+            filter="dark"
+            className={classes.parallax}
+          />
+          <ProfileTopSection displaynameslug={this.props.displaynameslug} />
+          <div className={classNames(classes.main, classes.mainRaised)}>
+            <div className={classes.container}>
             </div>
-      
           </div>
-        );
-      } else {
-        console.log(this.props);
-        if (this.props.match.params.displaynameslug) {
-          console.log("Searching for " + this.props.match.params.displaynameslug)
-          return (
-            <div>
-              <h2>
-                we can't find this user {this.props.match.params.displaynameslug} 
-              </h2>
-            </div>
-          );
-        }
-        if (this.props.currentUser && this.props.currentUser.username) {
-          console.log("hello" + this.props.currentUser.username)
-          return (
-            <div> <PromptNewProfile /> </div>
-          );
-        } else {
-          return (
-            <div> <PromptNewProfile /> </div>
-          );
-        }
-        return null;
-      }
-    }
+        </div>
+    )
+
+
     
   }
 }

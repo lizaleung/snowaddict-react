@@ -57,9 +57,7 @@ const BrowsePerson = props => {
                         iconColor="info"
                         vertical
                       />
-    
-      
-      
+
                       </Link>
                     </GridItem>
                   );

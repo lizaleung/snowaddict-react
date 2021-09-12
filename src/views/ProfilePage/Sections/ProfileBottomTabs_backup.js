@@ -77,9 +77,14 @@ class ProfileBottomTabs extends React.Component {
     return (
       <div>
                 <div className={classes.profileTabs}>
-
-
-
+                  <NavPills
+                    alignCenter
+                    color="primary"
+                    tabs={[
+                      {
+                        tabButton: "Gear",
+                        tabIcon: Star,
+                        tabContent: (
                           <GridContainer>
                             <GridItem
                               xs={12}
@@ -172,176 +177,6 @@ class ProfileBottomTabs extends React.Component {
                                   </Card>
                                 </GridItem>
                               </GridContainer>
-                            <h4 className={classes.title}>Latest Collections</h4>
-                            <GridContainer justify="center">
-
-                              <GridItem
-                                xs={12}
-                                sm={12}
-                                md={5}
-                                className={classes.gridItem}
-                              >
-
-                                <Card profile plain className={classes.card}>
-                                  <GridContainer>
-                                    <GridItem xs={12} sm={12} md={5}>
-                                      <CardHeader image plain>
-                                        <a href="#pablo">
-                                          <img src={avatar} alt="..." />
-                                        </a>
-                                        <div
-                                          className={classes.coloredShadow}
-                                          style={{
-                                            backgroundImage: "url(" + avatar + ")",
-                                            opacity: "1"
-                                          }}
-                                        />
-                                      </CardHeader>
-                                    </GridItem>
-                                    <GridItem xs={12} sm={12} md={7}>
-                                      <CardBody plain>
-                                        <h4 className={classes.cardTitle}>
-                                          Gigi Hadid
-                                        </h4>
-                                        <Muted>
-                                          <h6>MODEL</h6>
-                                        </Muted>
-                                        <p className={classes.description}>
-                                          Don{"'"}t be scared of the truth because we
-                                          need to restart the human foundation in
-                                          truth...
-                                        </p>
-                                      </CardBody>
-                                    </GridItem>
-                                  </GridContainer>
-                                </Card>
-                              </GridItem>
-                              <GridItem
-                                xs={12}
-                                sm={12}
-                                md={5}
-                                className={classes.gridItem}
-                              >
-                                <Card profile plain className={classes.card}>
-                                  <GridContainer>
-                                    <GridItem xs={12} sm={12} md={5}>
-                                      <CardHeader image plain>
-                                        <a href="#pablo">
-                                          <img src={marc} alt="..." />
-                                        </a>
-                                        <div
-                                          className={classes.coloredShadow}
-                                          style={{
-                                            backgroundImage: "url(" + marc + ")",
-                                            opacity: "1"
-                                          }}
-                                        />
-                                      </CardHeader>
-                                    </GridItem>
-                                    <GridItem xs={12} sm={12} md={7}>
-                                      <CardBody plain>
-                                        <h4 className={classes.cardTitle}>
-                                          Marc Jacobs
-                                        </h4>
-                                        <Muted>
-                                          <h6>DESIGNER</h6>
-                                        </Muted>
-                                        <p className={classes.description}>
-                                          Don{"'"}t be scared of the truth because we
-                                          need to restart the human foundation in
-                                          truth...
-                                        </p>
-                                      </CardBody>
-                                    </GridItem>
-                                  </GridContainer>
-                                </Card>
-                              </GridItem>
-                            </GridContainer>
-                            <GridContainer justify="center">
-                              <GridItem
-                                xs={12}
-                                sm={12}
-                                md={5}
-                                className={classes.gridItem}
-                              >
-                                <Card profile plain className={classes.card}>
-                                  <GridContainer>
-                                    <GridItem xs={12} sm={12} md={5}>
-                                      <CardHeader image plain>
-                                        <a href="#pablo">
-                                          <img src={kendall} alt="..." />
-                                        </a>
-                                        <div
-                                          className={classes.coloredShadow}
-                                          style={{
-                                            backgroundImage: "url(" + kendall + ")",
-                                            opacity: "1"
-                                          }}
-                                        />
-                                      </CardHeader>
-                                    </GridItem>
-                                    <GridItem xs={12} sm={12} md={7}>
-                                      <CardBody plain>
-                                        <h4 className={classes.cardTitle}>
-                                          Kendall Jenner
-                                        </h4>
-                                        <Muted>
-                                          <h6>MODEL</h6>
-                                        </Muted>
-                                        <p className={classes.description}>
-                                          I love you like Kanye loves Kanye. Don
-                                          {"'"}t be scared of the truth.
-                                        </p>
-                                      </CardBody>
-                                    </GridItem>
-                                  </GridContainer>
-                                </Card>
-                              </GridItem>
-                              <GridItem
-                                xs={12}
-                                sm={12}
-                                md={5}
-                                className={classes.gridItem}
-                              >
-                                <Card profile plain className={classes.card}>
-                                  <GridContainer>
-                                    <GridItem xs={12} sm={12} md={5}>
-                                      <CardHeader image plain>
-                                        <a href="#pablo">
-                                          <img src={cardProfile2Square} alt="..." />
-                                        </a>
-                                        <div
-                                          className={classes.coloredShadow}
-                                          style={{
-                                            backgroundImage:
-                                              "url(" + cardProfile2Square + ")",
-                                            opacity: "1"
-                                          }}
-                                        />
-                                      </CardHeader>
-                                    </GridItem>
-                                    <GridItem xs={12} sm={12} md={7}>
-                                      <CardBody plain>
-                                        <h4 className={classes.cardTitle}>
-                                          George West
-                                        </h4>
-                                        <Muted>
-                                          <h6>MODEL/DJ</h6>
-                                        </Muted>
-                                        <p className={classes.description}>
-                                          I love you like Kanye loves Kanye.
-                                        </p>
-                                      </CardBody>
-                                    </GridItem>
-                                  </GridContainer>
-                                </Card>
-                              </GridItem>
-                            </GridContainer>
-
-
-
-
-                              
                             </GridItem>
                             <GridItem
                               xs={12}
@@ -377,28 +212,20 @@ class ProfileBottomTabs extends React.Component {
                               <Badge color="rose">Luxury</Badge>
                             </GridItem>
                           </GridContainer>
-
-
-
-
-
-                          <GridContainer>
-                            <GridItem
-                              xs={12}
-                              sm={12}
-                              md={12}
-                              className={classes.gridItem}
-                            >
-                            <h4 className={classes.title}>Latest Collections</h4>
+                        )
+                      },
+                      {
+                        tabButton: "Resorts",
+                        tabIcon: AcUnit,
+                        tabContent: (
+                          <div>
                             <GridContainer justify="center">
-
                               <GridItem
                                 xs={12}
                                 sm={12}
                                 md={5}
                                 className={classes.gridItem}
                               >
-
                                 <Card profile plain className={classes.card}>
                                   <GridContainer>
                                     <GridItem xs={12} sm={12} md={5}>
@@ -554,35 +381,6 @@ class ProfileBottomTabs extends React.Component {
                                 </Card>
                               </GridItem>
                             </GridContainer>
-                          </GridItem>
-                        </GridContainer>
-
-
-
-
-
-
-
-
-
-
-                  <NavPills
-                    alignCenter
-                    color="primary"
-                    tabs={[
-                      {
-                        tabButton: "Gear",
-                        tabIcon: Star,
-                        tabContent: ( <div></div>
-
-                        )
-                      },
-                      {
-                        tabButton: "Resorts",
-                        tabIcon: AcUnit,
-                        tabContent: (
-                          <div>
-
                           </div>
                         )
                       },
@@ -590,8 +388,37 @@ class ProfileBottomTabs extends React.Component {
                         tabButton: "People",
                         tabIcon: People,
                         tabContent: (
-                          <div></div>
-
+                          <GridContainer justify="center">
+                            <GridItem xs={12} sm={12} md={3}>
+                              <img
+                                alt="..."
+                                src={mariyaGeorgieva}
+                                className={navImageClasses}
+                              />
+                              <img
+                                alt="..."
+                                src={clemOnojegaw}
+                                className={navImageClasses}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={12} md={3}>
+                              <img
+                                alt="..."
+                                src={clemOnojeghuo}
+                                className={navImageClasses}
+                              />
+                              <img
+                                alt="..."
+                                src={oluEletu}
+                                className={navImageClasses}
+                              />
+                              <img
+                                alt="..."
+                                src={cynthiaDelRio}
+                                className={navImageClasses}
+                              />
+                            </GridItem>
+                          </GridContainer>
                         )
                       }
                     ]}

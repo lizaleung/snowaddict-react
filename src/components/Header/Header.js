@@ -56,7 +56,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, links, brand, fixed, absolute } = props;
+  const { color, links, brand, brandimg, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
@@ -67,7 +67,10 @@ export default function Header(props) {
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <Button className={classes.title}>
-          <Link to="/"><b>{brand}</b></Link>
+          <Link to="/">
+            <b>{brand}</b>
+            <img className={classes.logo} src={brandimg} alt=""/>
+          </Link>
         </Button>
         <Hidden smDown implementation="css" className={classes.hidden}>
           <div className={classes.collapse}>{links}</div>
@@ -125,6 +128,7 @@ Header.propTypes = {
   ]),
   links: PropTypes.node,
   brand: PropTypes.string,
+  brandimg: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

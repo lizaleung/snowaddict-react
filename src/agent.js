@@ -4,8 +4,8 @@ import axios from 'axios';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-// const API_ROOT = 'https://www.snowaddict.net/api';
-const API_ROOT = 'http://127.0.0.1:8000/api'
+const API_ROOT = 'http://www.snowaddict.net/api';
+// const API_ROOT = 'http://127.0.0.1:8000/api'
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
@@ -117,6 +117,11 @@ const People = {
     requests.get(`/people?name=${name}`),
   retrieve: () =>
     requests.get(`/people`),    
+  follow: name =>
+    requests.post(`/people?name=${name}/follow`),
+  unfollow: name =>
+    requests.del(`/people?name=${name}/unfollow`),    
+
   create: formdata =>
     requests.postwithfile('/people',  formdata )
 };
