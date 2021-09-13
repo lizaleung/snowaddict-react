@@ -1,8 +1,7 @@
 
 import React from 'react';
 
-import BrowsePerson from './BrowsePerson';
-import BrowseCategory from './BrowseCategory';
+import ListPeople from './ListPeople';
 
 import agent from '../../agent';
 import { connect } from 'react-redux';
@@ -36,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({  type: GEARS_PAGE_UNLOADED })
 });
 
-class Gears extends React.Component {
+class BrowsePeople extends React.Component {
   componentDidMount() {
     this.props.onLoad(Promise.all([
       agent.People.all(),
@@ -69,13 +68,8 @@ class Gears extends React.Component {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
     
-            <BrowsePerson persons={peoples} />
-            
-            <br></br>
-            <br></br>
-    
-            <BrowseCategory categories={categories} />
-  
+            <ListPeople persons={peoples} />
+              
             </GridItem>
           </GridContainer>
         </div>
@@ -85,6 +79,6 @@ class Gears extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gearSectionStyle)(Gears));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gearSectionStyle)(BrowsePeople));
 
 

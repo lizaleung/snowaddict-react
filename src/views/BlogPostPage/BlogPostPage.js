@@ -24,6 +24,8 @@ import SectionSimilarStories from "./Sections/SectionSimilarStories.js";
 
 import blogPostPageStyle from "assets/jss/material-kit-pro-react/views/blogPostPageStyle.js";
 
+import bg from "assets/img/bg7.jpg";
+
 const useStyles = makeStyles(blogPostPageStyle);
 
 export default function BlogPostPage() {
@@ -34,7 +36,7 @@ export default function BlogPostPage() {
   const classes = useStyles();
   return (
     <div>
-      <Parallax image={require("assets/img/bg7.jpg")} filter="dark" small>
+      <Parallax image={bg} filter="dark" small>
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem md={8} className={classes.textCenter}>

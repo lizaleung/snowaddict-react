@@ -17,7 +17,9 @@ import Contact from 'views/Contact';
 import FooterSection from "views/FooterSection/FooterSection.js";
 // import FooterSection from "views/FooterSection.js";
 
-import Gears from 'views/Gears';
+import BrowseGears from 'views/BrowseGears';
+import BrowsePeople from 'views/BrowsePeople';
+
 import GearsItem from 'views/GearsItem';
 import GearsList from 'views/GearsList';
 
@@ -148,7 +150,8 @@ class App extends React.Component {
 
             <Route path="/product/:slug" component={ProductPage} />
 
-            <Route path="/browse" component={Gears} />
+            <Route path="/browse/gears" component={BrowseGears} />
+            <Route path="/browse/people" component={BrowsePeople} />
 
 
 

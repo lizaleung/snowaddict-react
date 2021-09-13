@@ -35,7 +35,7 @@ import ProfileTopSection from "./Sections/ProfileTopSection.js"
 import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePageStyle.js";
 
 
-
+import bg from "assets/img/bg7.jpg";
 
 const mapStateToProps = state => ({
   people: state.people.peoples,
@@ -88,7 +88,7 @@ class ProfilePage extends React.Component {
     return(
         <div>
           <Parallax
-            image={require("assets/img/bg7.jpg")}
+            image={bg}
             filter="dark"
             className={classes.parallax}
           />

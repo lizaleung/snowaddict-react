@@ -24,6 +24,8 @@ import SectionContact from "views/AboutUsPage/Sections/SectionContact.js";
 
 import aboutUsStyle from "assets/jss/material-kit-pro-react/views/aboutUsStyle.js";
 
+import bg from "assets/img/bg9.jpg";
+
 const useStyles = makeStyles(aboutUsStyle);
 
 export default function AboutUsPage() {
@@ -35,7 +37,7 @@ export default function AboutUsPage() {
   return (
     <div>
 
-      <Parallax image={require("assets/img/bg9.jpg")} filter="dark" small>
+      <Parallax image={bg} filter="dark" small>
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem

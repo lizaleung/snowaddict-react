@@ -33,6 +33,8 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import contactUsStyle from "assets/jss/material-kit-pro-react/views/contactUsStyle.js";
 
+import bg from "assets/img/bg2.jpg";
+
 const CustomSkinMap = withScriptjs(
   withGoogleMap(() => (
     <GoogleMap
@@ -120,7 +122,7 @@ export default function ContactUsPage() {
     <div>
       <div className={classes.bigMap}>
             <Parallax
-              image={require("assets/img/bg2.jpg")}
+              image={bg}
               filter="dark"
               small
             >

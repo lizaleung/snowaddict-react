@@ -86,261 +86,183 @@ export default function HeaderLinks(props) {
     };
     animateScroll();
   };
+
   var onClickSections = {};
 
   const { dropdownHoverColor } = props;
   const classes = useStyles();
 
 
-  if (!props.currentUser) {
-    return (
-      <List className={classes.list + " " + classes.mlAuto}>
+
+  return (
+    <List className={classes.list + " " + classes.mlAuto}>
+
+
+
   
 
   
-        <ListItem className={classes.listItem}>
-          <Link to="/browse" className="nav-link">
-            <Button
-            color="transparent"
-            className={classes.navLink}>
-              Browse Gears
-            </Button>
-          </Link>
-        </ListItem>
+      <ListItem className={classes.listItem}>
+        <Link to="/browse/gears" className="nav-link">
+          <Button
+          color="transparent"
+          className={classes.navLink}>
+            Browse Gears
+          </Button>
+        </Link>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Link to="/blog" className="nav-link">
+          <Button
+          color="transparent"
+          className={classes.navLink}>
+            Blog
+          </Button>
+        </Link>
+      </ListItem>
+
+      { !props.currentUser && 
+        (  
+          <div>
+          <ListItem className={classes.listItem}>
+            <Link to="/login" className="nav-link">
+              <Button
+              color="transparent"
+              className={classes.navLink}>
+                Sign in
+              </Button>
+            </Link>
+          </ListItem>
+      
+      
+          <ListItem className={classes.listItem}>
+            <Link to="/register" className="nav-link">
+              <Button
+              color="transparent"
+              className={classes.navLink}>
+                Sign up
+              </Button>
+            </Link>
+          </ListItem>
+          </div>
+        )
+      }
+
+      { props.currentUser && 
+        (
+          <ListItem className={classes.listItem}>
+            <CustomDropdown
+              noLiPadding
+              navDropdown
+              hoverColor="warning"
+              buttonText={props.currentUser.username}
+              buttonProps={{
+                className: classes.navLink,
+                color: "transparent"
+              }}
+              buttonIcon={Person}
+              dropdownList={[
+                <Link to="/profile" className={classes.dropdownLink}>
+                  <LineStyle className={classes.dropdownIcons} /> Profile
+                </Link>,
   
-        <ListItem className={classes.listItem}>
-          <Link to="/login" className="nav-link">
-            <Button
-            color="transparent"
-            className={classes.navLink}>
-              Sign in
-            </Button>
-          </Link>
-        </ListItem>
+                <Link to="/settings" className={classes.dropdownLink}>
+                  <Layers className={classes.dropdownIcons} />
+                  Settings
+                </Link>,
+                <Link to="/logout" className={classes.dropdownLink}>
+                  <Layers className={classes.dropdownIcons} />
+                  Logout
+                </Link>
   
+              ]}
+            />
+          </ListItem>
   
-        <ListItem className={classes.listItem}>
-          <Link to="/register" className="nav-link">
-            <Button
-            color="transparent"
-            className={classes.navLink}>
-              Sign up
-            </Button>
-          </Link>
-        </ListItem>
-        <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            navDropdown
-            hoverColor={dropdownHoverColor}
-            buttonText="Components"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={Apps}
-            dropdownList={[
-              <Link to="/" className={classes.dropdownLink}>
-                <LineStyle className={classes.dropdownIcons} /> Presentation Page
-              </Link>,
-              <Link to="/components" className={classes.dropdownLink}>
-                <Layers className={classes.dropdownIcons} />
-                All components
-              </Link>,
-              <a
-                href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial?ref=mkpr-navbar"
-                target="_blank"
-                className={classes.dropdownLink}
-              >
-                <Icon className={classes.dropdownIcons}>content_paste</Icon>
-                Documentation
-              </a>
-            ]}
-          />
-        </ListItem>
+        )
+      }
 
         
-        <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            navDropdown
-            hoverColor={dropdownHoverColor}
-            buttonText="Examples"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={ViewCarousel}
-            dropdownList={[
-              <Link to="/blog-post" className={classes.dropdownLink}>
-                <ArtTrack className={classes.dropdownIcons} /> Blog Post
-              </Link>,
-              <Link to="/blog-posts" className={classes.dropdownLink}>
-                <ViewQuilt className={classes.dropdownIcons} /> Blog Posts
-              </Link>,
-              <Link to="/contact-us" className={classes.dropdownLink}>
-                <LocationOn className={classes.dropdownIcons} /> Contact Us
-              </Link>,
-              <Link to="/pricing" className={classes.dropdownLink}>
-                <AttachMoney className={classes.dropdownIcons} /> Pricing Page
-              </Link>,
-              <Link to="/shopping-cart-page" className={classes.dropdownLink}>
-                <ShoppingBasket className={classes.dropdownIcons} /> Shopping Cart
-              </Link>,
-              <Link to="/ecommerce-page" className={classes.dropdownLink}>
-                <Store className={classes.dropdownIcons} /> Ecommerce Page
-              </Link>,
-              <Link to="/product-page" className={classes.dropdownLink}>
-                <ShoppingCart className={classes.dropdownIcons} /> Product Page
-              </Link>,
-              <Link to="/profile-page" className={classes.dropdownLink}>
-                <AccountCircle className={classes.dropdownIcons} /> Profile Page
-              </Link>
-            ]}
-          />
-        </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          hoverColor={dropdownHoverColor}
+          buttonText="Components"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link to="/" className={classes.dropdownLink}>
+              <LineStyle className={classes.dropdownIcons} /> Presentation Page
+            </Link>,
+            <Link to="/components" className={classes.dropdownLink}>
+              <Layers className={classes.dropdownIcons} />
+              All components
+            </Link>,
+            <a
+              href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial?ref=mkpr-navbar"
+              target="_blank"
+              className={classes.dropdownLink}
+            >
+              <Icon className={classes.dropdownIcons}>content_paste</Icon>
+              Documentation
+            </a>
+          ]}
+        />
+      </ListItem>
+
+
+      
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          hoverColor={dropdownHoverColor}
+          buttonText="Examples"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={ViewCarousel}
+          dropdownList={[
+            <Link to="/blog-post" className={classes.dropdownLink}>
+              <ArtTrack className={classes.dropdownIcons} /> Blog Post
+            </Link>,
+            <Link to="/blog-posts" className={classes.dropdownLink}>
+              <ViewQuilt className={classes.dropdownIcons} /> Blog Posts
+            </Link>,
+            <Link to="/contact-us" className={classes.dropdownLink}>
+              <LocationOn className={classes.dropdownIcons} /> Contact Us
+            </Link>,
+            <Link to="/pricing" className={classes.dropdownLink}>
+              <AttachMoney className={classes.dropdownIcons} /> Pricing Page
+            </Link>,
+            <Link to="/shopping-cart-page" className={classes.dropdownLink}>
+              <ShoppingBasket className={classes.dropdownIcons} /> Shopping Cart
+            </Link>,
+            <Link to="/ecommerce-page" className={classes.dropdownLink}>
+              <Store className={classes.dropdownIcons} /> Ecommerce Page
+            </Link>,
+            <Link to="/product-page" className={classes.dropdownLink}>
+              <ShoppingCart className={classes.dropdownIcons} /> Product Page
+            </Link>,
+            <Link to="/profile-page" className={classes.dropdownLink}>
+              <AccountCircle className={classes.dropdownIcons} /> Profile Page
+            </Link>
+          ]}
+        />
+      </ListItem>
 
   
   
-      </List>
-    );
-  } else {
-    
-    return (
+    </List>
+  );
 
-      <List className={classes.list + " " + classes.mlAuto}>
   
-
-        <ListItem className={classes.listItem}>
-          <Link to="/blog" className="nav-link">
-            <Button
-            color="transparent"
-            className={classes.navLink}>
-              Blog
-            </Button>
-          </Link>
-        </ListItem>
-  
-        <ListItem className={classes.listItem}>
-          <Link to="/browse" className="nav-link">
-            <Button
-            color="transparent"
-            className={classes.navLink}>
-              Browse Gears
-            </Button>
-          </Link>
-        </ListItem>
-
-        <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            navDropdown
-            hoverColor="warning"
-            buttonText={props.currentUser.username}
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={Person}
-            dropdownList={[
-              <Link to="/profile" className={classes.dropdownLink}>
-                <LineStyle className={classes.dropdownIcons} /> Profile
-              </Link>,
-
-              <Link to="/settings" className={classes.dropdownLink}>
-                <Layers className={classes.dropdownIcons} />
-                Settings
-              </Link>,
-              <Link to="/logout" className={classes.dropdownLink}>
-                <Layers className={classes.dropdownIcons} />
-                Logout
-              </Link>
-
-            ]}
-          />
-        </ListItem>
-
-
-
-        <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            navDropdown
-            hoverColor={dropdownHoverColor}
-            buttonText="Components"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={Apps}
-            dropdownList={[
-              <Link to="/" className={classes.dropdownLink}>
-                <LineStyle className={classes.dropdownIcons} /> Presentation Page
-              </Link>,
-              <Link to="/components" className={classes.dropdownLink}>
-                <Layers className={classes.dropdownIcons} />
-                All components
-              </Link>,
-              <a
-                href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial?ref=mkpr-navbar"
-                target="_blank"
-                className={classes.dropdownLink}
-              >
-                <Icon className={classes.dropdownIcons}>content_paste</Icon>
-                Documentation
-              </a>
-            ]}
-          />
-        </ListItem>
-        <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            navDropdown
-            hoverColor={dropdownHoverColor}
-            buttonText="Examples"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={ViewCarousel}
-            dropdownList={[
-              <Link to="/blog-post" className={classes.dropdownLink}>
-                <ArtTrack className={classes.dropdownIcons} /> Blog Post
-              </Link>,
-              <Link to="/blog-posts" className={classes.dropdownLink}>
-                <ViewQuilt className={classes.dropdownIcons} /> Blog Posts
-              </Link>,
-              <Link to="/contact-us" className={classes.dropdownLink}>
-                <LocationOn className={classes.dropdownIcons} /> Contact Us
-              </Link>,
-              <Link to="/pricing" className={classes.dropdownLink}>
-                <AttachMoney className={classes.dropdownIcons} /> Pricing Page
-              </Link>,
-              <Link to="/shopping-cart-page" className={classes.dropdownLink}>
-                <ShoppingBasket className={classes.dropdownIcons} /> Shopping Cart
-              </Link>,
-              <Link to="/ecommerce-page" className={classes.dropdownLink}>
-                <Store className={classes.dropdownIcons} /> Ecommerce Page
-              </Link>,
-              <Link to="/product-page" className={classes.dropdownLink}>
-                <ShoppingCart className={classes.dropdownIcons} /> Product Page
-              </Link>,
-              <Link to="/profile-page" className={classes.dropdownLink}>
-                <AccountCircle className={classes.dropdownIcons} /> Profile Page
-              </Link>
-            ]}
-          />
-        </ListItem>
-
-      </List>
-
-
-
-
-
-    );
-
-  }
 }
 
 HeaderLinks.defaultProps = {

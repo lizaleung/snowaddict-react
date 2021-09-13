@@ -20,6 +20,8 @@ import productStyle from "assets/jss/material-kit-pro-react/views/productStyle.j
 
 import { withStyles } from "@material-ui/core/styles";
 
+import bg from "assets/img/bg7.jpg";
+
 // const Promise = global.Promise;
 
 const mapStateToProps = state => ({
@@ -67,7 +69,7 @@ class ProductPage extends React.Component {
         return (
           <div className={classes.productPage}>
             <Parallax
-              image={require("assets/img/bg7.jpg")}
+              image={bg}
               filter="rose"
               className={classes.pageHeader}
             >

@@ -31,6 +31,8 @@ import product1 from "assets/img/product1.jpg";
 import product2 from "assets/img/product2.jpg";
 import product3 from "assets/img/product3.jpg";
 
+import bg from "assets/img/examples/bg2.jpg";
+
 const useStyles = makeStyles(shoppingCartStyle);
 
 export default function ShoppingCartPage() {
@@ -53,7 +55,7 @@ export default function ShoppingCartPage() {
       />
 
       <Parallax
-        image={require("assets/img/examples/bg2.jpg")}
+        image={bg}
         filter="dark"
         small
       >

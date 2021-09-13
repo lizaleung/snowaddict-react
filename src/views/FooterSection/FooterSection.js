@@ -135,7 +135,7 @@ class FooterSection extends React.Component {
                 <h5>Browse</h5>
                 <ul className={classes.linksVertical}>
                   <li>
-                    <Link to="/browse" className="nav-link">
+                    <Link to="/browse/gears" className="nav-link">
                       Gears
                     </Link>
                   </li>
@@ -145,7 +145,7 @@ class FooterSection extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/people" className="nav-link">
+                    <Link to="/browse/people" className="nav-link">
                       People
                     </Link>
                   </li>

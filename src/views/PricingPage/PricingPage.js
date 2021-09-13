@@ -21,6 +21,8 @@ import SectionFeatures from "views/PricingPage/Sections/SectionFeatures.js";
 
 import pricingStyle from "assets/jss/material-kit-pro-react/views/pricingStyle.js";
 
+import bg from "assets/img/bg2.jpg";
+
 const useStyles = makeStyles(pricingStyle);
 
 export default function PricingPage() {
@@ -42,7 +44,7 @@ export default function PricingPage() {
         }}
       />
 
-      <Parallax image={require("assets/img/bg2.jpg")} filter="dark" small>
+      <Parallax image={bg} filter="dark" small>
         <div className={classes.container}>
           <GridContainer>
             <GridItem
