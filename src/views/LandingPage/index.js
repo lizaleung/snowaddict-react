@@ -22,7 +22,7 @@ import ContactUs from "./ContactUs.js";
 import IntroSection from "./IntroSection"
 import TrendingSection from "./TrendingSection"
 import BlogSection from "./BlogSection"
-
+import bg from "assets/img/snowaddictnet/landing-bg.JPG";
 
 const useStyles = makeStyles(landingPageStyle);
 
@@ -30,7 +30,7 @@ export default function LandingPage(props) {
   const classes = useStyles();
   return (
     <div>
-      <Parallax filter image={require("assets/img/snowaddictnet/landing-bg.JPG")} >
+      <Parallax filter image={bg} >
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
