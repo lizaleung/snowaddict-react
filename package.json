@@ -4,8 +4,7 @@
   "homepage": "http://www.snowaddict.net/",
   "private": true,
   "devDependencies": {
-    "cross-env": "^5.1.4",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^4.0.3",
     "redux-devtools-extension": "^2.13.2"
   },
   "dependencies": {
@@ -13,7 +12,8 @@
     "@material-ui/icons": "^4.11.2",
     "animate.css": "4.1.0",
     "axios": "^0.21.1",
-    "eslint": "^5.16.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.11.0",
     "history": "^4.6.3",
     "marked": "^0.3.6",
     "material-kit-react": "^1.9.0",
@@ -43,13 +43,22 @@
   },
   "scripts": {
     "start": "serve -s build",
-    "local": "cross-env NODE_PATH=./src PORT=4100 react-scripts start",
+    "local": "cross-env PORT=4100 react-scripts start",
     "build": "cross-env NODE_PATH=./src react-scripts build",
     "localbuild": "cross-env NODE_PATH=./src react-scripts build",
     "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "resolutions": {
-    "webpack": "5.18.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
