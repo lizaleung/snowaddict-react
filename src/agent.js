@@ -4,8 +4,11 @@ import axios from 'axios';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://www.snowaddict.net/api';
-// const API_ROOT = 'http://127.0.0.1:8000/api'
+const API_ROOT_PROD = 'https://www.snowaddict.net/api';
+const API_ROOT_DEV = 'http://127.0.0.1:8000/api'
+const API_ROOT = process.env.NODE_ENV === 'prod' ? API_ROOT_PROD : API_ROOT_DEV
+
+
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
