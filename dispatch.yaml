@@ -3,8 +3,5 @@ dispatch:
   - url: "*/api/*"
     service: snowaddict-backend
   # Send the rest to the frontend
-  - url: "*/admin/*"
-    service: snowaddict-backend
-  # Send the rest to the frontend
   - url: "*/*"
     service: default
