@@ -42,9 +42,9 @@
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "cross-env HTTPS=true serve -s build",
-    "local": "cross-env HTTPS=true PORT=4100 react-scripts start",
-    "build": "cross-env HTTPS=true NODE_PATH=./src react-scripts build",
+    "start": "cross-env serve -s build",
+    "local": "cross-env PORT=4100 react-scripts start",
+    "build": "cross-env NODE_PATH=./src react-scripts build",
     "localbuild": "cross-env NODE_PATH=./src react-scripts build",
     "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
