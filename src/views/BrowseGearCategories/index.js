@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({  type: GEARS_PAGE_UNLOADED })
 });
 
-class BrowseGears extends React.Component {
+class BrowseGearCategories extends React.Component {
   componentDidMount() {
     this.props.onLoad(Promise.all([
       agent.People.all(),
@@ -79,6 +79,6 @@ class BrowseGears extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gearSectionStyle)(BrowseGears));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gearSectionStyle)(BrowseGearCategories));
 
 

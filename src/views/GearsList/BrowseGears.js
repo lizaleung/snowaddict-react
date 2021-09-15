@@ -16,6 +16,8 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
+import LoadingAnimation from "views/LoadingAnimation.js";
+
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
 
@@ -85,9 +87,7 @@ const BrowsePerson = props => {
 
   } else {
     return (
-      <div>
-      <ReactLoading type="bubbles" color="#000" />
-      </div>
+      <LoadingAnimation />
     );
   }
 

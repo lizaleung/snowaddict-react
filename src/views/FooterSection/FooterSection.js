@@ -135,8 +135,8 @@ class FooterSection extends React.Component {
                 <h5>Browse</h5>
                 <ul className={classes.linksVertical}>
                   <li>
-                    <Link to="/browse/gears" className="nav-link">
-                      Gears
+                    <Link to="/browse/categories" className="nav-link">
+                      Categories
                     </Link>
                   </li>
                   <li>
