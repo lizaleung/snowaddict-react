@@ -42,10 +42,10 @@
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=prod serve -s build",
-    "local": "cross-env NODE_ENV=dev PORT=4100 react-scripts start",
-    "build": "cross-env NODE_ENV=prod react-scripts build",
-    "localbuild": "cross-env NODE_ENV=dev NODE_PATH=./src react-scripts build",
+    "start": "cross-env NODE_ENV=production serve -s build",
+    "local": "cross-env NODE_ENV=development PORT=4100 react-scripts start",
+    "build": "cross-env NODE_ENV=production react-scripts build",
+    "localbuild": "cross-env NODE_ENV=development NODE_PATH=./src react-scripts build",
     "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
