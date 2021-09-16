@@ -1,47 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ReactLoading from "react-loading";
+import LoadingAnimation from "views/LoadingAnimation.js";
+
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Toys from "@material-ui/icons/Toys";
+import Class from "@material-ui/icons/Class";
 
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import InfoArea from "components/InfoArea/InfoArea.js";
+import GridContainer from "../../components/Grid/GridContainer.js";
+import GridItem from "../../components/Grid/GridItem.js";
+import InfoArea from "../../components/InfoArea/InfoArea.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
-
-import LoadingAnimation from "views/LoadingAnimation.js";
 
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
 const useStyles = makeStyles(gearSectionStyle);
 
-const BrowsePerson = props => {
-  const gears = props.gears;
+const ListBrand = props => {
+  const brands = props.brands;
   const classes = useStyles();
-  console.log(gears);
-  if (gears) {
-
-    if (gears.length === 0 ) {
-      return (
-        <div className={classes.section}>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={12}>
-              <h2 className={classes.title}>Explore Gears:</h2>
-              <h2> No gear found </h2>
-            </GridItem>
-          </GridContainer>
-        </div>
-      );
-    }
+  if (brands) {
 
     return (
+
       <div className={classes.section}>
         <Card>
           <CardHeader
@@ -49,28 +35,27 @@ const BrowsePerson = props => {
             signup
             className={classes.cardHeader}
           >
-            <h4 className={classes.cardTitle}>Explore in category</h4>
+            <h4 className={classes.cardTitle}>Browse gear in these popular brands</h4>
   
           </CardHeader>
   
-  
           <CardBody plain>
-            <GridContainer justify="center">
+  
+            <GridContainer  justify="center">
               {
-                gears.map(gear => {
+                brands.map(category => {
                   return (
+                    
                     <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
-                      <Link to={"/product/" + gear.slug } >
+                      <Link to={"/brand/" + category.slug}>
                       <InfoArea
-                        title={gear.title}
+                        title={category.name}
                         description=""
-                        icon={Toys}
-                        image={gear.image}
+                        icon={Class}
+                        image={category.image}
                         iconColor="info"
                         vertical
                       />
-      
-      
                       </Link>
                     </GridItem>
                   );
@@ -80,8 +65,6 @@ const BrowsePerson = props => {
           </CardBody>
         </Card>
       </div>
-
-
     );
 
   } else {
@@ -89,7 +72,6 @@ const BrowsePerson = props => {
       <LoadingAnimation />
     );
   }
+};
 
-
-}
-export default BrowsePerson;
+export default ListBrand;

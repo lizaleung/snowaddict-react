@@ -1,10 +1,13 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Link } from "react-router-dom";
+
+import {Helmet} from "react-helmet"
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -30,11 +33,17 @@ export default function LandingPage(props) {
   const classes = useStyles();
   return (
     <div>
+      <Helmet htmlAttributes>
+        <html lang="en" />
+        <title>Snowaddict Home</title>
+        <meta name="A place to share your favorite snowboards" 
+              content="A place to share your favorite snowboards" />
+      </Helmet>
       <Parallax filter image={bg} >
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Gear up for the powder ride</h1>
+              <h1 className={classes.title}>Gear Up For the Pow Ride</h1>
               <h4>
                 Find your next adventure and enjoy everything that comes with it. We provide the snow reports, gear reviews and expert insight from the people who live for powder days.
               </h4>
@@ -45,8 +54,9 @@ export default function LandingPage(props) {
                 color="warning"
                 size="lg"
               >
-                <i className="fas fa-play" />
+                <b>
                 Get Started
+                </b>
               </Button>
               </Link>
             </GridItem>

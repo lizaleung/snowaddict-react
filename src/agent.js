@@ -7,8 +7,8 @@ const superagent = superagentPromise(_superagent, global.Promise);
 const API_ROOT_PROD = 'https://www.snowaddict.net/api';
 const API_ROOT_DEV = 'http://127.0.0.1:8000/api'
 const API_ROOT = process.env.NODE_ENV === 'production' ? API_ROOT_PROD : API_ROOT_DEV
-console.log("process.env.NODE_ENV = " + process.env.NODE_ENV)
-console.log("API_ROOT = " + API_ROOT)
+// console.log("process.env.NODE_ENV = " + process.env.NODE_ENV)
+// console.log("API_ROOT = " + API_ROOT)
 
 
 const encode = encodeURIComponent;
@@ -148,6 +148,10 @@ const Categories = {
   all: categories => requests.get('/gear/category/')
 };
 
+const Brands = {
+  all: brands => requests.get('/gear/brand/')
+};
+
 export default {
   Articles,
   Auth,
@@ -158,5 +162,6 @@ export default {
   Gears,
   People,
   Categories,
+  Brands,
   setToken: _token => { token = _token; }
 };

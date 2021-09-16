@@ -19,6 +19,9 @@ import FooterSection from "views/FooterSection/FooterSection.js";
 
 import BrowseGearCategories from 'views/BrowseGearCategories';
 import BrowsePeople from 'views/BrowsePeople';
+import BrowseBrands from 'views/BrowseBrands';
+
+
 
 import GearsItem from 'views/GearsItem';
 import GearsList from 'views/GearsList';
@@ -152,6 +155,7 @@ class App extends React.Component {
 
             <Route path="/browse/categories" component={BrowseGearCategories} />
             <Route path="/browse/people" component={BrowsePeople} />
+            <Route path="/browse/brands" component={BrowseBrands} />
 
 
 
