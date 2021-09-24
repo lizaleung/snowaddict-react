@@ -102,7 +102,7 @@ export default function HeaderLinks(props) {
           <Button
           color="transparent"
           className={classes.navLink}>
-            Browse Gear
+            Browse Categories
           </Button>
         </Link>
       </ListItem>
@@ -113,6 +113,16 @@ export default function HeaderLinks(props) {
           color="transparent"
           className={classes.navLink}>
             Browse Brands
+          </Button>
+        </Link>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Link to="/browse/people" className="nav-link">
+          <Button
+          color="transparent"
+          className={classes.navLink}>
+            Browse People
           </Button>
         </Link>
       </ListItem>

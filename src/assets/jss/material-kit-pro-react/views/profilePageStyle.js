@@ -24,7 +24,8 @@ const profilePageStyle = {
   },
   cardTitle,
   profile: {
-    textAlign: "center",
+    textAlign: "left",
+    marginLeft: "100px",
     "& img": {
       maxWidth: "160px",
       width: "100%",
@@ -60,7 +61,8 @@ const profilePageStyle = {
   follow: {
     position: "absolute",
     top: "0",
-    right: "0"
+    right: "0",
+    marginRight: "100px !important"
   },
   followIcon: {
     width: "20px",
@@ -89,7 +91,8 @@ const profilePageStyle = {
     margin: "0 auto"
   },
   listUnstyled: {
-    paddingLeft: "0",
+    paddingLeft: "50px",
+    paddingTop: "100px",
     listStyle: "none",
     "& > li": {
       padding: "5px 0px",

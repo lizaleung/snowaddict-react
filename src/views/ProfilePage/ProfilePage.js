@@ -50,20 +50,20 @@ const mapDispatchToProps = dispatch => ({
 
 class ProfilePage extends React.Component {
 
-  componentDidUpdate (prevProps, prevState) {
-    if (prevProps.match.params.displaynameslug !== this.props.match.params.displaynameslug) {
-      if (this.props.match.params.displaynameslug) {
-        prevProps.onUnload();
-        return this.props.onLoad(agent.People.get(this.props.match.params.displaynameslug));
-      }
-      prevProps.onLoad(null);
-    }
-  }
+  // componentDidUpdate (prevProps, prevState) {
+  //   if (prevProps.match.params.displaynameslug !== this.props.match.params.displaynameslug) {
+  //     if (this.props.match.params.displaynameslug) {
+  //       prevProps.onUnload();
+  //       return this.props.onLoad(agent.People.get(this.props.match.params.displaynameslug));
+  //     }
+  //     prevProps.onLoad(null);
+  //   }
+  // }
   componentDidMount() {
     if (this.props.match.params.displaynameslug) {
       return this.props.onLoad(agent.People.get(this.props.match.params.displaynameslug));
-    } else if (this.props.currentUser.username) {
-      return this.props.onLoad(agent.People.get(this.props.currentUser.username));
+    // } else if (this.props.currentUser.username) {
+    //   return this.props.onLoad(agent.People.get(this.props.currentUser.username));
     }
     this.props.onLoad(null);
   }
@@ -92,7 +92,11 @@ class ProfilePage extends React.Component {
             filter="dark"
             className={classes.parallax}
           />
-          <ProfileTopSection displaynameslug={this.props.displaynameslug} />
+          <div className={classNames(classes.main)}>
+
+              <ProfileTopSection displaynameslug={this.props.displaynameslug} />
+              <ProfileBottomTabs displaynameslug={this.props.displaynameslug} />
+          </div>
           <div className={classNames(classes.main, classes.mainRaised)}>
             <div className={classes.container}>
             </div>

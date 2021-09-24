@@ -43,7 +43,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Gear Up For the Pow Ride</h1>
+              <h1 className={classes.title}>Be Gear Ready</h1>
               <h4>
                 Find your next adventure and enjoy everything that comes with it. We provide the snow reports, gear reviews and expert insight from the people who live for powder days.
               </h4>

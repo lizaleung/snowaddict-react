@@ -62,20 +62,11 @@ const mapDispatchToProps = dispatch => ({
 
 class ProfileTopSection extends React.Component {
 
-  componentDidUpdate (prevProps, prevState) {
-    // if (prevProps.match.params.displaynameslug !== this.props.match.params.displaynameslug) {
-    //   if (this.props.match.params.displaynameslug) {
-    //     prevProps.onUnload();
-    //     return this.props.onLoad(agent.People.get(this.props.match.params.displaynameslug));
-    //   }
-    //   prevProps.onLoad(null);
-    // }
-  }
+
   componentDidMount() {
     if (this.props.displaynameslug) {
       return this.props.onLoad(agent.People.get(this.props.displaynameslug));
     }
-    this.props.onLoad(null);
   }
 
   componentWillUnmount() {
@@ -93,7 +84,6 @@ class ProfileTopSection extends React.Component {
       classes.imgFluid
     );
     // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    console.l
     console.log("displaynameslug " + displaynameslug)
     
     if (this.props.currentUser) {
@@ -121,10 +111,8 @@ class ProfileTopSection extends React.Component {
   
         return (
 
-
-            <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
-                <GridContainer justify="center">
+                <GridContainer justify="left">
                   <GridItem xs={12} sm={12} md={6}>
                     <div className={classes.profile}>
                       <div>
@@ -188,15 +176,40 @@ class ProfileTopSection extends React.Component {
                         </Button>
                       </Tooltip>
                     </div>
+                    <div className={classes.description}>
+                      <p>{thisPerson.bio}{" "}</p>
+                    </div>
                   </GridItem>
+                  <GridItem
+                    xs={12}
+                    sm={12}
+                    md={6}
+
+                  >
+                    <ul className={classes.listUnstyled}>
+                      <li>
+                        <b>60</b> Products
+                      </li>
+                      <li>
+                        <b>4</b> Collections
+                      </li>
+                      <li>
+                        <b>331</b> Influencers
+                      </li>
+                      <li>
+                        <b>1.2K</b> Likes
+                      </li>
+                    </ul>
+
+                  </GridItem>
+
                 </GridContainer>
-                <div className={classNames(classes.description, classes.textCenter)}>
-                  <p>{thisPerson.bio}{" "}</p>
-                </div>
-                <ProfileBottomTabs />
+
+
+
+
                 <Clearfix />
               </div>
-            </div>
       
         );
       }
