@@ -39,6 +39,7 @@ import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Footer from "components/Footer/Footer.js";
 
+import brandLogo from "assets/img/snowaddictnet/logo-snowaddict-word.png";
 
 
 import { withStyles } from "@material-ui/core/styles";
@@ -95,7 +96,7 @@ class FooterSection extends React.Component {
     <div className={classes.section}>
 
         <Footer
-          theme="white"
+          theme="dark"
           content={
             <div>
               <ul className={classes.socialButtons}>
@@ -128,7 +129,7 @@ class FooterSection extends React.Component {
             <GridContainer>
               <GridItem xs={12} sm={3} md={3}>
                 <Link to="/" className="nav-link">
-                <h5>snow addict</h5>
+                <img className={classes.logo} src={brandLogo} />
                 </Link>
               </GridItem>
               <GridItem xs={12} sm={2} md={2}>
@@ -199,7 +200,8 @@ class FooterSection extends React.Component {
                             onChange={this.changeEmail} />
                         </fieldset>
 
-                  <Button color="primary" justIcon type="submit" 
+
+                  <Button color="info" justIcon type="submit" 
                        disabled={this.props.inProgress}
                   >
                     <Mail />

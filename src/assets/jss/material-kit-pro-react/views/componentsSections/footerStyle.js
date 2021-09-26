@@ -4,6 +4,14 @@ import {
   description,
   section,
   btnLink,
+  primaryColor,
+  infoColor,
+  successColor,
+  warningColor,
+  dangerColor,
+  roseColor,
+  blackColor,
+  whiteColor,
   twitterColor,
   dribbbleColor,
   instagramColor,
@@ -19,6 +27,7 @@ const style = {
   description,
   section: {
     ...section,
+
     padding: "70px 0px"
   },
   socialFeed: {
@@ -34,6 +43,11 @@ const style = {
       display: "table-cell",
       paddingRight: "10px"
     }
+  },
+  logo: {
+    marginTop: "15%",
+    marginBottom: "15%",
+    maxWidth: 120
   },
   img: {
     width: "20%",
@@ -81,7 +95,7 @@ const style = {
     fontSize: "18px",
     lineHeight: "50px",
     marginLeft: "-15px",
-    color: grayColor[1],
+    color: whiteColor,
     textDecoration: "none",
     fontWeight: 700,
     fontFamily: "Roboto Slab,Times New Roman,serif"
@@ -122,7 +136,7 @@ const style = {
       display: "inline-block"
     },
     "& h4, & h5": {
-      color: grayColor[1],
+      color: whiteColor,
       textDecoration: "none"
     },
     "& ul:not($socialButtons) li a": {
@@ -138,7 +152,7 @@ const style = {
     },
     "& small": {
       fontSize: "75%",
-      color: grayColor[10]
+      color: whiteColor
     },
     "& $pullCenter": {
       display: "inline-block",

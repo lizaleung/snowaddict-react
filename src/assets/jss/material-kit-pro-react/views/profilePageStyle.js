@@ -25,7 +25,7 @@ const profilePageStyle = {
   cardTitle,
   profile: {
     textAlign: "left",
-    marginLeft: "100px",
+    marginLeft: "60px",
     "& img": {
       maxWidth: "160px",
       width: "100%",
@@ -35,8 +35,7 @@ const profilePageStyle = {
   },
   description: {
     margin: "1.071rem auto 0",
-    maxWidth: "600px",
-    color: grayColor[0]
+    maxWidth: "600px"
   },
   textCenter: {
     textAlign: "center !important"
@@ -62,7 +61,7 @@ const profilePageStyle = {
     position: "absolute",
     top: "0",
     right: "0",
-    marginRight: "100px !important"
+    marginRight: "50px !important"
   },
   followIcon: {
     width: "20px",
@@ -91,7 +90,8 @@ const profilePageStyle = {
     margin: "0 auto"
   },
   listUnstyled: {
-    paddingLeft: "50px",
+    textAlign: "left",
+    paddingLeft: "60px",
     paddingTop: "100px",
     listStyle: "none",
     "& > li": {
