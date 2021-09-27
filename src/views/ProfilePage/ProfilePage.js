@@ -27,8 +27,8 @@ import Button from "components/CustomButtons/Button.js";
 import Badge from "components/Badge/Badge.js";
 
 import PromptNewProfile from "./Sections/PromptNewProfile.js";
-import ProfileBottomTabs from "./Sections/ProfileBottomTabs.js"
 import ProfileTopSection from "./Sections/ProfileTopSection.js"
+import ProfileSectionGear from "./Sections/ProfileSectionGear.js"
 
 
 
@@ -59,11 +59,12 @@ class ProfilePage extends React.Component {
   //     prevProps.onLoad(null);
   //   }
   // }
+
   componentDidMount() {
     if (this.props.match.params.displaynameslug) {
-      return this.props.onLoad(agent.People.get(this.props.match.params.displaynameslug));
-    // } else if (this.props.currentUser.username) {
-    //   return this.props.onLoad(agent.People.get(this.props.currentUser.username));
+      return this.props.onLoad(
+        agent.People.get(this.props.match.params.displaynameslug)
+        );
     }
     this.props.onLoad(null);
   }
@@ -92,15 +93,14 @@ class ProfilePage extends React.Component {
             filter="dark"
             className={classes.parallax}
           />
-          <div className={classNames(classes.main)}>
+            <div className={classNames(classes.main, classes.mainRaised)}>
 
-              <ProfileTopSection displaynameslug={this.props.displaynameslug} />
-              <ProfileBottomTabs displaynameslug={this.props.displaynameslug} />
-          </div>
-          <div className={classNames(classes.main, classes.mainRaised)}>
-            <div className={classes.container}>
+                <ProfileTopSection displaynameslug={this.props.match.params.displaynameslug} />
+                <div className={classes.container}>
+                <ProfileSectionGear displaynameslug={this.props.match.params.displaynameslug} />
+                </div>
             </div>
-          </div>
+
         </div>
     )
 

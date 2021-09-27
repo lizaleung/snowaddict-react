@@ -30,7 +30,6 @@ import Button from "components/CustomButtons/Button.js";
 import Badge from "components/Badge/Badge.js";
 
 import PromptNewProfile from "./PromptNewProfile.js";
-import ProfileBottomTabs from "./ProfileBottomTabs.js"
 
 
 
@@ -42,8 +41,7 @@ import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePag
 
 const mapStateToProps = state => ({
   people: state.people.peoples,
-  peopleCount: state.people.peoplesCount,
-  currentUser: state.common.currentUser
+  peopleCount: state.people.peoplesCount
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -84,12 +82,7 @@ class ProfileTopSection extends React.Component {
       classes.imgFluid
     );
     // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    console.log("displaynameslug " + displaynameslug)
-    
-    if (this.props.currentUser) {
-      console.log("this.props.currentUser.username " + this.props.currentUser.username)
-    }
-
+    console.log("ProfileTopSection displaynameslug " + displaynameslug)
     
     if (!this.props.people ) {
       return(
@@ -104,15 +97,13 @@ class ProfileTopSection extends React.Component {
       const thisPerson = this.props.people[0]
     
       console.log("peopleCount "+ peopleCount + " thisPerson " + thisPerson)
-  
-
 
       if ( peopleCount > 0 ) {
   
         return (
 
               <div className={classes.container}>
-                <GridContainer justify="left">
+                <GridContainer justifyContent="flex-start">
                   <GridItem xs={12} sm={12} md={6}>
                     <div className={classes.profile}>
                       <div>
@@ -158,6 +149,10 @@ class ProfileTopSection extends React.Component {
                         </Button>
 
                       </div>
+                      <div className={classes.description}>
+                        <p>{thisPerson.bio}{" "}</p>
+                      </div>
+
                     </div>
                     <div className={classes.follow}>
                       <Tooltip
@@ -169,16 +164,14 @@ class ProfileTopSection extends React.Component {
                         <Button
                           justIcon
                           round
-                          color="primary"
+                          color="info"
                           className={classes.followButton}
                         >
                           <Add className={classes.followIcon} />
                         </Button>
                       </Tooltip>
                     </div>
-                    <div className={classes.description}>
-                      <p>{thisPerson.bio}{" "}</p>
-                    </div>
+
                   </GridItem>
                   <GridItem
                     xs={12}
@@ -186,6 +179,7 @@ class ProfileTopSection extends React.Component {
                     md={6}
 
                   >
+
                     <ul className={classes.listUnstyled}>
                       <li>
                         <b>60</b> Products
@@ -208,7 +202,7 @@ class ProfileTopSection extends React.Component {
 
 
 
-                <Clearfix />
+
               </div>
       
         );
