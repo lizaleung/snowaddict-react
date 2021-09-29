@@ -25,7 +25,7 @@ const profilePageStyle = {
   cardTitle,
   profile: {
     textAlign: "left",
-    marginLeft: "60px",
+    marginLeft: "50px",
     "& img": {
       maxWidth: "160px",
       width: "100%",
@@ -91,13 +91,17 @@ const profilePageStyle = {
   },
   listUnstyled: {
     textAlign: "left",
-    paddingLeft: "60px",
-    paddingTop: "100px",
+
     listStyle: "none",
+    position: "relative",
+    top: "20%",
+    padding: "50px",
+
     "& > li": {
       padding: "5px 0px",
       fontSize: "1em"
     }
+
   },
   profileTabs: {
     marginTop: "4.284rem",

@@ -65,6 +65,7 @@ class ProfileTopSection extends React.Component {
     if (this.props.displaynameslug) {
       return this.props.onLoad(agent.People.get(this.props.displaynameslug));
     }
+    this.props.onLoad(null);
   }
 
   componentWillUnmount() {
@@ -104,56 +105,89 @@ class ProfileTopSection extends React.Component {
 
               <div className={classes.container}>
                 <GridContainer justifyContent="flex-start">
-                  <GridItem xs={12} sm={12} md={6}>
-                    <div className={classes.profile}>
-                      <div>
-                        <img src={thisPerson.avatar} alt="..." className={imageClasses} />
-                      </div>
-                      <div className={classes.name}>
-                        <h3 className={classes.title}>{thisPerson.full_name}</h3>
-                        <h6>@{thisPerson.display_name}</h6>
-                        <h6>
-                          {
-                            thisPerson.badge.map(eachBadge => {
-                              return (
-                                <Badge color="warning">{eachBadge.name}</Badge>
-                              );
-                            })
-                          }
-                        </h6>
+                  <GridItem xs={12} sm={12} md={12}>
+                    <GridContainer justifyContent="flex-start">
+                      <GridItem
+                        xs={12}
+                        sm={6}
+                        md={6}
 
-                        <Button
-                          justIcon
-                          simple
-                          color="facebook"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fa fa-link"} />
-                        </Button>
+                      >
 
-                        <Button
-                          justIcon
-                          simple
-                          color="instagram"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-instagram"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          simple
-                          color="twitter"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-twitter"} />
-                        </Button>
+                        <div className={classes.profile}>
+                          <div>
+                            <img src={thisPerson.avatar} alt="..." className={imageClasses} />
+                          </div>
+                          <div className={classes.name}>
+                            <h3 className={classes.title}>{thisPerson.full_name}</h3>
+                            <h6>@{thisPerson.display_name}</h6>
+                            <h6>
+                              {
+                                thisPerson.badge.map(eachBadge => {
+                                  return (
+                                    <Badge color="warning">{eachBadge.name}</Badge>
+                                  );
+                                })
+                              }
+                            </h6>
+  
+                            <Button
+                              justIcon
+                              simple
+                              color="facebook"
+                              className={classes.margin5}
+                            >
+                              <i className={classes.socials + " fa fa-link"} />
+                            </Button>
+  
+                            <Button
+                              justIcon
+                              simple
+                              color="instagram"
+                              className={classes.margin5}
+                            >
+                              <i className={classes.socials + " fab fa-instagram"} />
+                            </Button>
+                            <Button
+                              justIcon
+                              simple
+                              color="twitter"
+                              className={classes.margin5}
+                            >
+                              <i className={classes.socials + " fab fa-twitter"} />
+                            </Button>
+  
+                          </div>
+                          <div className={classes.description}>
+                            <p>{thisPerson.bio}{" "}</p>
+                          </div>
+  
+                        </div>
+                      </GridItem>
+                      <GridItem
+                        xs={12}
+                        sm={6}
+                        md={6}
+                      >
+  
+                        <ul className={classes.listUnstyled}>
+                          <li>
+                            <b>60</b> Products
+                          </li>
+                          <li>
+                            <b>4</b> Collections
+                          </li>
+                          <li>
+                            <b>331</b> Influencers
+                          </li>
+                          <li>
+                            <b>1.2K</b> Likes
+                          </li>
+                        </ul>
+                      </GridItem>
+                    </GridContainer>
 
-                      </div>
-                      <div className={classes.description}>
-                        <p>{thisPerson.bio}{" "}</p>
-                      </div>
-
-                    </div>
+                  
                     <div className={classes.follow}>
                       <Tooltip
                         id="tooltip-top"
@@ -173,29 +207,7 @@ class ProfileTopSection extends React.Component {
                     </div>
 
                   </GridItem>
-                  <GridItem
-                    xs={12}
-                    sm={12}
-                    md={6}
 
-                  >
-
-                    <ul className={classes.listUnstyled}>
-                      <li>
-                        <b>60</b> Products
-                      </li>
-                      <li>
-                        <b>4</b> Collections
-                      </li>
-                      <li>
-                        <b>331</b> Influencers
-                      </li>
-                      <li>
-                        <b>1.2K</b> Likes
-                      </li>
-                    </ul>
-
-                  </GridItem>
 
                 </GridContainer>
 

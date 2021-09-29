@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { Link } from "react-router-dom";
 
-import {Helmet} from "react-helmet"
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -33,19 +32,14 @@ export default function LandingPage(props) {
   const classes = useStyles();
   return (
     <div>
-      <Helmet htmlAttributes>
-        <html lang="en" />
-        <title>Snowaddict Home</title>
-        <meta name="A place to share your favorite snowboards" 
-              content="A place to share your favorite snowboards" />
-      </Helmet>
-      <Parallax filter image={bg} >
+
+      <Parallax image={bg} >
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Be Gear Ready</h1>
               <h4>
-                Find your next adventure and enjoy everything that comes with it. We provide the snow reports, gear reviews and expert insight from the people who live for powder days.
+                Ever wonder what board your favorite snowboarder rides? 
               </h4>
               <br />
               <Link to="/register" >
@@ -55,7 +49,7 @@ export default function LandingPage(props) {
                 size="lg"
               >
                 <b>
-                Get Started
+                Let's Get Started
                 </b>
               </Button>
               </Link>

@@ -135,7 +135,7 @@ const Gears = {
   all: gear =>
     requests.get(`/gears?${limit(10, gear)}`),
   byPerson: (person, page) =>
-    requests.get(`/gears?person=${encode(person)}&${limit(5, page)}`),
+    requests.get(`/gears?owned_by=${encode(person)}&${limit(5, page)}`),
   byCategory: (category, page) =>
     requests.get(`/gears?category=${encode(category)}&${limit(10, page)}`),
   get: slug =>

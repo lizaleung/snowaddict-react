@@ -1,5 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
+
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
@@ -38,14 +40,11 @@ import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePag
 import bg from "assets/img/bg7.jpg";
 
 const mapStateToProps = state => ({
-  people: state.people.peoples,
-  peopleCount: state.people.peoplesCount,
   currentUser: state.common.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: payload => dispatch({ type: PEOPLE_PAGE_LOADED, payload }),
-  onUnload: () => dispatch({ type: PEOPLE_PAGE_UNLOADED })
+
 });
 
 class ProfilePage extends React.Component {
@@ -61,16 +60,10 @@ class ProfilePage extends React.Component {
   // }
 
   componentDidMount() {
-    if (this.props.match.params.displaynameslug) {
-      return this.props.onLoad(
-        agent.People.get(this.props.match.params.displaynameslug)
-        );
-    }
-    this.props.onLoad(null);
+    // ReactGA.pageview(window.location.pathname);
   }
 
   componentWillUnmount() {
-    this.props.onUnload();
   }
 
 
@@ -85,7 +78,6 @@ class ProfilePage extends React.Component {
 
 
 
-
     return(
         <div>
           <Parallax
@@ -93,12 +85,11 @@ class ProfilePage extends React.Component {
             filter="dark"
             className={classes.parallax}
           />
-            <div className={classNames(classes.main, classes.mainRaised)}>
+            <div className={classNames(classes.main)}>
 
-                <ProfileTopSection displaynameslug={this.props.match.params.displaynameslug} />
-                <div className={classes.container}>
-                <ProfileSectionGear displaynameslug={this.props.match.params.displaynameslug} />
-                </div>
+              <ProfileTopSection displaynameslug={this.props.match.params.displaynameslug} />
+              <ProfileSectionGear displaynameslug={this.props.match.params.displaynameslug} />
+
             </div>
 
         </div>

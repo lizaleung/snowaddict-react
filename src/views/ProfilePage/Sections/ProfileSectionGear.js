@@ -1,6 +1,7 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-// import agent from '../../agent';
+import { Link } from 'react-router-dom';
+import agent from '../../../agent';
+
 import { connect } from 'react-redux';
 import {
   PEOPLE_PAGE_GEAR_SECTION_LOADED,
@@ -32,10 +33,15 @@ import Badge from "components/Badge/Badge.js";
 import Muted from "components/Typography/Muted.js";
 import CardFooter from "components/Card/CardFooter.js";
 import Button from "components/CustomButtons/Button.js";
+import InfoArea from "components/InfoArea/InfoArea.js";
+
 
 import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui icons
 import Favorite from "@material-ui/icons/Favorite";
+
+import LoadingAnimation from "views/LoadingAnimation.js";
+
 
 import oluEletu from "assets/img/examples/olu-eletu.jpg";
 import clemOnojeghuo from "assets/img/examples/clem-onojeghuo.jpg";
@@ -54,7 +60,7 @@ import dolce from "assets/img/examples/dolce.jpg";
 
 
 const mapStateToProps = state => ({
-
+  gears: state.people.gears
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -65,14 +71,16 @@ const mapDispatchToProps = dispatch => ({
 class ProfileSectionGear extends React.Component {
 
   componentDidMount() {
-    console.log(this.props)
+    console.log("this.props.displaynameslug = " + this.props.displaynameslug)
+    this.props.onLoad(
+      agent.Gears.byPerson(this.props.displaynameslug)
+    );
 
-    this.props.onLoad(null);
   }
 
 
   componentWillUnmount() {
-    this.props.onUnload();
+    // this.props.onUnload();
   }
 
 
@@ -82,58 +90,102 @@ class ProfileSectionGear extends React.Component {
 
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     
+    const gears = this.props.gears;
+    console.log("gears" + this.props)
+    if (!gears ) {
+      return(
+          <div>
+          </div>
+      )
 
-    return (
+    } else {
+
+
+      return (
+
+
     <div className={classes.section}>
       <div className={classes.container}>
-        <h2>Spotted</h2>
+        <h2>Setup</h2>
         <GridContainer>
 
-          <GridItem md={4} sm={4}>
-            <Card product plain>
-              <CardHeader image plain>
-                <a href="#pablo">
-                  <img src={tomFord} alt="..." />
-                </a>
-                <div
-                  className={classes.coloredShadow}
-                  style={{ backgroundImage: `url(${tomFord})`, opacity: 1 }}
-                />
-              </CardHeader>
-              <CardBody className={classes.textCenter} plain>
-                <h4 className={classes.cardTitle}>
-                Dolce & Gabbana
-                  <Tooltip
-                    id="tooltip-top"
-                    title="Saved to Wishlist"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
-                  >
-                    <Button justIcon simple color="rose">
-                      <Favorite />
-                    </Button>
-                  </Tooltip>
-
-                </h4> 
+              {
+                gears.map(gear => {
+                  return (
 
 
+                  <GridItem md={4} sm={4}>
+                    <Card product plain>
+                      <CardHeader image plain>
+                        <a href={"/product/" + gear.slug} >
+                          <img src={gear.image} alt="..." />
+                        </a>
+                        <div
+                          className={classes.coloredShadow}
+                          style={{ backgroundImage: `url(${gear.slug})`, opacity: 1 }}
+                        />
+                      </CardHeader>
+                      <CardBody className={classes.textCenter} plain>
+                        <h4 className={classes.cardTitle}>
+                          {gear.brand_name + " " + gear.title + " " + gear.year}
+                        </h4>
+                        <p className={classes.cardDescription}>
+                          The structured shoulders and sleek detailing ensure a sharp
+                          silhouette. Team it with a silk pocket square and leather
+                          loafers.
+                        </p>
+                      </CardBody>
+                      <CardFooter plain>
+                        <div className={classes.priceContainer}>
+                          <span className={classNames(classes.price, classes.priceOld)}>
+                            {" "}
+                            €1,430
+                          </span>
+                          <span className={classNames(classes.price, classes.priceNew)}>
+                            {" "}
+                            €743
+                          </span>
+                        </div>
+                        <div className={classNames(classes.stats, classes.mlAuto)}>
+                          <Tooltip
+                            id="tooltip-top"
+                            title="Saved to Wishlist"
+                            placement="top"
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button justIcon simple color="rose">
+                              <Favorite />
+                            </Button>
+                          </Tooltip>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </GridItem>
 
-                <p className={classes.cardDescription}>
-                  The structured shoulders and sleek detailing ensure a sharp
-                  silhouette. Team it with a silk pocket square and leather
-                  loafers.
-                </p>
-              </CardBody>
-              <CardFooter plain>
 
-              </CardFooter>
-            </Card>
-          </GridItem>
+
+
+                  )
+                })
+              }
+
+
+
         </GridContainer>
       </div>
     </div>
 
-    );
+
+
+
+  
+      );
+
+
+
+    }
+
+
 
   }
 }

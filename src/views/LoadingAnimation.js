@@ -10,7 +10,7 @@ class LoadingAnimation extends React.Component {
     if (true) {
       return (
       <div>
-          <GridContainer justify="center">
+          <GridContainer justifyContent="center">
           <ReactLoading type="bubbles" color="#FFF" />
           </GridContainer>
 

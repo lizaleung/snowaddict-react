@@ -11,12 +11,14 @@ export default (state = {}, action) => {
   switch (action.type) {
     case PEOPLE_PAGE_LOADED:
       return {
+        ...state,
         ...action.payload
       };
     case PEOPLE_PAGE_UNLOADED:
       return {};
     case PEOPLE_PAGE_GEAR_SECTION_LOADED:
       return {
+        ...state,
         ...action.payload
       };
     case PEOPLE_PAGE_GEAR_SECTION_UNLOADED:
