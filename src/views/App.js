@@ -1,6 +1,7 @@
 import agent from '../agent';
 import React from 'react';
 // import { Link } from "react-router-dom";
+import ReactGA from 'react-ga';
 
 
 import { connect } from 'react-redux';
@@ -50,9 +51,13 @@ import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
 
+import GoogleAnalytics from 'views/GoogleAnalytics';
+
 
 import { store } from '../store';
 import { push } from 'react-router-redux';
+
+ReactGA.initialize("UA-208639772-1");
 
 
 import brandLogo from "assets/img/snowaddictnet/logo-snowaddict-word.png";
@@ -81,6 +86,17 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class App extends React.Component {
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+    const token = window.localStorage.getItem('jwt');
+    if (token) {
+      agent.setToken(token);
+    }
+
+    this.props.onLoad(token ? agent.Auth.current() : null, token);
+
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.redirectTo) {
       // this.context.router.replace(nextProps.redirectTo);
@@ -89,14 +105,7 @@ class App extends React.Component {
     }
   }
 
-  componentWillMount() {
-    const token = window.localStorage.getItem('jwt');
-    if (token) {
-      agent.setToken(token);
-    }
 
-    this.props.onLoad(token ? agent.Auth.current() : null, token);
-  }
 
   render() {
 
@@ -179,6 +188,7 @@ class App extends React.Component {
             
             <Route component={ErrorPage} />
             </Switch>
+            <GoogleAnalytics />
             <FooterSection />
         </main>
       );
