@@ -43,7 +43,7 @@ const ListPeople = props => {
   
   
           <CardBody plain>
-            <GridContainer  justify="center">
+            <GridContainer>
               {
                 persons.map(person => {
                   return (

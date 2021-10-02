@@ -71,7 +71,7 @@ class GearsList extends React.Component {
         }}
       >
         <div className={classes.container}>
-          <GridContainer justify="center">
+          <GridContainer >
             <GridItem xs={12} sm={12} md={12}>
     
               <BrowseGears gears={this.props.gears}  />

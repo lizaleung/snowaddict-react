@@ -41,7 +41,7 @@ const ListCategory = props => {
   
           <CardBody plain>
   
-            <GridContainer  justify="center">
+            <GridContainer >
               {
                 categories.map(category => {
                   return (
