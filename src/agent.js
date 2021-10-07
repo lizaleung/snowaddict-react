@@ -133,11 +133,11 @@ const People = {
 
 const Gears = {
   all: gear =>
-    requests.get(`/gears?${limit(10, gear)}`),
+    requests.get(`/gears?${limit(8, gear)}`),
   byPerson: (person, page) =>
     requests.get(`/gears?owned_by=${encode(person)}&${limit(5, page)}`),
   byCategory: (category, page) =>
-    requests.get(`/gears?category=${encode(category)}&${limit(10, page)}`),
+    requests.get(`/gears?category=${encode(category)}&${limit(8, page)}`),
   get: slug =>
     requests.get(`/gears/${slug}`)
 };

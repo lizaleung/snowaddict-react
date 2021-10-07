@@ -98,11 +98,11 @@ export default function HeaderLinks(props) {
     <List className={classes.list + " " + classes.mlAuto}>
   
       <ListItem className={classes.listItem}>
-        <Link to="/browse/categories" className="nav-link">
+        <Link to="/category/snowboard" className="nav-link">
           <Button
           color="transparent"
           className={classes.navLink}>
-            Browse Categories
+            Browse Snowboards
           </Button>
         </Link>
       </ListItem>

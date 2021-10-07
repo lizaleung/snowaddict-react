@@ -2,7 +2,7 @@ import agent from '../agent';
 import React from 'react';
 // import { Link } from "react-router-dom";
 import ReactGA from 'react-ga';
-
+import {Helmet} from 'react-helmet'
 
 import { connect } from 'react-redux';
 import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
@@ -51,8 +51,6 @@ import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
 
-import GoogleAnalytics from 'views/GoogleAnalytics';
-
 
 import { store } from '../store';
 import { push } from 'react-router-redux';
@@ -87,7 +85,9 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends React.Component {
   componentDidMount() {
+    
     ReactGA.pageview(window.location.pathname);
+
     const token = window.localStorage.getItem('jwt');
     if (token) {
       agent.setToken(token);
@@ -114,7 +114,10 @@ class App extends React.Component {
     if (this.props.appLoaded) {
       return (
         <main>
-
+          <Helmet>
+            <title>Here's the Title!</title>
+            <meta name="description" content="This is what you want to show as the page content in the Google SERP Listing" />
+          </Helmet>
           <Header
             color="transparent"
             brandimg={brandLogo}
@@ -188,7 +191,6 @@ class App extends React.Component {
             
             <Route component={ErrorPage} />
             </Switch>
-            <GoogleAnalytics />
             <FooterSection />
         </main>
       );
