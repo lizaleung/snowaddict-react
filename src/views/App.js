@@ -115,8 +115,8 @@ class App extends React.Component {
       return (
         <main>
           <Helmet>
-            <title>Here's the Title!</title>
-            <meta name="description" content="This is what you want to show as the page content in the Google SERP Listing" />
+            <title>snowaddict net </title>
+            <meta name="description" content="Gear up for your snowboard ride. Check out different ride setups from the snowboard community and athletes." />
           </Helmet>
           <Header
             color="transparent"

@@ -15,6 +15,10 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+import Info from "components/Typography/Info.js";
+import CardFooter from "components/Card/CardFooter.js";
+
+import { Helmet } from 'react-helmet';
 
 import LoadingAnimation from "views/LoadingAnimation.js";
 
@@ -43,6 +47,9 @@ const BrowsePerson = props => {
 
     return (
       <div className={classes.section}>
+        <Helmet>
+          <title>Browse Gears</title>
+        </Helmet>     
         <Card>
           <CardHeader
             color="warning"
@@ -55,23 +62,34 @@ const BrowsePerson = props => {
   
   
           <CardBody plain>
-            <GridContainer justify="center">
+            <GridContainer >
               {
                 gears.map(gear => {
                   return (
                     <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
+
+
                       <Link to={"/product/" + gear.slug } >
-                      <InfoArea
-                        title={gear.title}
-                        description=""
-                        icon={Toys}
-                        image={gear.image}
-                        iconColor="info"
-                        vertical
-                      />
-      
-      
+                        <Card blog plain>
+                          <CardHeader image plain>
+                            
+                              <img src={gear.image} alt="..." />
+                            
+
+                          </CardHeader>
+                          <CardBody plain>
+                            <Info>
+                              <h6 className={classes.cardCategory}>{gear.title}</h6>
+                            </Info>
+                            <div className={classes.cardDescription}>
+                               {gear.brand_name} - {gear.year}
+                            </div>
+                          </CardBody>
+                        </Card>
                       </Link>
+
+
+
                     </GridItem>
                   );
                 })
@@ -93,3 +111,19 @@ const BrowsePerson = props => {
 
 }
 export default BrowsePerson;
+
+
+
+
+                      // <Link to={"/product/" + gear.slug } >
+                      // <InfoArea
+                      //   title={gear.title}
+                      //   description=""
+                      //   icon={Toys}
+                      //   image={gear.image}
+                      //   iconColor="info"
+                      //   vertical
+                      // />
+      
+      
+                      // </Link>
