@@ -92,10 +92,13 @@ class ProfileSectionGear extends React.Component {
     
     const gears = this.props.gears;
     console.log("gears" + this.props)
-    if (!gears ) {
+    if (!gears || gears.length == 0) {
       return(
-          <div>
+        <div className={classes.section}>
+          <div className={classes.container}>
+            <h2>No Setups Yet</h2>
           </div>
+        </div>
       )
 
     } else {

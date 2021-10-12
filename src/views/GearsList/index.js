@@ -1,9 +1,4 @@
-
 import React from 'react';
-
-// import BrowsePerson from './BrowsePerson';
-// import BrowseCategory from './BrowseCategory';
-// import Categories from './Categories';
 
 import agent from 'agent';
 import { connect } from 'react-redux';
