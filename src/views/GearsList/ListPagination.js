@@ -26,20 +26,11 @@ const ListPagination = props => {
   }
 
   const range = [];
+  range.push("<")
   for (let i = 0; i < Math.ceil(props.gearsCount / props.pageLimit); ++i) {
     range.push(i);
   }
-  console.log(range)
-
-  // const setPage = page => {
-  //   if(props.pager) {
-  //     console.log("props.pager yes")
-  //     props.onSetPage(page, props.pager(page));
-  //   }else {
-  //     console.log("props.pager no")
-  //     props.onSetPage(page, agent.Gears.byCategory(props.category, page, props.pageLimit))
-  //   }
-  // };
+  range.push(">")
 
   const setPage = page => props.onSetPage(page, agent.Gears.byCategory(props.category, page, props.pageLimit));
 
@@ -48,23 +39,10 @@ const ListPagination = props => {
     console.log("setting to page " + v)
   };
 
-  const getRangeSnippet = () => {
-            range.map(v => {
-              const isCurrent = v === props.currentPage;
-              const boolActive = isCurrent ? true : false
-              const onClick = ev => {
-                ev.preventDefault();
-                setPage(v);
-                console.log("setting to page " + v)
-              };
 
-              return (
-                {'text':v+1 , active: boolActive, onClick: onClick }
-              )
-            })
+  const maxRange = Math.ceil(props.gearsCount / props.pageLimit);
 
-  }
-  console.log(getRangeSnippet)
+
 
   return (
     <div>
@@ -76,24 +54,23 @@ const ListPagination = props => {
           pages= {
             range.map(v => {
               const isCurrent = v === props.currentPage;
-              const boolActive = isCurrent ? true : false
+              const boolShow = v < props.currentPage + 5 || v === props.currentPage - 5;
+              const boolDisable = (v === "<" && props.currentPage === 0) ? true : (v === ">" && props.currentPage === maxRange-1 ) ? true : false ;
+              const textString = (v === "<" || v === ">") ? v : v+1;
+              const pageToSetTo = (v === "<") ? props.currentPage - 1 : (v === ">") ? props.currentPage + 1 : v;
               const onClick = ev => {
                 ev.preventDefault();
-                setPage(v);
-                console.log("setting to page " + v)
+                setPage(pageToSetTo);
               };
 
               return (
-                {'text':v+1 , active: boolActive, onClick: onClick }
-              )
+                {'text':textString , active: isCurrent, onClick: onClick, hidden: !boolShow, disabled: boolDisable }
+              ) 
             })
           }
+
           color="primary"
         />
-
-
-
-
 
     </div>
   );
