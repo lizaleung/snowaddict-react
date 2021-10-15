@@ -1,9 +1,6 @@
 import React from 'react';
-
 import agent from 'agent';
 import { connect } from 'react-redux';
-
-import GearList from './GearList';
 
 import {
   GEARS_LIST_PAGE_LOADED,
@@ -15,11 +12,11 @@ import GridItem from "components/Grid/GridItem.js";
 
 import image from "assets/img/bg7.jpg";
 
-
 import { withStyles } from "@material-ui/core/styles";
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
-// const Promise = global.Promise;
+import GearList from './GearList';
+
 const PAGE_LIMIT = 8;
 
 const mapStateToProps = state => ({

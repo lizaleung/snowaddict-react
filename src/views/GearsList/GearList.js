@@ -1,11 +1,8 @@
-// import ArticlePreview from './ArticlePreview';
-import ListPagination from "./ListPagination.js";
 
 import React from 'react';
 import { Link } from "react-router-dom";
 
 import { Helmet } from 'react-helmet';
-
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -18,13 +15,12 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-
 import Info from "components/Typography/Info.js";
 
 import LoadingAnimation from "views/LoadingAnimation.js";
+import GearListPagination from "./GearListPagination.js";
 
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
-
 const useStyles = makeStyles(gearSectionStyle);
 
 const GearList = props => {
@@ -38,8 +34,8 @@ const GearList = props => {
 
   if (props.gears.length === 0) {
     return (
-      <div className="article-preview">
-        No articles are here... yet.
+      <div className={classes.section}>
+        No gears to show
       </div>
     );
   }
@@ -97,7 +93,7 @@ const GearList = props => {
                 })
               }
 
-              <ListPagination
+              <GearListPagination
                 pager={props.pager}
                 gearsCount={props.gearsCount}
                 currentPage={props.currentPage} 
@@ -105,12 +101,9 @@ const GearList = props => {
                 pageLimit={props.pageLimit}
                 />
 
-
-
             </GridContainer>
           </CardBody>
         </Card>
-
 
     </div>
 

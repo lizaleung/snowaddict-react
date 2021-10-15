@@ -115,8 +115,9 @@ class App extends React.Component {
       return (
         <main>
           <Helmet>
-            <title>snowaddict net </title>
+            <title>snowaddict</title>
             <meta name="description" content="Gear up for your snowboard ride. Check out different ride setups from the snowboard community and athletes." />
+            <link rel="canonical" href="https://www.snowaddict.net" />
           </Helmet>
           <Header
             color="transparent"

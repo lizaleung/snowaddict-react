@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: GEARS_LIST_SET_PAGE, page, payload })
 });
 
-const ListPagination = props => {
+const GearListPagination = props => {
   const classes = useStyles();
 
   if (props.gearsCount <= props.pageLimit) {
@@ -36,13 +36,9 @@ const ListPagination = props => {
 
   const onClick = v => {
     setPage(v);
-    console.log("setting to page " + v)
   };
 
-
   const maxRange = Math.ceil(props.gearsCount / props.pageLimit);
-
-
 
   return (
     <div>
@@ -55,7 +51,7 @@ const ListPagination = props => {
             range.map(v => {
               const isCurrent = v === props.currentPage;
               const boolShow = v < props.currentPage + 5 || v === props.currentPage - 5;
-              const boolDisable = (v === "<" && props.currentPage === 0) ? true : (v === ">" && props.currentPage === maxRange-1 ) ? true : false ;
+              const boolDisable = (v === "<" && props.currentPage === 0) ? true : (v === ">" && props.currentPage === maxRange - 1 ) ? true : false ;
               const textString = (v === "<" || v === ">") ? v : v+1;
               const pageToSetTo = (v === "<") ? props.currentPage - 1 : (v === ">") ? props.currentPage + 1 : v;
               const onClick = ev => {
@@ -64,7 +60,7 @@ const ListPagination = props => {
               };
 
               return (
-                {'text':textString , active: isCurrent, onClick: onClick, hidden: !boolShow, disabled: boolDisable }
+                {'text':textString , active: isCurrent, onClick: onClick,  disabled: boolDisable }
               ) 
             })
           }
@@ -76,4 +72,4 @@ const ListPagination = props => {
   );
 };
 
-export default connect(() => ({}), mapDispatchToProps)(ListPagination);
+export default connect(() => ({}), mapDispatchToProps)(GearListPagination);
