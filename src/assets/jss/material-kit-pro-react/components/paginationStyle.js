@@ -12,7 +12,7 @@ import {
 const paginationStyle = {
   pagination: {
     display: "flex",
-    paddingLeft: "0",
+    // paddingLeft: "0",
     listStyle: "none",
     borderRadius: "0.25rem"
   },

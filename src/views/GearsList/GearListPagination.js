@@ -3,7 +3,9 @@ import agent from 'agent';
 import { connect } from 'react-redux';
 import { makeStyles } from "@material-ui/core/styles";
 
-import Paginations from "components/Pagination/Pagination.js";
+import classNames from "classnames";
+
+import ReactPaginate from 'react-paginate';
 
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
@@ -25,48 +27,31 @@ const GearListPagination = props => {
     return null;
   }
 
-  const range = [];
-  range.push("<")
-  for (let i = 0; i < Math.ceil(props.gearsCount / props.pageLimit); ++i) {
-    range.push(i);
-  }
-  range.push(">")
+  const pageCount = Math.ceil(props.gearsCount / props.pageLimit);
 
-  const setPage = page => props.onSetPage(page, agent.Gears.byCategory(props.category, page, props.pageLimit));
+  const setPage = page => props.onSetPage(page.selected, agent.Gears.byCategory(props.category, page.selected, props.pageLimit));
 
-  const onClick = v => {
-    setPage(v);
-  };
 
-  const maxRange = Math.ceil(props.gearsCount / props.pageLimit);
 
   return (
-    <div>
+    <div className={classNames(classes.section, classes.textCenter)}>
 
-        <Paginations
-          className={
-            classes.textCenter + " " + classes.justifyContentCenter
-          }
-          pages= {
-            range.map(v => {
-              const isCurrent = v === props.currentPage;
-              const boolShow = v < props.currentPage + 5 || v === props.currentPage - 5;
-              const boolDisable = (v === "<" && props.currentPage === 0) ? true : (v === ">" && props.currentPage === maxRange - 1 ) ? true : false ;
-              const textString = (v === "<" || v === ">") ? v : v+1;
-              const pageToSetTo = (v === "<") ? props.currentPage - 1 : (v === ">") ? props.currentPage + 1 : v;
-              const onClick = ev => {
-                ev.preventDefault();
-                setPage(pageToSetTo);
-              };
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={setPage}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName={classes.pagination}
+        pageClassName={classes.paginationItem}
+        pageLinkClassName={classes.paginationLink}
+        activeClassName={classes.paginationActive}
+        activeLinkClassName={classes.paginationLinkActive}
 
-              return (
-                {'text':textString , active: isCurrent, onClick: onClick,  disabled: boolDisable }
-              ) 
-            })
-          }
+      />
 
-          color="primary"
-        />
 
     </div>
   );

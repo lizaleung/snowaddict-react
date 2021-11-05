@@ -31,6 +31,7 @@ export default function Trending() {
       <GridContainer justifyContent="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Trending People and Gear</h2>
+          {/*<h2 className={classes.title}>TTop Members From the Leaderboard</h2>*/}
         </GridItem>
       </GridContainer>
       <div>

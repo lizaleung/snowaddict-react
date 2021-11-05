@@ -35,9 +35,8 @@ export default function SectionContact() {
             Want to work with us?
           </h2>
           <h4 className={classNames(classes.description, classes.textCenter)}>
-            We are looking for more ways to improve our platform and are open to 
-            collaboration ideas. Whether you are a business, freelancer 
-            photographers and bloggers, or general users, if you have an idea or 
+            We are looking for new ways to collaborate. 
+            If you have an idea or 
             suggestion, feel free to email us!
           </h4>
 

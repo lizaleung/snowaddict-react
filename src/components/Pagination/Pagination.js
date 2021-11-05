@@ -25,7 +25,7 @@ export default function Pagination(props) {
           [classes.disabled]: prop.disabled
         });
         return (
-          <li className={classes.paginationItem} key={key}>
+          <li className={classes.paginationItem +" text-center"} key={key}>
             {prop.onClick !== undefined ? (
               <Button
                 onClick={prop.onClick}

@@ -27,8 +27,9 @@ const style = {
   description,
   section: {
     ...section,
-
-    padding: "70px 0px"
+    position: 'sticky',
+    width: '100%',
+    // paddingTop: "70px 0px"
   },
   socialFeed: {
     "& p": {

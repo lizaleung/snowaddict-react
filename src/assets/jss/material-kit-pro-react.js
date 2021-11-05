@@ -400,7 +400,7 @@ const sectionDescription = {
 };
 
 const description = {
-  color: grayColor[0]
+  color: grayColor[1]
 };
 
 const mlAuto = {

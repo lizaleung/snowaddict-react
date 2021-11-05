@@ -24,10 +24,9 @@ export default function SectionDescription() {
           <h2 className={classes.title}>We are a group of snow addicts!</h2>
 
           <h5 className={classes.description}>
-            Snow Addict is a ski and snowboard gear and travel website that provides 
-            information and reviews for those researching  about their next snow destination 
-            and gears. The aim of our website is to provide a platform faciliting information 
-            and experience sharing about anything related to snow rides! 
+            snowaddict is created by a team of snow enthusiast with aims to connect fellow riders to their next
+            set of gear. Our team consists of members from across the globe. You will find us riding on powder days
+            and working hard at the desk in between. 
 
 
           </h5>

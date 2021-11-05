@@ -28,9 +28,9 @@ export default function SectionOffice() {
           sm={8}
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
-          <h2 className={classes.title}>The outdoors is our place of inspiration</h2>
+          <h2 className={classes.title}>The slope is where we find inspiration.</h2>
           <h4 className={classes.description}>
-            It ignites our creativity to build amazing things.
+            
           </h4>
         </GridItem>
       </GridContainer>

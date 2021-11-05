@@ -58,7 +58,7 @@ const GearList = props => {
           </CardHeader>
   
   
-          <CardBody plain>
+          <CardBody plain className={classes.sectionCard}>
             <GridContainer >
 
               {
@@ -93,15 +93,22 @@ const GearList = props => {
                 })
               }
 
-              <GearListPagination
-                pager={props.pager}
-                gearsCount={props.gearsCount}
-                currentPage={props.currentPage} 
-                category={props.category}
-                pageLimit={props.pageLimit}
-                />
+
+
 
             </GridContainer>
+            <GridContainer >
+              <GridItem>
+                <GearListPagination
+                  pager={props.pager}
+                  gearsCount={props.gearsCount}
+                  currentPage={props.currentPage} 
+                  category={props.category}
+                  pageLimit={props.pageLimit}
+                  />
+              </GridItem>
+            </GridContainer>
+
           </CardBody>
         </Card>
 
