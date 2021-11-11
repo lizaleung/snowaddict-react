@@ -171,7 +171,7 @@ class App extends React.Component {
             <Route path="/browse/brands" component={BrowseBrands} />
 
 
-
+            {/* demo from template*/}
             <Route path="/landing-page-2" component={LandingPage2} />
 
             <Route path="/presentation" component={PresentationPage} />
