@@ -75,7 +75,7 @@ export default function SectionBasicInfo(props) {
                 )
               },
               {
-                title: "Designer Information",
+                title: "Terrain",
                 content: (
                   <p>
                     TBD
@@ -83,7 +83,7 @@ export default function SectionBasicInfo(props) {
                 )
               },
               {
-                title: "Details and Care",
+                title: "Specs",
                 content: (
                   <ul>
                     <li>TBD</li>

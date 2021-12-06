@@ -93,7 +93,7 @@ class FooterSection extends React.Component {
 
     return (
 
-    <div className={classes.section}>
+    <>
 
         <Footer
           theme="dark"
@@ -114,13 +114,7 @@ class FooterSection extends React.Component {
               <div
                 className={classNames(classes.pullCenter, classes.copyRight)}
               >
-                Copyright &copy; {1900 + new Date().getYear()}{" "} snow addict by {" "} 
-                <a
-                  href="http://www.arcticspark.co"
-                  target="_blank"
-                >
-                  Arctic Spark
-                </a>{" "}
+                Copyright &copy; {1900 + new Date().getYear()}{" "} snow addict {" "} 
               </div>
             </div>
           }
@@ -208,14 +202,14 @@ class FooterSection extends React.Component {
                   </Button>
                 </form>
                 { this.props.success && 
-      <SnackbarContent
-        message={
-            "Success"
-        }
-        close
-        color="success"
-        icon={Check}
-      />
+                  <SnackbarContent
+                    message={
+                        "Success"
+                    }
+                    close
+                    color="success"
+                    icon={Check}
+                  />
 
                  }
                 <ListErrors errors={this.props.errors} />
@@ -227,7 +221,7 @@ class FooterSection extends React.Component {
         </Footer>
 
 
-    </div>
+    </>
     );
   }
 }

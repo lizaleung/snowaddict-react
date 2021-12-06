@@ -66,14 +66,12 @@ const GearList = props => {
                   return (
                     <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={gear.id.toString()}>
 
-
                       <Link to={"/product/" + gear.slug } >
                         <Card blog plain>
                           <CardHeader image plain>
                             
                               <img src={gear.image} alt="..." />
                             
-
                           </CardHeader>
                           <CardBody plain>
                             <Info>

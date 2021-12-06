@@ -38,7 +38,7 @@ export default function BlogPostsPage() {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
               <h2 className={classes.title}>
-                A Place for Entrepreneurs to Share and Discover New Stories
+                Top Tips and Tricks for your next Adventure
               </h2>
             </GridItem>
           </GridContainer>

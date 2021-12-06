@@ -34,19 +34,19 @@ export default function SectionPills() {
                 tabContent: ""
               },
               {
-                tabButton: "World",
+                tabButton: "Gear",
                 tabContent: ""
               },
               {
-                tabButton: "Arts",
+                tabButton: "Resorts",
                 tabContent: ""
               },
               {
-                tabButton: "Tech",
+                tabButton: "Preparation",
                 tabContent: ""
               },
               {
-                tabButton: "Business",
+                tabButton: "People",
                 tabContent: ""
               }
             ]}
@@ -62,18 +62,17 @@ export default function SectionPills() {
             style={{ backgroundImage: "url(" + office2 + ")" }}
           >
             <CardBody background>
-              <h6 className={classes.category}>WORLDS</h6>
+              <h6 className={classes.category}>GEAR</h6>
               <a href="#pablo">
                 <h3 className={classes.cardTitle}>
-                  The Best Productivity Apps on Market
+                  Airline Ski and Snowboard Fees
                 </h3>
               </a>
               <p className={classes.category}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
+                All airlines have special baggage policies for your skis and snowboards 
+                so we have put together a quick summary of how each domestic US airline treat your snow equipment!
               </p>
-              <Button round href="#pablo" color="danger">
+              <Button round href="#pablo" color="primary">
                 <FormatAlignLeft className={classes.icons} /> Read article
               </Button>
             </CardBody>
@@ -86,16 +85,15 @@ export default function SectionPills() {
             style={{ backgroundImage: "url(" + blog8 + ")" }}
           >
             <CardBody background>
-              <h6 className={classes.category}>BUSINESS</h6>
+              <h6 className={classes.category}>PEOPLE</h6>
               <a href="#pablo">
                 <h3 className={classes.cardTitle}>
-                  Working on Wallstreet is Not So Easy
+                  Remembering Jake Burton
                 </h3>
               </a>
               <p className={classes.category}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
+                'Dear Rider: The Jake Burton Story' is a fantastic sports documentary released by HBO. 
+                A moving story of a man with drive and against the whole ......
               </p>
               <Button round href="#pablo" color="primary">
                 <FormatAlignLeft className={classes.icons} /> Read article
@@ -110,30 +108,20 @@ export default function SectionPills() {
             style={{ backgroundImage: "url(" + cardProject6 + ")" }}
           >
             <CardBody background>
-              <h6 className={classes.category}>MARKETING</h6>
+              <h6 className={classes.category}>GEAR</h6>
               <a href="#pablo">
                 <h3 className={classes.cardTitle}>
-                  0 to 100.000 Customers in 6 months
+                  What to Pack for a Ski Trip
                 </h3>
               </a>
               <p className={classes.category}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
+                Not sure what to buy, borrow or bring from home for your ski vacation? 
+                Here’s a lowdown of all the essentials you need to pack for ski trip. 
+                Or if you need a comprehensive packing checklist, see our Ski Trip Packing List.
               </p>
-              <Button round href="#pablo" color="warning">
-                <FormatAlignLeft className={classes.icons} /> Read case study
+              <Button round href="#pablo" color="primary">
+                <FormatAlignLeft className={classes.icons} /> Read article
               </Button>
-              <Tooltip
-                id="tooltip-pocket"
-                title="Save to Pocket"
-                placement="top"
-                classes={{ tooltip: classes.tooltip }}
-              >
-                <Button color="white" simple justIcon>
-                  <i className="fab fa-get-pocket" />
-                </Button>
-              </Tooltip>
             </CardBody>
           </Card>
         </GridItem>
