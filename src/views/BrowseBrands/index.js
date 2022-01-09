@@ -61,7 +61,7 @@ class BrowseBrands extends React.Component {
         }}
       >
         <div className={classes.container}>
-          <GridContainer justify="center">
+          <GridContainer justifyContent="center">
             <GridItem xs={12} sm={12} md={12}>
     
             <ListBrand brands={brands} />

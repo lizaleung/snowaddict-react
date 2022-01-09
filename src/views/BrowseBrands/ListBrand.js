@@ -46,7 +46,7 @@ const ListBrand = props => {
                 brands.map(brand => {
                   return (
                     
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
+                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={brand.id.toString()}>
                       <Link to={"/brand/" + brand.slug}>
                       <InfoArea
                         title={brand.name}

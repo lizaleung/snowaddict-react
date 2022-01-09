@@ -32,12 +32,28 @@ const mapDispatchToProps = dispatch => ({
   onUnload: () =>
     dispatch({  type: GEARS_LIST_PAGE_UNLOADED })
 
+  
 });
 
 
 class GearsList extends React.Component {
 
-  componentWillMount() {
+
+  componentDidUpdate(prevProps) {
+
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.props.onUnload();
+      if (this.props.match.params.categoryslug) {
+        return this.props.onLoad(agent.Gears.byCategory(this.props.match.params.categoryslug, 0, PAGE_LIMIT));
+      } else if (this.props.match.params.brandslug)  {
+        return this.props.onLoad(agent.Gears.byBrand(this.props.match.params.brandslug, 0, PAGE_LIMIT));
+      } else {
+        this.props.onLoad(null);
+      }
+    }
+  }
+
+  componentDidMount() {
     if (this.props.match.params.categoryslug) {
       return this.props.onLoad(agent.Gears.byCategory(this.props.match.params.categoryslug, 0, PAGE_LIMIT));
     } else if (this.props.match.params.brandslug)  {
@@ -49,21 +65,13 @@ class GearsList extends React.Component {
 
   componentWillUnmount() {
     this.props.onUnload();
-  }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.categoryslug !== nextProps.match.params.categoryslug) {
-      if (nextProps.match.params.categoryslug) {
-        return this.props.onLoad(agent.Gears.byCategory(nextProps.match.params.categoryslug, 0, PAGE_LIMIT));
-      } else if (nextProps.match.params.brandslug)  {
-        return this.props.onLoad(agent.Gears.byBrand(nextProps.match.params.brandslug, 0, PAGE_LIMIT));
-      } 
-    }
   }
-
+  
   render() {
     const onSetPage = page => props.onSetPage(page, payload);
     console.log(this.props)
+
 
     const  { classes } = this.props;
     return (
