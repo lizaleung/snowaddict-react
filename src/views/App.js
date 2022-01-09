@@ -113,7 +113,7 @@ class App extends React.Component {
     // const { ...rest } = this.props;
     if (this.props.appLoaded) {
       return (
-        <main>
+        <>
           <Helmet>
             <title>snowaddict</title>
             <meta name="description" content="Gear up for your snowboard ride. Check out different ride setups from the snowboard community and athletes." />
@@ -128,7 +128,7 @@ class App extends React.Component {
                   />}
             fixed
             changeColorOnScroll={{
-              height: 10,
+              height: 12,
               color: "dark"
             }}
           />
@@ -163,6 +163,7 @@ class App extends React.Component {
 
             <Route path="/category/:categoryslug" component={GearsList} />
             <Route path="/item/:slug" component={GearsItem} />
+            <Route path="/brand/:brandslug" component={GearsList} />
 
             <Route path="/product/:slug" component={ProductPage} />
 
@@ -193,7 +194,7 @@ class App extends React.Component {
             <Route component={ErrorPage} />
             </Switch>
             <FooterSection />
-        </main>
+        </>
       );
     }
     return (

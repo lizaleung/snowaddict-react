@@ -23,18 +23,10 @@ const mapStateToProps = state => ({
   gears: state.gearsList.gears,
   gearsCount: state.gearsList.gearsCount,
   currentPage: state.gearsList.currentPage
-
-
 });
 
 
 const mapDispatchToProps = dispatch => ({
-  onSetPage: (p) => 
-  dispatch({
-    type: 'GEARS_LIST_SET_PAGE',
-    page: p,
-    payload: agent.Gears.byCategory(this.props.match.params.categoryslug, p, PAGE_LIMIT)
-  }),
   onLoad: (payload) =>
     dispatch({ type: GEARS_LIST_PAGE_LOADED, payload }),
   onUnload: () =>
@@ -44,15 +36,29 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-
-
 class GearsList extends React.Component {
+
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.props.onUnload();
+      if (nextProps.match.params.categoryslug) {
+        return this.props.onLoad(agent.Gears.byCategory(nextProps.match.params.categoryslug, 0, PAGE_LIMIT));
+      } else if (nextProps.match.params.brandslug)  {
+        return this.props.onLoad(agent.Gears.byBrand(nextProps.match.params.brandslug, 0, PAGE_LIMIT));
+      } else {
+        this.props.onLoad(null);
+      }
+    }
+  }
 
   componentWillMount() {
     if (this.props.match.params.categoryslug) {
       return this.props.onLoad(agent.Gears.byCategory(this.props.match.params.categoryslug, 0, PAGE_LIMIT));
+    } else if (this.props.match.params.brandslug)  {
+      return this.props.onLoad(agent.Gears.byBrand(this.props.match.params.brandslug, 0, PAGE_LIMIT));
     } else {
-    this.props.onLoad(null);
+      this.props.onLoad(null);
     }
   }
 
@@ -62,7 +68,8 @@ class GearsList extends React.Component {
   }
   
   render() {
-    const onSetPage = page => props.onSetPage(page);
+    const onSetPage = page => props.onSetPage(page, payload);
+    console.log(this.props)
 
 
     const  { classes } = this.props;
@@ -83,8 +90,9 @@ class GearsList extends React.Component {
               gears={this.props.gears} 
               gearsCount={this.props.gearsCount}
               currentPage={this.props.currentPage}
-              onSetPage={onSetPage} 
               category={this.props.match.params.categoryslug}
+              brand={this.props.match.params.brandslug}
+              queryMode="category"
               pageLimit={PAGE_LIMIT}
               />
 

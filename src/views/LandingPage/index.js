@@ -31,9 +31,9 @@ const useStyles = makeStyles(landingPageStyle);
 export default function LandingPage(props) {
   const classes = useStyles();
   return (
-    <div>
+    <>
 
-      <Parallax image={bg} >
+      <Parallax image={bg} small>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
@@ -60,12 +60,12 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <IntroSection />
-          {/* <BlogSection /> */}
           <TrendingSection />
+          {/* <BlogSection /> */}          
           {/* <ContactUs /> */}
         </div>
       </div>
       
-    </div>
+    </>
   );
 }

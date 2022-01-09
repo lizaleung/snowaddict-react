@@ -21,6 +21,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const GearListPagination = props => {
+
+
+  
   const classes = useStyles();
 
   if (props.gearsCount <= props.pageLimit) {
@@ -29,10 +32,19 @@ const GearListPagination = props => {
 
   const pageCount = Math.ceil(props.gearsCount / props.pageLimit);
 
-  const setPage = page => props.onSetPage(page.selected, agent.Gears.byCategory(props.category, page.selected, props.pageLimit));
+  // if (props.category) {
+  //   const payload = page => agent.Gears.byBrand(props.brand, page.selected, props.pageLimit);
+  // } else  {
+  //   const payload = page => agent.Gears.byBrand(props.brand, page.selected, props.pageLimit);
+  // }
 
+  const setPage = page => props.onSetPage(page.selected, 
+                                  (props.brand) ? agent.Gears.byBrand(props.brand, page.selected, props.pageLimit) : 
+                                  agent.Gears.byCategory(props.category, page.selected, props.pageLimit) 
+                                  );
 
-
+  console.log("GearListPagination props.category " + props.category)
+  console.log("GearListPagination props.brand " + props.brand)
   return (
     <div className={classNames(classes.section, classes.textCenter)}>
 

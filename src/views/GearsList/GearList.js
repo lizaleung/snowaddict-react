@@ -54,13 +54,11 @@ const GearList = props => {
             className={classes.cardHeader}
           >
             <h4 className={classes.cardTitle}>Explore Gears</h4>
-  
           </CardHeader>
   
   
           <CardBody plain className={classes.sectionCard}>
             <GridContainer >
-
               {
                 props.gears.map(gear => {
                   return (
@@ -69,9 +67,7 @@ const GearList = props => {
                       <Link to={"/product/" + gear.slug } >
                         <Card blog plain>
                           <CardHeader image plain>
-                            
-                              <img src={gear.image} alt="..." />
-                            
+                            <img src={gear.image} alt="..." />
                           </CardHeader>
                           <CardBody plain>
                             <Info>
@@ -83,17 +79,10 @@ const GearList = props => {
                           </CardBody>
                         </Card>
                       </Link>
-
-
-
                     </GridItem>
                   );
                 })
               }
-
-
-
-
             </GridContainer>
             <GridContainer >
               <GridItem>
@@ -102,14 +91,13 @@ const GearList = props => {
                   gearsCount={props.gearsCount}
                   currentPage={props.currentPage} 
                   category={props.category}
+                  brand={props.brand}
                   pageLimit={props.pageLimit}
                   />
               </GridItem>
             </GridContainer>
-
           </CardBody>
         </Card>
-
     </div>
 
 

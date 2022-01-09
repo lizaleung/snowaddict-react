@@ -35,7 +35,7 @@ const ListBrand = props => {
             signup
             className={classes.cardHeader}
           >
-            <h4 className={classes.cardTitle}>Browse gear in these popular brands</h4>
+            <h4 className={classes.cardTitle}>Popular brands</h4>
   
           </CardHeader>
   
@@ -43,16 +43,16 @@ const ListBrand = props => {
   
             <GridContainer >
               {
-                brands.map(category => {
+                brands.map(brand => {
                   return (
                     
                     <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
-                      <Link to={"/brand/" + category.slug}>
+                      <Link to={"/brand/" + brand.slug}>
                       <InfoArea
-                        title={category.name}
+                        title={brand.name}
                         description=""
                         icon={Class}
-                        image={category.image}
+                        image={brand.image}
                         iconColor="info"
                         vertical
                       />
