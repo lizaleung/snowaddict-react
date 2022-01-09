@@ -41,14 +41,11 @@ class GearsList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.props.onUnload();
       if (nextProps.match.params.categoryslug) {
         return this.props.onLoad(agent.Gears.byCategory(nextProps.match.params.categoryslug, 0, PAGE_LIMIT));
       } else if (nextProps.match.params.brandslug)  {
         return this.props.onLoad(agent.Gears.byBrand(nextProps.match.params.brandslug, 0, PAGE_LIMIT));
-      } else {
-        this.props.onLoad(null);
-      }
+      } 
     }
   }
 
