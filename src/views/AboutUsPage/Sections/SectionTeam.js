@@ -35,12 +35,12 @@ export default function SectionTeam() {
             classes.textCenter
           )}
         >
-          <h2 className={classes.title}>Pow chasers guiding pow chasers</h2>
+          <h2 className={classes.title}>Let us introduce you to your next ... </h2>
           <h5 className={classes.description}>
             We are team of snow enthusiast with aim to connect fellow riders to 
             their next set of gear or a new mountain to conquer. 
             Our team consists of members from across the globe. You will find us riding on powder days
-            and working hard at the desk in between. 
+            and bursting out our creativity energy at the desk in between. 
           </h5>
         </GridItem>
       </GridContainer>

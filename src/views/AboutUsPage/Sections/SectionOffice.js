@@ -28,7 +28,7 @@ export default function SectionOffice() {
           sm={8}
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
-          <h2 className={classes.title}>The slope is where we find inspiration.</h2>
+          <h2 className={classes.title}>We find inspiration on the slope.</h2>
           <h4 className={classes.description}>
             
           </h4>
