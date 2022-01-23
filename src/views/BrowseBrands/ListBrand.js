@@ -16,6 +16,7 @@ import InfoArea from "../../components/InfoArea/InfoArea.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+import Info from "components/Typography/Info.js";
 
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
@@ -48,14 +49,19 @@ const ListBrand = props => {
                     
                     <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={brand.id.toString()}>
                       <Link to={"/brand/" + brand.slug}>
-                      <InfoArea
-                        title={brand.name}
-                        description=""
-                        icon={Class}
-                        image={brand.image}
-                        iconColor="info"
-                        vertical
-                      />
+                        <Card blog plain>
+                          <CardHeader plain 
+                                style={{
+                                height: '10vw'
+                          }}>
+                            <img src={brand.image} alt="..." />
+                          </CardHeader>
+                          <CardBody plain>
+                            <Info>
+                              <h6>{brand.name}</h6>
+                            </Info>
+                          </CardBody>
+                        </Card>
                       </Link>
                     </GridItem>
                   );

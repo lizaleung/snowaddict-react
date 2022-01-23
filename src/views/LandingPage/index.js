@@ -39,7 +39,7 @@ export default function LandingPage(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Be Gear Ready</h1>
               <h4>
-                Ever wonder what board your favorite snowboarder rides? 
+                Wondering what board your favorite snowboarder rides? 
               </h4>
               <br />
               <Link to="/register" >
