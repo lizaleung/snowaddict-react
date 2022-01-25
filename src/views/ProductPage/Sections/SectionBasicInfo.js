@@ -75,20 +75,33 @@ export default function SectionBasicInfo(props) {
                 )
               },
               {
-                title: "Terrain",
+                title: "Size",
                 content: (
-                  <p>
-                    TBD
-                  </p>
+                  <ul>
+                    { props.gear.gear_sizes.map(eachItem => { 
+                      return ( <li> { eachItem.size_value }  </li> ) 
+                    })}
+                  </ul>
+                )
+              },
+
+              {
+                title: "Features",
+                content: (
+                  <ul>
+                    { props.gear.gear_features.map(eachItem => { 
+                      return ( <li> { eachItem.attribute }  -  {eachItem.detail} </li> ) 
+                    })}
+                  </ul>
                 )
               },
               {
-                title: "Specs",
+                title: "Specification",
                 content: (
                   <ul>
-                    <li>TBD</li>
-                    <li>TBD</li>
-                    <li>TBD</li>
+                    { props.gear.gear_specs.map(eachItem => { 
+                      return ( <li> { eachItem.attribute }  -  {eachItem.detail} </li> ) 
+                    })}
                   </ul>
                 )
               }
