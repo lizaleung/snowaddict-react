@@ -180,8 +180,14 @@ const parallaxStyle = {
   small: {
     height: "65vh",
     minHeight: "65vh",
-    maxHeight: "650px"
+    maxHeight: "65px"
+  },
+  tiny: {
+    height: "40vh",
+    minHeight: "40vh",
+    maxHeight: "40px"
   }
+
 };
 
 export default parallaxStyle;
