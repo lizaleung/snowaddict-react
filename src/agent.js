@@ -125,7 +125,8 @@ const People = {
     requests.post(`/people?name=${name}/follow`),
   unfollow: name =>
     requests.del(`/people?name=${name}/unfollow`),    
-
+  trending: page =>
+    requests.get(`/trending/people?${limit(10, page)}`),
   create: formdata =>
     requests.postwithfile('/people',  formdata )
 };
