@@ -1,4 +1,5 @@
-import { HOME_PAGE_LOADED, HOME_PAGE_UNLOADED } from '../constants/actionTypes';
+import { HOME_PAGE_LOADED, HOME_PAGE_UNLOADED,
+HOME_PAGE_TRENDING_LOADED,HOME_PAGE_TRENDING_UNLOADED } from '../constants/actionTypes';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -9,6 +10,14 @@ export default (state = {}, action) => {
       };
     case HOME_PAGE_UNLOADED:
       return {};
+    case HOME_PAGE_TRENDING_LOADED:
+      return {
+        ...state,
+        ...action.payload
+      };
+    case HOME_PAGE_TRENDING_UNLOADED:
+      return {};
+
     default:
       return state;
   }
