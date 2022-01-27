@@ -37,9 +37,9 @@ export default function SectionTeam() {
         >
           <h2 className={classes.title}>Let us introduce you to your next ... </h2>
           <h5 className={classes.description}>
+            ... awesome snowboard, or a hidden powder stash, or a backcountry guru or ... <br></br> 
             We are team of snow enthusiast with aim to connect fellow riders to 
-            their next set of gear or a new mountain to conquer. 
-            Our team consists of members from across the globe. You will find us riding on powder days
+            their next set of gear or a new mountain to conquer. You will find us riding on powder days
             and bursting out our creativity energy at the desk in between. 
           </h5>
         </GridItem>

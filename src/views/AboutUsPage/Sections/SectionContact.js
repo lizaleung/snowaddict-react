@@ -35,9 +35,10 @@ export default function SectionContact() {
             Want to work with us?
           </h2>
           <h4 className={classNames(classes.description, classes.textCenter)}>
-            We are looking for new ways to collaborate. 
+            We are looking for new ways to collaborate. <br></br>
+
             If you have an idea or 
-            suggestion, feel free to email us!
+            suggestion, shoot us an email!
           </h4>
 
         </GridItem>

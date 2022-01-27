@@ -33,9 +33,9 @@ export default function BlogPostsPage() {
   const classes = useStyles();
   return (
     <div>
-      <Parallax image={bg} filter="dark" small>
+      <Parallax image={bg} filter="dark" tiny>
         <div className={classes.container}>
-          <GridContainer justify="center">
+          <GridContainer justifyContent="center">
             <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
               <h2 className={classes.title}>
                 Top Tips and Tricks for your next Adventure
