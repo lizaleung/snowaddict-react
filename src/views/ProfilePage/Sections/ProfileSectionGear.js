@@ -43,20 +43,6 @@ import Favorite from "@material-ui/icons/Favorite";
 import LoadingAnimation from "views/LoadingAnimation.js";
 
 
-import oluEletu from "assets/img/examples/olu-eletu.jpg";
-import clemOnojeghuo from "assets/img/examples/clem-onojeghuo.jpg";
-import cynthiaDelRio from "assets/img/examples/cynthia-del-rio.jpg";
-import mariyaGeorgieva from "assets/img/examples/mariya-georgieva.jpg";
-import clemOnojegaw from "assets/img/examples/clem-onojegaw.jpg";
-import darrenColeshill from "assets/img/examples/darren-coleshill.jpg";
-import avatar from "assets/img/faces/avatar.jpg";
-import marc from "assets/img/faces/marc.jpg";
-import kendall from "assets/img/faces/kendall.jpg";
-import cardProfile2Square from "assets/img/faces/card-profile2-square.jpg";
-
-import gucci from "assets/img/examples/gucci.jpg";
-import tomFord from "assets/img/examples/tom-ford.jpg";
-import dolce from "assets/img/examples/dolce.jpg";
 
 
 const mapStateToProps = state => ({
@@ -94,11 +80,13 @@ class ProfileSectionGear extends React.Component {
     console.log("gears" + this.props)
     if (!gears || gears.length == 0) {
       return(
-        <div className={classes.section}>
-          <div className={classes.container}>
-            <h2>No Setups Yet</h2>
-          </div>
-        </div>
+              <div className={classes.container}>
+                <GridContainer justifyContent="center">
+                  <GridItem xs={12} sm={12} md={12}>
+                    <h2>No Setups Yet</h2>
+                  </GridItem>
+                </GridContainer>
+              </div>
       )
 
     } else {
@@ -107,76 +95,76 @@ class ProfileSectionGear extends React.Component {
       return (
 
 
-    <div className={classes.section}>
-      <div className={classes.container}>
-        <h2>Setup</h2>
-        <GridContainer>
+        <div className={classes.section}>
+          <div className={classes.container}>
+            <h2>Setup</h2>
+            <GridContainer>
 
-              {
-                gears.map(gear => {
-                  return (
-
-
-                  <GridItem md={4} sm={4}>
-                    <Card product plain>
-                      <CardHeader image plain>
-                        <a href={"/product/" + gear.slug} >
-                          <img src={gear.image} alt="..." />
-                        </a>
-                        <div
-                          className={classes.coloredShadow}
-                          style={{ backgroundImage: `url(${gear.slug})`, opacity: 1 }}
-                        />
-                      </CardHeader>
-                      <CardBody className={classes.textCenter} plain>
-                        <h4 className={classes.cardTitle}>
-                          {gear.brand_name + " " + gear.title + " " + gear.year}
-                        </h4>
-                        <p className={classes.cardDescription}>
-                          The structured shoulders and sleek detailing ensure a sharp
-                          silhouette. Team it with a silk pocket square and leather
-                          loafers.
-                        </p>
-                      </CardBody>
-                      <CardFooter plain>
-                        <div className={classes.priceContainer}>
-                          <span className={classNames(classes.price, classes.priceOld)}>
-                            {" "}
-                            €1,430
-                          </span>
-                          <span className={classNames(classes.price, classes.priceNew)}>
-                            {" "}
-                            €743
-                          </span>
-                        </div>
-                        <div className={classNames(classes.stats, classes.mlAuto)}>
-                          <Tooltip
-                            id="tooltip-top"
-                            title="Saved to Wishlist"
-                            placement="top"
-                            classes={{ tooltip: classes.tooltip }}
-                          >
-                            <Button justIcon simple color="rose">
-                              <Favorite />
-                            </Button>
-                          </Tooltip>
-                        </div>
-                      </CardFooter>
-                    </Card>
-                  </GridItem>
+                  {
+                    gears.map(gear => {
+                      return (
 
 
-
-
-                  )
-                })
-              }
+                        <GridItem md={4} sm={4}>
+                          <Card product plain>
+                            <CardHeader image plain>
+                              <a href={"/product/" + gear.slug} >
+                                <img src={gear.image} alt="..." />
+                              </a>
+                              <div
+                                className={classes.coloredShadow}
+                                style={{ backgroundImage: `url(${gear.slug})`, opacity: 1 }}
+                              />
+                            </CardHeader>
+                            <CardBody className={classes.textCenter} plain>
+                              <h4 className={classes.cardTitle}>
+                                {gear.brand_name + " " + gear.title + " " + gear.year}
+                              </h4>
+                              <p className={classes.cardDescription}>
+                                The structured shoulders and sleek detailing ensure a sharp
+                                silhouette. Team it with a silk pocket square and leather
+                                loafers.
+                              </p>
+                            </CardBody>
+                            <CardFooter plain>
+                              <div className={classes.priceContainer}>
+                                <span className={classNames(classes.price, classes.priceOld)}>
+                                  {" "}
+                                  €1,430
+                                </span>
+                                <span className={classNames(classes.price, classes.priceNew)}>
+                                  {" "}
+                                  €743
+                                </span>
+                              </div>
+                              <div className={classNames(classes.stats, classes.mlAuto)}>
+                                <Tooltip
+                                  id="tooltip-top"
+                                  title="Saved to Wishlist"
+                                  placement="top"
+                                  classes={{ tooltip: classes.tooltip }}
+                                >
+                                  <Button justIcon simple color="rose">
+                                    <Favorite />
+                                  </Button>
+                                </Tooltip>
+                              </div>
+                            </CardFooter>
+                          </Card>
+                        </GridItem>
 
 
 
-        </GridContainer>
-      </div>
-    </div>
+
+                      )
+                    })
+                  }
+
+
+
+            </GridContainer>
+          </div>
+        </div>
 
 
 

@@ -41,7 +41,8 @@ import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePag
 
 const mapStateToProps = state => ({
   people: state.people.peoples,
-  peopleCount: state.people.peoplesCount
+  peopleCount: state.people.peoplesCount,
+  currentUser: state.common.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -83,7 +84,8 @@ class ProfileTopSection extends React.Component {
       classes.imgFluid
     );
     // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    console.log("ProfileTopSection displaynameslug " + displaynameslug)
+    console.log("ProfileTopSection displaynameslug " + displaynameslug);
+    console.log("in ProfileTopSection currentUser =  " + this.props.currentUser)
     
     if (!this.props.people ) {
       return(
@@ -172,16 +174,17 @@ class ProfileTopSection extends React.Component {
   
                         <ul className={classes.listUnstyled}>
                           <li>
-                            <b>60</b> Products
+                            Gears Owns <b>{thisPerson.owns_count}</b>
+
                           </li>
                           <li>
-                            <b>4</b> Collections
+                            Gears Liked <b>{thisPerson.gear_follows_count}</b>
                           </li>
                           <li>
-                            <b>331</b> Influencers
+                            Followed By <b>{thisPerson.profile_display_followed_by_count}</b>
                           </li>
                           <li>
-                            <b>1.2K</b> Likes
+                            Following <b>{thisPerson.profile_display_follows_count}</b> 
                           </li>
                         </ul>
                       </GridItem>
@@ -202,6 +205,7 @@ class ProfileTopSection extends React.Component {
                           className={classes.followButton}
                         >
                           <Add className={classes.followIcon} />
+
                         </Button>
                       </Tooltip>
                     </div>
