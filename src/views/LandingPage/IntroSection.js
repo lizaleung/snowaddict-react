@@ -62,7 +62,7 @@ export default function IntroSection() {
       </div>
       <div>
         <Link to="/register" className={classes.link}>
-          <Button color="warning" size="lg">
+          <Button color="primary" size="lg">
             Get Started Now
           </Button>
         </Link>

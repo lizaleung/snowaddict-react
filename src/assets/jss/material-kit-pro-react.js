@@ -64,14 +64,14 @@ const primaryColor = [
 ];
 const secondaryColor = ["#fafafa"];
 const warningColor = [
-  "#ff9800",
-  "#ffa726",
-  "#fb8c00",
-  "#ffa21a",
-  "#fcf8e3",
-  "#faf2cc",
-  "#ffe0b2",
-  "#ffb74d"
+  "#9c27b0",
+  "#641971",
+  "#771e86",
+  "#89229b",
+  "#9c27b0",
+  "#af2cc5",
+  "#bc37d3",
+  "#c34cd7"
 ];
 const dangerColor = [
   "#f44336",

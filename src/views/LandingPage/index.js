@@ -75,7 +75,7 @@ class LandingPage extends React.Component {
                 <Link to="/register" >
 
                 <Button
-                  color="warning"
+                  color="primary"
                   size="lg"
                 >
                   <b>

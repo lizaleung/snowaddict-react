@@ -31,7 +31,7 @@ const ListCategory = props => {
       <div className={classes.section}>
         <Card>
           <CardHeader
-            color="warning"
+            color="primary"
             signup
             className={classes.cardHeader}
           >

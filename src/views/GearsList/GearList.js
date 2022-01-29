@@ -49,7 +49,7 @@ const GearList = props => {
 
         <Card>
           <CardHeader
-            color="warning"
+            color="primary"
             signup
             className={classes.cardHeader}
           >

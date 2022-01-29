@@ -4,19 +4,6 @@ html {
 
 a:link {
   text-decoration: none;
-  color: #ffb700;
+  color: #fff;
 }
 
-a:hover {
-  color: #ffcc00;
-}
-
-/* visited link */
-a:visited {
-  color: #ffb700;
-}
-
-/* selected link */
-a:active {
-  color: #ffcc00;
-}

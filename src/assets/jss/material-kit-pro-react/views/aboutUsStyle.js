@@ -10,7 +10,6 @@ import {
 
 const aboutUsStyle = {
   main,
-  mainRaised,
   mrAuto,
   mlAuto,
   container: {

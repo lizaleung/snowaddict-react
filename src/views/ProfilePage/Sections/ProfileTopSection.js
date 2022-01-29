@@ -127,7 +127,7 @@ class ProfileTopSection extends React.Component {
                               {
                                 thisPerson.badge.map(eachBadge => {
                                   return (
-                                    <Badge color="warning">{eachBadge.name}</Badge>
+                                    <Badge color="primary">{eachBadge.name}</Badge>
                                   );
                                 })
                               }

@@ -290,8 +290,8 @@ const gearSectionStyle = theme => ({
   },
 
   paginationLinkActive: {
-    backgroundColor: warningColor[0],
-    borderColor: warningColor[0],
+    backgroundColor: primaryColor[0],
+    borderColor: primaryColor[0],
     color: whiteColor,
   }
 
