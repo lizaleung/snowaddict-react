@@ -58,18 +58,18 @@ const headerLinksStyle = theme => ({
     padding: "0 !important"
   },
   navLink: {
-    color: "inherit",
+    color: "#fff",
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
-    fontSize: "12px",
+    fontSize: "14px",
     textTransform: "uppercase",
     lineHeight: "20px",
     textDecoration: "none",
     margin: "0px",
     display: "inline-flex",
     "&:hover,&:focus": {
-      color: "inherit"
+      color: "#fff"
     },
     "& .fab,& .far,& .fal,& .fas,& .material-icons": {
       position: "relative",
