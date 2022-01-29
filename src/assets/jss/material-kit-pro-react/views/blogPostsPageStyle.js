@@ -20,8 +20,7 @@ const blogPostsPageStyle = {
     color: whiteColor
   },
   main: {
-    ...main,
-    ...mainRaised
+    ...main
   },
   block: {
     color: "inherit",

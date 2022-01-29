@@ -40,25 +40,26 @@ const ListBrand = props => {
   
           </CardHeader>
   
-          <CardBody plain>
+          <CardBody plain className={classes.sectionCard}>
   
             <GridContainer >
               {
                 brands.map(brand => {
                   return (
                     
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={brand.id.toString()}>
+                    <GridItem xs={12} sm={6} md={4} lg={3} className={classes.textCenter} key={brand.id.toString()}>
                       <Link to={"/brand/" + brand.slug}>
                         <Card blog plain>
                           <CardHeader plain 
                                 style={{
-                                height: '10vw'
+                                minHeight: '18vw'
+
                           }}>
                             <img src={brand.image} alt="..." />
                           </CardHeader>
-                          <CardBody plain>
+                          <CardBody plain >
                             <Info>
-                              <h6>{brand.name}</h6>
+                              <h3>{brand.name}</h3>
                             </Info>
                           </CardBody>
                         </Card>

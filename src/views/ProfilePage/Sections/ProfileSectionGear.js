@@ -94,12 +94,13 @@ class ProfileSectionGear extends React.Component {
 
       return (
 
+        <div className={classes.gearShowcase}>
 
-        <div className={classes.section}>
           <div className={classes.container}>
+
             <h2>Setup</h2>
             <GridContainer>
-
+              
                   {
                     gears.map(gear => {
                       return (
@@ -127,6 +128,7 @@ class ProfileSectionGear extends React.Component {
                               </p>
                             </CardBody>
                             <CardFooter plain>
+{/*
                               <div className={classes.priceContainer}>
                                 <span className={classNames(classes.price, classes.priceOld)}>
                                   {" "}
@@ -137,6 +139,7 @@ class ProfileSectionGear extends React.Component {
                                   €743
                                 </span>
                               </div>
+*/}
                               <div className={classNames(classes.stats, classes.mlAuto)}>
                                 <Tooltip
                                   id="tooltip-top"
@@ -159,7 +162,6 @@ class ProfileSectionGear extends React.Component {
                       )
                     })
                   }
-
 
 
             </GridContainer>

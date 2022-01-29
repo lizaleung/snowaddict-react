@@ -106,7 +106,7 @@ class ProfileTopSection extends React.Component {
         return (
 
               <div className={classes.container}>
-                <GridContainer justifyContent="flex-start">
+                <GridContainer >
                   <GridItem xs={12} sm={12} md={12}>
                     <GridContainer justifyContent="flex-start">
                       <GridItem

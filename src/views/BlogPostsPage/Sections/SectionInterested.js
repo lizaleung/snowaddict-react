@@ -30,7 +30,7 @@ export default function SectionInterested() {
       </h3>
       <br />
       <GridContainer>
-        <GridItem xs={12} sm={4} md={4} lg={4} xl={4}>
+        <GridItem xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card plain blog>
             <CardHeader image plain>
               <a href="#pablo">
@@ -46,23 +46,22 @@ export default function SectionInterested() {
             </CardHeader>
             <CardBody plain>
               <Info>
-                <h6>ENTERPRISE</h6>
+                <h6>PEOPLE</h6>
               </Info>
               <h4 className={classes.cardTitle}>
                 <a href="#pablo">
-                  Autodesk looks to future of 3D printing with Project Escher
+                  Remembering Jake Burton
                 </a>
               </h4>
               <p className={classes.description}>
-                Like so many organizations these days, Autodesk is a company in
-                transition. It was until recently a traditional boxed software
-                company selling licenses.
+                'Dear Rider: The Jake Burton Story' is a fantastic sports documentary released by HBO. 
+                A moving story of a man with drive and against the whole ......
                 <a href="#pablo"> Read More </a>
               </p>
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={4} md={4} lg={4} xl={4}>
+        <GridItem xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card plain blog>
             <CardHeader plain image>
               <a href="#pablo">
@@ -78,23 +77,22 @@ export default function SectionInterested() {
             </CardHeader>
             <CardBody plain>
               <Success>
-                <h6>STARTUPS</h6>
+                <h6>GEAR</h6>
               </Success>
               <h4 className={classes.cardTitle}>
                 <a href="#pablo">
-                  Lyft launching cross-platform service this week
+                  Airline Ski and Snowboard Fees
                 </a>
               </h4>
               <p className={classes.description}>
-                Like so many organizations these days, Autodesk is a company in
-                transition. It was until recently a traditional boxed software
-                company selling licenses.
+                All airlines have special baggage policies for your skis and snowboards 
+                so we have put together a quick summary of how each domestic US airline treat your snow equipment!
                 <a href="#pablo"> Read More </a>
               </p>
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={4} md={4} lg={4} xl={4}>
+        <GridItem xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card plain blog>
             <CardHeader plain image>
               <a href="#pablo">
@@ -111,18 +109,18 @@ export default function SectionInterested() {
             <CardBody plain>
               <Danger>
                 <h6>
-                  <TrendingUp /> ENTERPRISE
+                  <TrendingUp /> GEAR
                 </h6>
               </Danger>
               <h4 className={classes.cardTitle}>
                 <a href="#pablo">
-                  6 insights into the French Fashion landscape
+                  What to Pack for a Ski Trip
                 </a>
               </h4>
               <p className={classes.description}>
-                Like so many organizations these days, Autodesk is a company in
-                transition. It was until recently a traditional boxed software
-                company selling licenses.
+                Not sure what to buy, borrow or bring from home for your ski vacation? 
+                Here’s a lowdown of all the essentials you need to pack for ski trip. 
+                Or if you need a comprehensive packing checklist, see our Ski Trip Packing List.
                 <a href="#pablo"> Read More </a>
               </p>
             </CardBody>

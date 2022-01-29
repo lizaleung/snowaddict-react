@@ -43,7 +43,10 @@ const profilePageStyle = {
   name: {
     marginTop: "-80px"
   },
-
+  gearShowcase: {
+    textAlign: "left",
+    marginLeft: "100px"
+  },
   main: {
     ...main
   },
