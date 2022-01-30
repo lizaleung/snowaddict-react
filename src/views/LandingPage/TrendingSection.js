@@ -93,9 +93,9 @@ class TrendingSection extends React.Component {
                     people.map(person => {
                       return (
                         
-
-                        <Link to={"/people/" + person.display_name}>
-                          <ListItem>
+                        <ListItem key={person.id.toString()}>
+                          <Link to={"/people/" + person.display_name}>
+                          
                             <ListItemAvatar>
                               <Avatar>
                                 <ImageIcon />
@@ -110,8 +110,9 @@ class TrendingSection extends React.Component {
                                         {person.bio}
                                         </Typography> }
                              />
-                          </ListItem>
-                        </Link>
+                          
+                          </Link>
+                        </ListItem>
 
 
                       );

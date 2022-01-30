@@ -23,11 +23,10 @@ import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSectio
 const useStyles = makeStyles(gearSectionStyle);
 
 const ListPeople = props => {
-  const persons = props.persons;
+  const people = props.people;
   const classes = useStyles();
   
-  if (persons) {
-    console.log("in BrowsePerson" +persons)
+  if (people) {
     return (
   
       <div className={classes.section}>
@@ -45,18 +44,18 @@ const ListPeople = props => {
           <CardBody plain>
             <GridContainer>
               {
-                persons.map(person => {
+                people.map(person => {
                   return (
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
+                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={person.id.toString()}>
                       <Link to={"/people/" + person.display_name  }>
-                      <InfoArea
-                        title={person.full_name}
-                        description=""
-                        icon={Person}
-                        image={person.avatar}
-                        iconColor="info"
-                        vertical
-                      />
+                        <InfoArea
+                          title={person.full_name}
+                          description=""
+                          icon={Person}
+                          image={person.avatar}
+                          iconColor="info"
+                          vertical
+                        />
 
                       </Link>
                     </GridItem>
