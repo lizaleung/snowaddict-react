@@ -6,8 +6,8 @@ import ListPeople from './ListPeople';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
-  GEARS_PAGE_LOADED,
-  GEARS_PAGE_UNLOADED,
+  PEOPLE_PAGE_LOADED,
+  PEOPLE_PAGE_UNLOADED,
 } from '../../constants/actionTypes';
 
 import GridContainer from "../../components/Grid/GridContainer.js";
@@ -24,23 +24,19 @@ import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSectio
 const Promise = global.Promise;
 
 const mapStateToProps = state => ({
-  peoples: state.gears.peoples,
-  categories: state.gears.categories
+  peoples: state.people.peoples
 });
 
 const mapDispatchToProps = dispatch => ({
   onLoad: (payload) =>
-    dispatch({ type: GEARS_PAGE_LOADED, payload }),
+    dispatch({ type: PEOPLE_PAGE_LOADED, payload }),
   onUnload: () =>
-    dispatch({  type: GEARS_PAGE_UNLOADED })
+    dispatch({  type: PEOPLE_PAGE_UNLOADED })
 });
 
 class BrowsePeople extends React.Component {
   componentDidMount() {
-    this.props.onLoad(Promise.all([
-      agent.People.all(),
-      agent.Categories.all(),
-    ]));
+    this.props.onLoad(agent.People.all());
   }
 
   componentWillUnmount() {
@@ -49,11 +45,8 @@ class BrowsePeople extends React.Component {
 
   render() {
     const  { classes } = this.props;
+    const people = this.props.peoples;
 
-    const peoples = this.props.peoples;
-    const categories = this.props.categories;
-
-    
     return (
 
       <div
@@ -67,9 +60,7 @@ class BrowsePeople extends React.Component {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
-    
-            <ListPeople persons={peoples} />
-              
+              <ListPeople people={people} />
             </GridItem>
           </GridContainer>
         </div>
