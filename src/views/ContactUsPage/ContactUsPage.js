@@ -26,7 +26,6 @@ import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
-import Footer from "components/Footer/Footer.js";
 
 // core components
 import Parallax from "components/Parallax/Parallax.js";

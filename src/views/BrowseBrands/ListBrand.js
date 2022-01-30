@@ -59,7 +59,7 @@ const ListBrand = props => {
                           </CardHeader>
                           <CardBody plain >
                             <Info>
-                              <h3>{brand.name}</h3>
+                              <h4>{brand.name}</h4>
                             </Info>
                           </CardBody>
                         </Card>

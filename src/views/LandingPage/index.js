@@ -58,7 +58,6 @@ class LandingPage extends React.Component {
 
   render() {
     const  { classes } = this.props;
-    console.log(this.props.peoples)
 
     return (
       <>
@@ -68,9 +67,9 @@ class LandingPage extends React.Component {
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
                 <h1 className={classes.title}>Be Gear Ready</h1>
-                <h4>
+                <h3>
                   Wondering what board your favorite snowboarder rides? 
-                </h4>
+                </h3>
                 <br />
                 <Link to="/register" >
 
