@@ -78,16 +78,28 @@ class ProfileSectionGear extends React.Component {
     
     const gears = this.props.gears;
     console.log("gears" + this.props)
-    if (!gears || gears.length == 0) {
+    if (!gears ) {
       return(
+        <div className={classes.gearShowcase}>
+
+        </div>
+      )
+
+    } else if (gears.length == 0) {
+      return(
+        <div className={classes.gearShowcase}>
               <div className={classes.container}>
                 <GridContainer justifyContent="center">
                   <GridItem xs={12} sm={12} md={12}>
-                    <h2>No Setups Yet</h2>
+                    <h3>No Setups Yet</h3>
                   </GridItem>
                 </GridContainer>
               </div>
+        </div>
       )
+
+    
+
 
     } else {
 
@@ -98,7 +110,7 @@ class ProfileSectionGear extends React.Component {
 
           <div className={classes.container}>
 
-            <h2>Setup</h2>
+            <h3>Setup</h3>
             <GridContainer>
               
                   {
