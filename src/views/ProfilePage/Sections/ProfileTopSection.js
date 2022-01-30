@@ -84,13 +84,11 @@ class ProfileTopSection extends React.Component {
       classes.imgFluid
     );
     // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    console.log("ProfileTopSection displaynameslug " + displaynameslug);
-    console.log("in ProfileTopSection currentUser =  " + this.props.currentUser)
-    
-    if (!this.props.people ) {
+
+    if (!this.props.people || this.props.peopleCount == 0 ) {
       return(
           <div>
-
+            <h1>Can't load user. Please contact support.</h1>
           </div>
       )
 
@@ -105,121 +103,113 @@ class ProfileTopSection extends React.Component {
   
         return (
 
-              <div className={classes.container}>
-                <GridContainer >
-                  <GridItem xs={12} sm={12} md={12}>
-                    <GridContainer justifyContent="flex-start">
-                      <GridItem
-                        xs={12}
-                        sm={6}
-                        md={6}
+          <div className={classes.container}>
+            <GridContainer justifyContent="flex-start">
+              <GridItem xs={12} sm={12} md={12}>
+                <GridContainer justifyContent="flex-start">
+                  <GridItem
+                    xs={12}
+                    sm={6}
+                    md={6}
 
-                      >
+                  >
 
-                        <div className={classes.profile}>
-                          <div>
-                            <img src={thisPerson.avatar} alt="..." className={imageClasses} />
-                          </div>
-                          <div className={classes.name}>
-                            <h3 className={classes.title}>{thisPerson.full_name}</h3>
-                            <h6>@{thisPerson.display_name}</h6>
-                            <h6>
-                              {
-                                thisPerson.badge.map(eachBadge => {
-                                  return (
-                                    <Badge color="primary">{eachBadge.name}</Badge>
-                                  );
-                                })
-                              }
-                            </h6>
+                    <div className={classes.profile}>
+                      <div>
+                        <img src={thisPerson.avatar} alt="..." className={imageClasses} />
+                      </div>
+                      <div className={classes.name}>
+                        <h3 className={classes.title}>{thisPerson.full_name}</h3>
+                        <h6>@{thisPerson.display_name}</h6>
+                        <h6>
+                          {
+                            thisPerson.badge.map(eachBadge => {
+                              return (
+                                <Badge color="primary">{eachBadge.name}</Badge>
+                              );
+                            })
+                          }
+                        </h6>
   
-                            <Button
-                              justIcon
-                              simple
-                              color="facebook"
-                              className={classes.margin5}
-                            >
-                              <i className={classes.socials + " fa fa-link"} />
-                            </Button>
-  
-                            <Button
-                              justIcon
-                              simple
-                              color="instagram"
-                              className={classes.margin5}
-                            >
-                              <i className={classes.socials + " fab fa-instagram"} />
-                            </Button>
-                            <Button
-                              justIcon
-                              simple
-                              color="twitter"
-                              className={classes.margin5}
-                            >
-                              <i className={classes.socials + " fab fa-twitter"} />
-                            </Button>
-  
-                          </div>
-                          <div className={classes.description}>
-                            <p>{thisPerson.bio}{" "}</p>
-                          </div>
-  
-                        </div>
-                      </GridItem>
-                      <GridItem
-                        xs={12}
-                        sm={6}
-                        md={6}
-                      >
-  
-                        <ul className={classes.listUnstyled}>
-                          <li>
-                            Gears Owns <b>{thisPerson.owns_count}</b>
-
-                          </li>
-                          <li>
-                            Gears Liked <b>{thisPerson.gear_follows_count}</b>
-                          </li>
-                          <li>
-                            Followed By <b>{thisPerson.profile_display_followed_by_count}</b>
-                          </li>
-                          <li>
-                            Following <b>{thisPerson.profile_display_follows_count}</b> 
-                          </li>
-                        </ul>
-                      </GridItem>
-                    </GridContainer>
-
-                  
-                    <div className={classes.follow}>
-                      <Tooltip
-                        id="tooltip-top"
-                        title="Follow this user"
-                        placement="top"
-                        classes={{ tooltip: classes.tooltip }}
-                      >
                         <Button
                           justIcon
-                          round
-                          color="info"
-                          className={classes.followButton}
+                          simple
+                          color="facebook"
+                          className={classes.margin5}
                         >
-                          <Add className={classes.followIcon} />
-
+                          <i className={classes.socials + " fa fa-link"} />
                         </Button>
-                      </Tooltip>
+  
+                        <Button
+                          justIcon
+                          simple
+                          color="instagram"
+                          className={classes.margin5}
+                        >
+                          <i className={classes.socials + " fab fa-instagram"} />
+                        </Button>
+                        <Button
+                          justIcon
+                          simple
+                          color="twitter"
+                          className={classes.margin5}
+                        >
+                          <i className={classes.socials + " fab fa-twitter"} />
+                        </Button>
+  
+                      </div>
+                      <div className={classes.description}>
+                        <p>{thisPerson.bio}{" "}</p>
+                      </div>
+  
                     </div>
-
                   </GridItem>
+                  <GridItem
+                    xs={12}
+                    sm={6}
+                    md={6}
+                  >
+  
+                    <ul className={classes.listUnstyled}>
+                      <li>
+                        Gears Owns <b>{thisPerson.owns_count}</b>
 
-
+                      </li>
+                      <li>
+                        Gears Liked <b>{thisPerson.gear_follows_count}</b>
+                      </li>
+                      <li>
+                        Followed By <b>{thisPerson.profile_display_followed_by_count}</b>
+                      </li>
+                      <li>
+                        Following <b>{thisPerson.profile_display_follows_count}</b> 
+                      </li>
+                    </ul>
+                  </GridItem>
                 </GridContainer>
 
+              
+                <div className={classes.follow}>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Follow this user"
+                    placement="top"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button
+                      justIcon
+                      round
+                      color="info"
+                      className={classes.followButton}
+                    >
+                      <Add className={classes.followIcon} />
+                    </Button>
+                  </Tooltip>
+                </div>
 
-
-
-
-              </div>
+              </GridItem>
+            </GridContainer>
+          </div>
       
         );
       }
