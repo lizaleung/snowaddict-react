@@ -119,14 +119,6 @@ const gearSectionStyle = theme => ({
     top: "3px",
     position: "relative"
   },
-  footer: {
-    position: "absolute",
-    width: "100%",
-    background: "transparent",
-    bottom: "0",
-    color: whiteColor,
-    zIndex: "2"
-  },
   // start of pagination css
 
   pagination: {

@@ -108,14 +108,6 @@ const signupPageStyle = theme => ({
     height: "18px",
     top: "3px",
     position: "relative"
-  },
-  footer: {
-    position: "absolute",
-    width: "100%",
-    background: "transparent",
-    bottom: "0",
-    color: whiteColor,
-    zIndex: "2"
   }
 });
 

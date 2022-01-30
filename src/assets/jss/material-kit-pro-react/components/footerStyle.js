@@ -37,11 +37,11 @@ const footerStyle = {
     }
   },
   footer: {
-    padding: "0.9375rem 0",
+    marginTop: 0,
+    marginBottom: 0,    
     textAlign: "center",
-    display: "flex",
-    zIndex: "2",
-    position: "relative",
+position:"sticky",
+  bottom: 0,
     "& ul": {
       marginBottom: "0",
       padding: 0,
