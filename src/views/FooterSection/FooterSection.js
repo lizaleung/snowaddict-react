@@ -99,22 +99,11 @@ class FooterSection extends React.Component {
           theme="dark"
           content={
             <div>
-              <ul className={classes.socialButtons}>
-                <li>
-                  <Button justIcon simple href="#pablo" color="facebook">
-                    <i className="fab fa-facebook-square" />
-                  </Button>
-                </li>
-                <li>
-                  <Button justIcon simple href="https://www.instagram.com/powderatlas/" color="facebook">
-                    <i className="fab fa-instagram" />
-                  </Button>
-                </li>
-              </ul>
+
               <div
                 className={classNames(classes.pullCenter, classes.copyRight)}
               >
-                Copyright &copy; {1900 + new Date().getYear()}{" "} snow addict {" "} 
+                Copyright &copy; {1900 + new Date().getYear()}{" "} snowaddict {" "} 
               </div>
             </div>
           }
@@ -125,6 +114,13 @@ class FooterSection extends React.Component {
                 <Link to="/" className="nav-link">
                 <img className={classes.logo} src={brandLogo} />
                 </Link>
+                <ul className={classes.socialButtons}>
+                  <li>
+                    <Button justIcon simple href="https://www.instagram.com/snowaddictnet/" color="facebook">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                  </li>
+                </ul>
               </GridItem>
               <GridItem xs={12} sm={2} md={2}>
                 <h5>Browse</h5>
@@ -135,7 +131,7 @@ class FooterSection extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/brands" className="nav-link">
+                    <Link to="/browse/brands" className="nav-link">
                       Brands
                     </Link>
                   </li>
@@ -145,7 +141,7 @@ class FooterSection extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/resorts" className="nav-link">
+                    <Link to="/browse/resorts" className="nav-link">
                       Resorts
                     </Link>
                   </li>
