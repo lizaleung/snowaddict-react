@@ -50,6 +50,7 @@ import SectionsPage from "views/SectionsPage/SectionsPage.js";
 import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
+import ComingSoon from "views/ErrorPage/ComingSoon.js";
 
 
 import { store } from '../store';
@@ -170,6 +171,9 @@ class App extends React.Component {
             <Route path="/browse/categories" component={BrowseGearCategories} />
             <Route path="/browse/people" component={BrowsePeople} />
             <Route path="/browse/brands" component={BrowseBrands} />
+            <Route path="/browse/resorts" component={ComingSoon} />
+
+            <Route path="/terms" component={ComingSoon} />
 
 
             {/* demo from template*/}
