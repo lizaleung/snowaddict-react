@@ -31,6 +31,7 @@ import Badge from "components/Badge/Badge.js";
 
 import PromptNewProfile from "./PromptNewProfile.js";
 
+import LoadingAnimation from "views/LoadingAnimation.js";
 
 
 
@@ -88,7 +89,7 @@ class ProfileTopSection extends React.Component {
     if (!this.props.people || this.props.peopleCount == 0 ) {
       return(
           <div>
-            <h1>Can't load user. Please contact support.</h1>
+            <LoadingAnimation/>
           </div>
       )
 

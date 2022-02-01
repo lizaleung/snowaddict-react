@@ -40,8 +40,8 @@ const footerStyle = {
     marginTop: 0,
     marginBottom: 0,    
     textAlign: "center",
-position:"sticky",
-  bottom: 0,
+    position:"sticky",
+    bottom: 0,
     "& ul": {
       marginBottom: "0",
       padding: 0,

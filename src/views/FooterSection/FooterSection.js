@@ -176,9 +176,9 @@ class FooterSection extends React.Component {
 
               </GridItem>
               <GridItem xs={12} sm={4} md={4}>
-                <h5>Subscribe to Newsletter</h5>
+                <h5>Subscribe to our Newsletter</h5>
                 <p>
-                  Get the latest snow gear news and trends
+                  Get the latest snowboard gear news and trends
                 </p>
                 <form onSubmit={this.submitForm(this.props.email)}>
                         <fieldset className="form-group">

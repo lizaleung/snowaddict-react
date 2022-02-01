@@ -46,7 +46,7 @@ const ListCategory = props => {
                 categories.map(category => {
                   return (
                     
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter}>
+                    <GridItem xs={12} sm={6} md={4} className={classes.textCenter}>
                       <Link to={"/category/" + category.slug}>
                       <InfoArea
                         title={category.name}

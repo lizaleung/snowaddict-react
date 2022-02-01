@@ -146,7 +146,7 @@ export default function ContactUsPage() {
         />
       </div>
       */}
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(classes.main)}>
         <div className={classes.contactContent}>
           <div className={classes.container}>
             <h2 className={classes.title}>Send us a message</h2>
@@ -169,13 +169,6 @@ export default function ContactUsPage() {
                   />
                   <CustomInput
                     labelText="Email address"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Phone"
                     id="float"
                     formControlProps={{
                       fullWidth: true

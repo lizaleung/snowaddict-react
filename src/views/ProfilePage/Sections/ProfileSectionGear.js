@@ -81,7 +81,7 @@ class ProfileSectionGear extends React.Component {
     if (!gears ) {
       return(
         <div className={classes.gearShowcase}>
-
+          
         </div>
       )
 

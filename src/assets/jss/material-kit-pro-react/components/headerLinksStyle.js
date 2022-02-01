@@ -36,9 +36,11 @@ const headerLinksStyle = theme => ({
     width: "auto",
     margin: "0",
     padding: "0",
+    paddingRight: "10px",
     [theme.breakpoints.down("sm")]: {
       "& ul": {
         maxHeight: "400px",
+
         overflow: "scroll"
       },
       width: "100%",
