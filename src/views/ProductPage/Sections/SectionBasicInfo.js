@@ -14,6 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Accordion from "components/Accordion/Accordion.js";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "components/CustomButtons/Button.js";
+import Badge from "components/Badge/Badge.js";
 
 import Favorite from "@material-ui/icons/Favorite";
 import Add from "@material-ui/icons/Add";
@@ -109,7 +110,7 @@ export default function SectionBasicInfo(props) {
                 content: (
                   <ul>
                     { props.gear.gear_sizes.map(eachItem => { 
-                      return ( <li> { eachItem.size_value }  </li> ) 
+                      return ( <Badge color="primary"> { eachItem.size_value }  </Badge> ) 
                     })}
                   </ul>
                 )
