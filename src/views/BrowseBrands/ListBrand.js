@@ -47,7 +47,7 @@ const ListBrand = props => {
                 brands.map(brand => {
                   return (
                     
-                    <GridItem xs={12} sm={6} md={4} lg={3} className={classes.textCenter} key={brand.id.toString()}>
+                    <GridItem xs={12} sm={4} md={3} className={classes.textCenter} key={brand.id.toString()}>
                       <Link to={"/brand/" + brand.slug}>
                         <Card blog plain>
                           <CardHeader plain 
@@ -55,7 +55,10 @@ const ListBrand = props => {
                                 minHeight: '18vw'
 
                           }}>
-                            <img src={brand.image} alt="..." />
+                            <img src={brand.image} alt="..." style={{
+                                maxWidth: '12vw'
+                              }}
+                           />
                           </CardHeader>
                           <CardBody plain >
                             <Info>
