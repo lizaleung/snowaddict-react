@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import agent from '../../../agent';
 import { connect } from 'react-redux';
-import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../../../constants/actionTypes';
+import { BLOG_POST_FAVORITED, BLOG_POST_UNFAVORITED } from '../../../constants/actionTypes';
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
@@ -27,11 +27,11 @@ const useStyles = makeStyles(styles);
 
 const mapDispatchToProps = dispatch => ({
   favorite: slug => dispatch({
-    type: ARTICLE_FAVORITED,
+    type: BLOG_POST_FAVORITED,
     payload: agent.Articles.favorite(slug)
   }),
   unfavorite: slug => dispatch({
-    type: ARTICLE_UNFAVORITED,
+    type: BLOG_POST_UNFAVORITED,
     payload: agent.Articles.unfavorite(slug)
   })
 });
@@ -84,7 +84,7 @@ const SectionBlogPreview = props => {
 
 
               <h4 className={classes.cardTitle}>
-                <a href="#pablo">
+                <a href="#">
                   {article.title}
                 </a>
               </h4>
@@ -93,28 +93,15 @@ const SectionBlogPreview = props => {
                 
 
               </p>
-              <p> <a href="#pablo"> Read More </a></p>
+              <p> <a href="#"> Read More </a></p>
               {/*<p> {article.favoritesCount}</p>*/}
               {/*<p> by {article.author.username}</p>*/}
               {/*<p> {new Date(article.createdAt).toDateString()} </p>*/}
-
+{/*
               <button className={favoriteButtonClass} onClick={handleClick}>
                 <i className="ion-heart"></i> {article.favoritesCount}
               </button>
-              {/*        
-              <ul className="tag-list">
-                {
-                  article.tagList.map(tag => {
-                    return (
-                      <li className="tag-default tag-pill tag-outline" key={tag}>
-                        {tag}
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-              */}
-
+*/}
             </CardBody>
           </Card>
         </GridItem>

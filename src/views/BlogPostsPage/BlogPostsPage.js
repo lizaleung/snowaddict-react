@@ -33,8 +33,6 @@ import blogPostsPageStyle from "assets/jss/material-kit-pro-react/views/blogPost
 
 import bg from "assets/img/bg7.jpg";
 
-// const useStyles = makeStyles(blogPostsPageStyle);
-
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-pro-react/views/landingPageStyle.js";
 
@@ -59,11 +57,21 @@ const mapDispatchToProps = dispatch => ({
 class BlogPostsPage extends React.Component {
 
   componentDidMount() {
-    const tab = this.props.token ? 'feed' : 'all';
-    const articlesPromise = this.props.token ?
-      agent.Articles.feed :
-      agent.Articles.all;
-    this.props.onLoad(tab, articlesPromise, Promise.all([agent.Tags.getAll(), articlesPromise()]));
+    // const tab = this.props.token ? 'feed' : 'all';
+    const tab = 'all';
+    // const tab = this.props.token ? 'all' : 'all';
+    // const articlesPromise = this.props.token ?
+    //   agent.Articles.feed :
+    //   agent.Articles.all;
+
+    const articlesPromise = agent.Articles.all;
+
+    this.props.onLoad(tab, articlesPromise, 
+      Promise.all(
+        [agent.Tags.getAll(), 
+        articlesPromise()]
+      )
+    );
   }
 
   componentWillUnmount() {
