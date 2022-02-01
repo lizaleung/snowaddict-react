@@ -142,7 +142,9 @@ const Gears = {
   byCategory: (category, page, pageLimit) =>
     requests.get(`/gears?category=${encode(category)}&${limit(pageLimit, page)}`),
   get: slug =>
-    requests.get(`/gears/${slug}`)
+    requests.get(`/gears/${slug}`),
+  trending: page =>
+    requests.get(`/trending/gears?${limit(10, page)}`)
 };
 
 

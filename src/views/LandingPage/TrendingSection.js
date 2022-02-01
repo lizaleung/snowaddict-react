@@ -35,44 +35,40 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import Info from "components/Typography/Info.js";
 
+import LoadingAnimation from "views/LoadingAnimation.js";
+
 import landingPageSections from "assets/jss/material-kit-pro-react/views/landingPageSections/productStyle.js";
 
 // @material-ui/core components
 import { withStyles } from "@material-ui/core/styles";
 
-
-
 const mapStateToProps = state => ({
-  people: state.home.peoples,
-  peopleCount: state.home.peoplesCount
+  people: state.home.people,
+  gears: state.home.gears
 });
 
 const mapDispatchToProps = dispatch => ({
   onLoad: payload => dispatch({ type: HOME_PAGE_TRENDING_LOADED, payload }),
   onUnload: () => dispatch({ type: HOME_PAGE_TRENDING_UNLOADED })
-
 });
 
 
 class TrendingSection extends React.Component {
   componentDidMount() {
-    this.props.onLoad(
-      agent.People.trending()
-    );
-
+    this.props.onLoad(Promise.all([
+      agent.People.trending(),
+      agent.Gears.trending()
+    ]));
   }
-
 
   componentWillUnmount() {
     this.props.onUnload();
   }
 
-
   render() {
     const  { classes } = this.props;
-    console.log(this.props.people)
     const people = this.props.people
-
+    const gears = this.props.gears
 
     if (people) {
       return (
@@ -98,8 +94,7 @@ class TrendingSection extends React.Component {
                           
                             <ListItemAvatar>
                               <Avatar>
-                                <ImageIcon />
-                                {/*<img src={person.avatar} alt="..." />*/}
+                                <ImageIcon /> {/*<img src={person.avatar} alt="..." />*/}
                               </Avatar>
                             </ListItemAvatar>
                             <ListItemText disableTypography
@@ -110,10 +105,8 @@ class TrendingSection extends React.Component {
                                         {person.bio}
                                         </Typography> }
                              />
-                          
                           </Link>
                         </ListItem>
-
 
                       );
                     })
@@ -128,55 +121,31 @@ class TrendingSection extends React.Component {
               <GridItem xs={12} sm={12} md={6}>
                 <h2 className={classes.title}>Gear</h2>
 
+                  {
+                    gears.map(gear => {
+                      return (
+                        
+                        <ListItem key={gear.id.toString()}>
+                          <Link to={"/product/" + gear.slug}>
+                          
+                            <ListItemAvatar>
+                              <Avatar>
+                                <ImageIcon /> {/*<img src={person.avatar} alt="..." />*/}
+                              </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText disableTypography
+                              primary={ <Typography type="body2" style={{ color: '#000' }}>
+                                        {gear.brand_name} - {gear.title}
+                                        </Typography> }
 
-              <List className={classes.list}>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <ImageIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText disableTypography
-                      primary={ <Typography type="body2" style={{ color: '#000' }}>
-                                Stratos
-                                </Typography> }
-                      secondary={ <Typography type="body2" style={{ color: '#999' }}>
-                                Jones
-                                </Typography> }
-                     />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <ImageIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText disableTypography
-                      primary={ <Typography type="body2" style={{ color: '#000' }}>
-                                Archetype
-                                </Typography> }
-                      secondary={ <Typography type="body2" style={{ color: '#999' }}>
-                                Endeavor
-                                </Typography> }
-                     />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <ImageIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText disableTypography
-                      primary={ <Typography type="body2" style={{ color: '#000' }}>
-                                Klassy
-                                </Typography> }
-                      secondary={ <Typography type="body2" style={{ color: '#999' }}>
-                                Gnu
-                                </Typography> }
-                     />
-                  </ListItem>
-                </List>
+                             />
+                          </Link>
+                        </ListItem>
 
+
+                      );
+                    })
+                  }
 
               </GridItem>
 
@@ -185,7 +154,7 @@ class TrendingSection extends React.Component {
         </div>
       );
     } else {
-      return( <p>hi</p>)
+      return( <LoadingAnimation/> )
     }
 
   }
