@@ -25,12 +25,9 @@ export default function SectionInterested() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-      <h3 className={classes.title + " " + classes.textCenter}>
-        You may also be interested in
-      </h3>
-      <br />
+
       <GridContainer>
-        <GridItem xs={12} sm={6} md={6} lg={6} xl={6}>
+        <GridItem xs={12} sm={6} >
           <Card plain blog>
             <CardHeader image plain>
               <a href="#pablo">

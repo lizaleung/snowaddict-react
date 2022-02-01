@@ -10,6 +10,7 @@ import people from './reducers/people';
 import gear from './reducers/gear';
 import gears from './reducers/gears';
 import gearsList from './reducers/gearsList';
+import blogList from './reducers/blogList';
 import settings from './reducers/settings';
 import { routerReducer } from 'react-router-redux';
 
@@ -17,6 +18,7 @@ export default combineReducers({
   article,
   articleList,
   auth,
+  blogList,
   common,
   editor,
   home,

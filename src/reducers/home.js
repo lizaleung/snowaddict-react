@@ -13,7 +13,8 @@ export default (state = {}, action) => {
     case HOME_PAGE_TRENDING_LOADED:
       return {
         ...state,
-        ...action.payload
+        people: action.payload[0].peoples,
+        gears:  action.payload[1].gears
       };
     case HOME_PAGE_TRENDING_UNLOADED:
       return {};
