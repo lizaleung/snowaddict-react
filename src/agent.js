@@ -122,9 +122,9 @@ const People = {
   retrieve: () =>
     requests.get(`/people`),    
   follow: name =>
-    requests.post(`/people?name=${name}/follow`),
+    requests.post(`/people/${name}/follow`),
   unfollow: name =>
-    requests.del(`/people?name=${name}/unfollow`),    
+    requests.del(`/people/${name}/follow`),    
   trending: page =>
     requests.get(`/trending/people?${limit(10, page)}`),
   create: formdata =>

@@ -3,8 +3,8 @@ import React from 'react';
 import agent from '../../../agent';
 import { connect } from 'react-redux';
 import {
-  PEOPLE_PAGE_LOADED,
-  PEOPLE_PAGE_UNLOADED,
+  PROFILE_DISPLAY_LOADED,
+  PROFILE_DISPLAY_UNLOADED,
   PROFILE_DISPLAY_FOLLOWED,
   PROFILE_DISPLAY_UNFOLLOWED,
 } from 'constants/actionTypes';
@@ -18,7 +18,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
 import Add from "@material-ui/icons/Add";
-
+import Remove from "@material-ui/icons/Remove";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -33,22 +33,16 @@ import PromptNewProfile from "./PromptNewProfile.js";
 
 import LoadingAnimation from "views/LoadingAnimation.js";
 
-
-
 import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePageStyle.js";
 
-
-
-
 const mapStateToProps = state => ({
-  people: state.people.peoples,
-  peopleCount: state.people.peoplesCount,
+  thisPerson: state.people.person,
   currentUser: state.common.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: payload => dispatch({ type: PEOPLE_PAGE_LOADED, payload }),
-  onUnload: () => dispatch({ type: PEOPLE_PAGE_UNLOADED }),
+  onLoad: payload => dispatch({ type: PROFILE_DISPLAY_LOADED, payload }),
+  onUnload: () => dispatch({ type: PROFILE_DISPLAY_UNLOADED }),
   followProfileDisplay: slug => dispatch({
     type: PROFILE_DISPLAY_FOLLOWED,
     payload: agent.People.follow(slug)
@@ -62,7 +56,6 @@ const mapDispatchToProps = dispatch => ({
 
 class ProfileTopSection extends React.Component {
 
-
   componentDidMount() {
     if (this.props.displaynameslug) {
       return this.props.onLoad(agent.People.get(this.props.displaynameslug));
@@ -72,6 +65,18 @@ class ProfileTopSection extends React.Component {
 
   componentWillUnmount() {
     this.props.onUnload();
+  }
+
+  handleClickFollow = e => {
+    if (this.props.currentUser) {
+    this.props.followProfileDisplay(e);
+    }
+  }
+
+  handleClickUnfollow = e => {
+    if (this.props.currentUser) {    
+    this.props.unfollowProfileDisplay(e);
+    }
   }
 
 
@@ -84,23 +89,17 @@ class ProfileTopSection extends React.Component {
       classes.imgRoundedCircle,
       classes.imgFluid
     );
-    // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
-    if (!this.props.people || this.props.peopleCount == 0 ) {
+    if (!this.props.thisPerson ) {
       return(
-          <div>
-            <LoadingAnimation/>
-          </div>
+        <LoadingAnimation/>
       )
 
     } else {
 
-      const peopleCount = this.props.peopleCount
-      const thisPerson = this.props.people[0]
-    
-      console.log("peopleCount "+ peopleCount + " thisPerson " + thisPerson)
+      const thisPerson = this.props.thisPerson;
 
-      if ( peopleCount > 0 ) {
+      if ( thisPerson ) {
   
         return (
 
@@ -112,7 +111,6 @@ class ProfileTopSection extends React.Component {
                     xs={12}
                     sm={6}
                     md={6}
-
                   >
 
                     <div className={classes.profile}>
@@ -131,15 +129,6 @@ class ProfileTopSection extends React.Component {
                             })
                           }
                         </h6>
-  
-                        <Button
-                          justIcon
-                          simple
-                          color="facebook"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fa fa-link"} />
-                        </Button>
   
                         <Button
                           justIcon
@@ -174,7 +163,6 @@ class ProfileTopSection extends React.Component {
                     <ul className={classes.listUnstyled}>
                       <li>
                         Gears Owns <b>{thisPerson.owns_count}</b>
-
                       </li>
                       <li>
                         Gears Liked <b>{thisPerson.gear_follows_count}</b>
@@ -188,26 +176,50 @@ class ProfileTopSection extends React.Component {
                     </ul>
                   </GridItem>
                 </GridContainer>
-
-              
+                
                 <div className={classes.follow}>
-                  <Tooltip
-                    id="tooltip-top"
-                    title="Follow this user"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
-                  >
-                    <Button
-                      justIcon
-                      round
-                      color="info"
-                      className={classes.followButton}
-                    >
-                      <Add className={classes.followIcon} />
-                    </Button>
-                  </Tooltip>
-                </div>
 
+                  { thisPerson.followed ? 
+                    <Tooltip
+                      id="tooltip-top"
+                      title="Unfollow"
+                      placement="top"
+                      classes={{ tooltip: classes.tooltip }}
+                    >
+                      <Button
+                        justIcon
+                        round
+                        color="info"
+                        className={classes.followButton}
+                        onClick={() => this.handleClickUnfollow(thisPerson.display_name)}
+
+                      >
+                        <Remove className={classes.followIcon} />
+                      </Button>
+                    </Tooltip>
+
+                    :
+
+                    <Tooltip
+                      id="tooltip-top"
+                      title="Follow"
+                      placement="top"
+                      classes={{ tooltip: classes.tooltip }}
+                    >
+                      <Button
+                        justIcon
+                        round
+                        color="info"
+                        className={classes.followButton}
+                        onClick={() => this.handleClickFollow(thisPerson.display_name)}
+                      >
+                        <Add className={classes.followIcon} />
+                      </Button>
+                    </Tooltip>
+
+                  }
+
+                </div>
               </GridItem>
             </GridContainer>
           </div>

@@ -1,6 +1,8 @@
 import {
   PEOPLE_PAGE_LOADED,
   PEOPLE_PAGE_UNLOADED,
+  PROFILE_DISPLAY_LOADED,
+  PROFILE_DISPLAY_UNLOADED,
   PROFILE_DISPLAY_FOLLOWED,
   PROFILE_DISPLAY_UNFOLLOWED,
   PEOPLE_PAGE_GEAR_SECTION_LOADED,
@@ -13,8 +15,15 @@ export default (state = {}, action) => {
       return {
         ...state,
         ...action.payload
-      };
+        };
     case PEOPLE_PAGE_UNLOADED:
+      return {};
+    case PROFILE_DISPLAY_LOADED:
+      return {
+        ...state,
+        person: action.payload.peoples[0]
+        };
+    case PROFILE_DISPLAY_UNLOADED:
       return {};
     case PEOPLE_PAGE_GEAR_SECTION_LOADED:
       return {
@@ -24,21 +33,15 @@ export default (state = {}, action) => {
     case PEOPLE_PAGE_GEAR_SECTION_UNLOADED:
       return {};
     case PROFILE_DISPLAY_FOLLOWED:
+      return {
+        ...state,
+        person: action.payload
+      }
     case PROFILE_DISPLAY_UNFOLLOWED:
       return {
-        // ...state,
-        // articles: state.articles.map(article => {
-        //   if (article.slug === action.payload.article.slug) {
-        //     return {
-        //       ...article,
-        //       favorited: action.payload.article.favorited,
-        //       favoritesCount: action.payload.article.favoritesCount
-        //     };
-        //   }
-        //   return article;
-        // })
+        ...state,
+        person: action.payload
       };
-
     default:
       return state;
   }
