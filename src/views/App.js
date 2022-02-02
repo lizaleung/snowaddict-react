@@ -64,8 +64,6 @@ import brandLogo from "assets/img/snowaddictnet/logo-snowaddict-word.png";
 // pages for this product
 // import Components from "../views/Components/Components.js";
 import LandingPage from "../views/LandingPage";
-// import ProfilePage from "../views/ProfilePage/ProfilePage.js";
-// import LoginPage from "../views/LoginPage/LoginPage.js";
 
 // const dashboardRoutes = [];
 
@@ -159,7 +157,7 @@ class App extends React.Component {
 
 
             <Route path="/people/:displaynameslug" component={ProfilePage} />
-            <Route path="/profile" component={ProfilePage} />
+            <Route path="/profile" component={ComingSoon} />
 
 
             <Route path="/category/:categoryslug" component={GearsList} />

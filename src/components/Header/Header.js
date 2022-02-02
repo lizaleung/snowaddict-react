@@ -94,7 +94,6 @@ export default function Header(props) {
             paper: classes.drawerPaper
           }}
           onClose={handleDrawerToggle}
-          onClick={handleDrawerToggle}
         >
           <IconButton
             color="inherit"
@@ -104,7 +103,7 @@ export default function Header(props) {
           >
             <Close />
           </IconButton>
-          <div className={classes.appResponsive}>{links}</div>
+          <div className={classes.appResponsive} onClick={handleDrawerToggle}>{links}</div>
         </Drawer>
       </Hidden>
     </AppBar>

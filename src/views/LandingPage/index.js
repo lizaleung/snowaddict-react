@@ -30,31 +30,20 @@ import TrendingSection from "./TrendingSection"
 import BlogSection from "./BlogSection"
 import bg from "assets/img/snowaddictnet/landing-bg.JPG";
 
-
-
-
-
-
 const mapStateToProps = state => ({
-
 });
 
 const mapDispatchToProps = dispatch => ({
-
-
 });
 
 class LandingPage extends React.Component {
 
   componentDidMount() {
-
-
   }
 
 
   componentWillUnmount() {
   }
-
 
   render() {
     const  { classes } = this.props;
