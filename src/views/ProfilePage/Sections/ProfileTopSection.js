@@ -119,7 +119,7 @@ class ProfileTopSection extends React.Component {
                       </div>
                       <div className={classes.name}>
                         <h3 className={classes.title}>{thisPerson.full_name}</h3>
-                        <h6>@{thisPerson.display_name}</h6>
+                        {/*<h6>@{thisPerson.display_name}</h6>*/}
                         <h6>
                           {
                             thisPerson.badge.map(eachBadge => {

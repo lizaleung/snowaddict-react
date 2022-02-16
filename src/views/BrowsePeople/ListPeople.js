@@ -15,6 +15,7 @@ import InfoArea from "../../components/InfoArea/InfoArea.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+import Info from "components/Typography/Info.js";
 
 // import styles from "../../assets/jss/material-kit-pro-react/views/homePageSections/browsePersonStyle.js";
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
@@ -46,19 +47,31 @@ const ListPeople = props => {
               {
                 people.map(person => {
                   return (
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={person.id.toString()}>
-                      <Link to={"/people/" + person.display_name  }>
-                        <InfoArea
-                          title={person.full_name}
-                          description=""
-                          icon={Person}
-                          image={person.avatar}
-                          iconColor="info"
-                          vertical
-                        />
 
+                    <GridItem xs={12} sm={4} md={3} className={classes.textCenter} key={person.id.toString()}>
+                      <Link to={"/people/" + person.slug}>
+                        <Card blog plain>
+                          <CardHeader plain 
+                                style={{
+                                minHeight: '18vw'
+
+                          }}>
+                            <img src={person.avatar} alt="..." style={{
+                                maxWidth: '12vw'
+                              }}
+                           />
+                          </CardHeader>
+                          <CardBody plain >
+                            <Info>
+                              <h4>{person.full_name}</h4>
+                            </Info>
+                          </CardBody>
+                        </Card>
                       </Link>
                     </GridItem>
+
+
+
                   );
                 })
               }
