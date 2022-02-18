@@ -117,6 +117,8 @@ const People = {
     requests.get(`/people/?gear=${encode(gear)}&${limit(10, page)}`),
   all: page =>
     requests.get(`/people?${limit(100, page)}`),
+  filterLastName: filterTag =>
+    requests.get(`/people?lastname=${filterTag}`),
   get: name =>
     requests.get(`/people?name=${name}`),
   retrieve: () =>

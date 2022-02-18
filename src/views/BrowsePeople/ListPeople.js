@@ -19,6 +19,7 @@ import Info from "components/Typography/Info.js";
 
 // import styles from "../../assets/jss/material-kit-pro-react/views/homePageSections/browsePersonStyle.js";
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
+import Filter from "./Filter";
 
 
 const useStyles = makeStyles(gearSectionStyle);
@@ -43,21 +44,25 @@ const ListPeople = props => {
   
   
           <CardBody plain>
+
             <GridContainer>
+              <GridItem xs={12} className={classes.textCenter} >
+              <Filter choiceList={props.choiceList} onApplyFilter={props.onApplyFilter} />
+              </GridItem>
               {
                 people.map(person => {
                   return (
 
-                    <GridItem xs={12} sm={4} md={3} className={classes.textCenter} key={person.id.toString()}>
+                    <GridItem xs={12} md={4} lg={3} className={classes.textCenter} key={person.id.toString()}>
                       <Link to={"/people/" + person.slug}>
                         <Card blog plain>
                           <CardHeader plain 
                                 style={{
-                                minHeight: '18vw'
+                                minHeight: '200px'
 
                           }}>
                             <img src={person.avatar} alt="..." style={{
-                                maxWidth: '12vw'
+                                maxWidth: '180px'
                               }}
                            />
                           </CardHeader>

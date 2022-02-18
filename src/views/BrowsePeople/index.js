@@ -2,12 +2,14 @@
 import React from 'react';
 
 import ListPeople from './ListPeople';
+import Filter from "./Filter";
 
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
   PEOPLE_PAGE_LOADED,
   PEOPLE_PAGE_UNLOADED,
+  PEOPLE_PAGE_APPLY_FILTER
 } from '../../constants/actionTypes';
 
 import GridContainer from "../../components/Grid/GridContainer.js";
@@ -28,6 +30,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  onApplyFilter: (lastnamefilter, payload) =>
+    dispatch({ type: PEOPLE_PAGE_APPLY_FILTER, lastnamefilter, payload }),
   onLoad: (payload) =>
     dispatch({ type: PEOPLE_PAGE_LOADED, payload }),
   onUnload: () =>
@@ -46,21 +50,23 @@ class BrowsePeople extends React.Component {
   render() {
     const  { classes } = this.props;
     const people = this.props.peoples;
-
+    const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+    const choiceList = alpha.map((x) => String.fromCharCode(x));
     return (
 
       <div
         className={classes.pageHeader}
         style={{
           backgroundImage: "url(" + image + ")",
-          backgroundSize: "cover",
+          backgroundSize: "auto",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "top center"
         }}
       >
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
-              <ListPeople people={people} />
+              <ListPeople people={people} choiceList={choiceList} onApplyFilter={this.props.onApplyFilter} />
             </GridItem>
           </GridContainer>
         </div>

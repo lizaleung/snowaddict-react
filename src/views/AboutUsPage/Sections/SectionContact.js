@@ -32,7 +32,7 @@ export default function SectionContact() {
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
           <h2 className={classNames(classes.title, classes.textCenter)}>
-            Want to work with us?
+            Suggestions?
           </h2>
           <h4 className={classNames(classes.description, classes.textCenter)}>
             We are looking for new ways to collaborate. <br></br>

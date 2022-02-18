@@ -1,6 +1,7 @@
 import {
   PEOPLE_PAGE_LOADED,
   PEOPLE_PAGE_UNLOADED,
+  PEOPLE_PAGE_APPLY_FILTER,
   PROFILE_DISPLAY_LOADED,
   PROFILE_DISPLAY_UNLOADED,
   PROFILE_DISPLAY_FOLLOWED,
@@ -14,10 +15,16 @@ export default (state = {}, action) => {
     case PEOPLE_PAGE_LOADED:
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
         };
     case PEOPLE_PAGE_UNLOADED:
       return {};
+    case PEOPLE_PAGE_APPLY_FILTER:
+      return {
+        ...state,
+        ...action.payload,
+        filterTag: action.filterTag
+        };
     case PROFILE_DISPLAY_LOADED:
       return {
         ...state,

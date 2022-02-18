@@ -49,8 +49,13 @@ export default function AboutUsPage() {
                 classes.textCenter
               )}
             >
-              <h1 className={classes.title}>About Us</h1>
-
+              <h2 className={classes.title}>Let us introduce you to your next ... </h2>
+              <h4 className={classes.description}>
+                ... snowboard, or a hidden powder stash, or a backcountry trail or ... <br></br> 
+                We are team of snow enthusiast with aim to connect fellow riders to 
+                their next set of gear or a new mountain to conquer. You will find us riding on powder days
+                and bursting out our creativity energy at the desk in between. 
+              </h4>
             </GridItem>
           </GridContainer>
         </div>
@@ -58,7 +63,7 @@ export default function AboutUsPage() {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           {/* <SectionDescription /> */ }
-          <SectionTeam />
+          {/*<SectionTeam />*/}
           { /* <SectionServices /> */ }
           <SectionOffice />
           <SectionContact />
