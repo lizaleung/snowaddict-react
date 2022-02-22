@@ -19,7 +19,6 @@ import image from "assets/img/bg7.jpg";
 
 
 import { withStyles } from "@material-ui/core/styles";
-// import styles from "assets/jss/material-kit-pro-react/views/landingPageStyle.js";
 import gearSectionStyle from "assets/jss/material-kit-pro-react/views/gearSections/gearSectionStyle.js";
 
 
@@ -40,7 +39,7 @@ const mapDispatchToProps = dispatch => ({
 
 class BrowsePeople extends React.Component {
   componentDidMount() {
-    this.props.onLoad(agent.People.all());
+    this.props.onLoad(agent.People.trending())
   }
 
   componentWillUnmount() {
@@ -50,6 +49,7 @@ class BrowsePeople extends React.Component {
   render() {
     const  { classes } = this.props;
     const people = this.props.peoples;
+    // generate A-Z array
     const alpha = Array.from(Array(26)).map((e, i) => i + 65);
     const choiceList = alpha.map((x) => String.fromCharCode(x));
     return (

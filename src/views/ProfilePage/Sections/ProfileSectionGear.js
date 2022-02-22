@@ -90,8 +90,12 @@ class ProfileSectionGear extends React.Component {
         <div className={classes.gearShowcase}>
               <div className={classes.container}>
                 <GridContainer justifyContent="center">
-                  <GridItem xs={12} sm={12} md={12}>
-                    <h3>No Setups Yet</h3>
+                  <GridItem>
+                    <Card product plain color="primary">
+                    <CardBody>
+                    <h4><b>Spotted this rider in action? Add their gears + </b></h4>
+                    </CardBody>
+                    </Card>
                   </GridItem>
                 </GridContainer>
               </div>
@@ -110,7 +114,7 @@ class ProfileSectionGear extends React.Component {
 
           <div className={classes.container}>
 
-            <h3>Setup</h3>
+            <h3>Snowboards</h3>
             <GridContainer>
               
                   {

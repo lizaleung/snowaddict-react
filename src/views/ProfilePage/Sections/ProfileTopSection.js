@@ -28,12 +28,19 @@ import Parallax from "components/Parallax/Parallax.js";
 import Clearfix from "components/Clearfix/Clearfix.js";
 import Button from "components/CustomButtons/Button.js";
 import Badge from "components/Badge/Badge.js";
+import Table from "components/Table/Table.js";
 
 import PromptNewProfile from "./PromptNewProfile.js";
 
 import LoadingAnimation from "views/LoadingAnimation.js";
 
 import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePageStyle.js";
+
+import product1 from "assets/img/product1.jpg";
+import product2 from "assets/img/product2.jpg";
+import product3 from "assets/img/product3.jpg";
+import Favorite from "@material-ui/icons/Favorite";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
 const mapStateToProps = state => ({
   thisPerson: state.people.person,
@@ -155,25 +162,36 @@ class ProfileTopSection extends React.Component {
                     </div>
                   </GridItem>
                   <GridItem
+                    style={{paddingTop: "20px"}}
                     xs={12}
-                    sm={6}
-                    md={6}
+                    sm={4}
+                    md={3}
                   >
-  
-                    <ul className={classes.listUnstyled}>
-                      <li>
-                        Gears Owns <b>{thisPerson.owns_count}</b>
-                      </li>
-                      <li>
-                        Gears Liked <b>{thisPerson.gear_follows_count}</b>
-                      </li>
-                      <li>
-                        Followed By <b>{thisPerson.profile_display_followed_by_count}</b>
-                      </li>
-                      <li>
-                        Following <b>{thisPerson.profile_display_follows_count}</b> 
-                      </li>
-                    </ul>
+
+
+                    <Table
+
+
+
+                      tableData={[
+                        [
+                          "Gears Spotted " , <b>{thisPerson.owns_count}</b>
+                        ],
+                        [
+                          "Gears Liked " , <b>{thisPerson.gear_follows_count}</b>
+                        ],
+                        [
+                          "Followed By " , <b>{thisPerson.profile_display_followed_by_count}</b>
+                        ],
+                        [
+                          "Following " , <b>{thisPerson.profile_display_follows_count}</b>
+                        ]
+
+                      ]}
+
+                    />
+
+
                   </GridItem>
                 </GridContainer>
                 

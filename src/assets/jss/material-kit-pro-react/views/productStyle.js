@@ -49,6 +49,7 @@ const productStyle = {
   },
   productPage: {
     backgroundColor: grayColor[2],
+
     "& $mainRaised": {
       margin: "-40vh 0 0",
       padding: "40px"

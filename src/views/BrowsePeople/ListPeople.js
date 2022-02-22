@@ -38,12 +38,12 @@ const ListPeople = props => {
             signup
             className={classes.cardHeader}
           >
-            <h4 className={classes.cardTitle}>Explore gear used by your favorite athlete</h4>
+            <h4 className={classes.cardTitle}>Explore Riders</h4>
   
           </CardHeader>
   
   
-          <CardBody plain>
+          <CardBody plain style={{minHeight: "800px"}}>
 
             <GridContainer>
               <GridItem xs={12} className={classes.textCenter} >

@@ -61,7 +61,7 @@ const gearSectionStyle = theme => ({
   section: {
     // minWidth: "30px",
     // height: "30px",
-    minHeight: "75vh",
+    minHeight: "20px",
   },
 
   cardHeader: {

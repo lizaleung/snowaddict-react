@@ -102,7 +102,7 @@ export default function HeaderLinks(props) {
           <Button
           color="transparent"
           className={classes.navLink}>
-            Browse Snowboards
+            Snowboards
           </Button>
         </Link>
       </ListItem>
@@ -112,7 +112,7 @@ export default function HeaderLinks(props) {
           <Button
           color="transparent"
           className={classes.navLink}>
-            Browse Brands
+            Brands
           </Button>
         </Link>
       </ListItem>
@@ -122,7 +122,7 @@ export default function HeaderLinks(props) {
           <Button
           color="transparent"
           className={classes.navLink}>
-            Browse People
+            Riders
           </Button>
         </Link>
       </ListItem>
