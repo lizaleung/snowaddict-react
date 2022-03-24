@@ -149,6 +149,18 @@ const profilePageStyle = {
     top: "3px",
     position: "relative"
   },
+  cardHeader: {
+    width: "auto",
+    textAlign: "center"
+  },
+  snowboardImg: {
+    "& img": {
+      width: "auto",
+      maxWidth: "230px",
+      maxHeight: "250px"
+    }
+  },
+
   parallax: {
     height: "380px",
     backgroundPosition: "top center"

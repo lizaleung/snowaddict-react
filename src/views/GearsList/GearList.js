@@ -62,12 +62,12 @@ const GearList = props => {
               {
                 props.gears.map(gear => {
                   return (
-                    <GridItem xs={12} sm={6} md={3} className={classes.textCenter} key={gear.id.toString()}>
+                    <GridItem xs={12} sm={6}  lg={3} className={classes.textCenter} key={gear.id.toString()}>
 
                       <Link to={"/product/" + gear.slug } >
                         <Card blog plain>
-                          <CardHeader image plain>
-                            <img src={gear.image} alt="..." />
+                          <CardHeader image plain className={classes.snowboardImg}>
+                            <img  src={gear.image} alt="..." />
                           </CardHeader>
                           <CardBody plain>
                             <Info>

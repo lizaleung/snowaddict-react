@@ -286,6 +286,13 @@ const gearSectionStyle = theme => ({
   paginationActive: {
     color: whiteColor,
   },
+  snowboardImg: {
+    "& img": {
+      width: "auto",
+      maxWidth: "230px",
+      maxHeight: "250px"
+    }
+  },
 
   paginationLinkActive: {
     backgroundColor: primaryColor[0],

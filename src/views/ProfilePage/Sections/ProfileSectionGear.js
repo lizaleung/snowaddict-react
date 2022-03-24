@@ -124,7 +124,7 @@ class ProfileSectionGear extends React.Component {
 
                         <GridItem md={4} sm={4}>
                           <Card product plain>
-                            <CardHeader image plain>
+                            <CardHeader image plain className={classes.snowboardImg}>
                               <a href={"/product/" + gear.slug} >
                                 <img src={gear.image} alt="..." />
                               </a>
