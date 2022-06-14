@@ -51,6 +51,7 @@ import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
 import ComingSoon from "views/ErrorPage/ComingSoon.js";
+import ProfileAddGear from "views/ProfileAddGear/ProfileAddGear.js";
 
 
 import { store } from '../store';
@@ -155,7 +156,7 @@ class App extends React.Component {
 
             <Route path="/@:username/favorites" component={ProfileFavorites} />
 
-
+            <Route path="/people/:displaynameslug/addgear" component={ProfileAddGear} />
             <Route path="/people/:displaynameslug" component={ProfilePage} />
             <Route path="/profile" component={ComingSoon} />
 
@@ -175,7 +176,7 @@ class App extends React.Component {
 
 
             {/* demo from template*/}
-            <Route path="/landing-page-2" component={LandingPage2} />
+            <Route path="/demo" component={LandingPage2} />
 
             <Route path="/presentation" component={PresentationPage} />
             <Route path="/blog-post" component={BlogPostPage} />

@@ -7,7 +7,11 @@ import {
   PROFILE_DISPLAY_FOLLOWED,
   PROFILE_DISPLAY_UNFOLLOWED,
   PEOPLE_PAGE_GEAR_SECTION_LOADED,
-  PEOPLE_PAGE_GEAR_SECTION_UNLOADED
+  PEOPLE_PAGE_GEAR_SECTION_UNLOADED,
+  PEOPLE_ADD_GEAR_SECTION_LOADED,
+  PEOPLE_ADD_GEAR_SECTION_UNLOADED,
+  PEOPLE_ADD_GEAR_GET_GEAR_LIST,
+  PEOPLE_ADD_GEAR_ADD_GEAR
 } from '../constants/actionTypes';
 
 export default (state = {}, action) => {
@@ -48,6 +52,22 @@ export default (state = {}, action) => {
       return {
         ...state,
         person: action.payload
+      };
+    case PEOPLE_ADD_GEAR_SECTION_LOADED:
+      return {
+        ...state,
+        brands: action.payload.brands
+      };
+    case PEOPLE_ADD_GEAR_SECTION_UNLOADED:
+      return {};
+    case PEOPLE_ADD_GEAR_GET_GEAR_LIST:
+      return {
+        ...state,
+        gears: action.payload.gears
+      };
+    case PEOPLE_ADD_GEAR_ADD_GEAR:
+      return {
+
       };
     default:
       return state;

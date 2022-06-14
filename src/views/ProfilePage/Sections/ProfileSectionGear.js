@@ -5,7 +5,7 @@ import agent from '../../../agent';
 import { connect } from 'react-redux';
 import {
   PEOPLE_PAGE_GEAR_SECTION_LOADED,
-  PEOPLE_PAGE_GEAR_SECTION_UNLOADED
+  PEOPLE_PAGE_GEAR_SECTION_UNLOADED,
 } from 'constants/actionTypes';
 
 // nodejs library that concatenates classes
@@ -38,7 +38,7 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui icons
-import Favorite from "@material-ui/icons/Favorite";
+import Favorite from "@material-ui/icons/FavoriteBorder";
 
 import LoadingAnimation from "views/LoadingAnimation.js";
 
@@ -46,7 +46,8 @@ import LoadingAnimation from "views/LoadingAnimation.js";
 
 
 const mapStateToProps = state => ({
-  gears: state.people.gears
+  gears: state.people.gears,
+  currentUser: state.common.currentUser  
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -68,6 +69,8 @@ class ProfileSectionGear extends React.Component {
   componentWillUnmount() {
     // this.props.onUnload();
   }
+
+
 
 
   render() {
@@ -93,7 +96,10 @@ class ProfileSectionGear extends React.Component {
                   <GridItem>
                     <Card product plain color="primary">
                     <CardBody>
-                    <h4><b>Spotted this rider in action? Add their gears + </b></h4>
+                    <h4><b>
+                      Spotted this rider in action? 
+                      <Link to={"/people/" + this.props.displaynameslug + "/addgear"  }> Add their gears + </Link> 
+                    </b></h4>
                     </CardBody>
                     </Card>
                   </GridItem>
@@ -120,8 +126,6 @@ class ProfileSectionGear extends React.Component {
                   {
                     gears.map(gear => {
                       return (
-
-
                         <GridItem md={4} sm={4}>
                           <Card product plain>
                             <CardHeader image plain className={classes.snowboardImg}>
@@ -144,35 +148,12 @@ class ProfileSectionGear extends React.Component {
                               </p>
                             </CardBody>
                             <CardFooter plain>
-{/*
-                              <div className={classes.priceContainer}>
-                                <span className={classNames(classes.price, classes.priceOld)}>
-                                  {" "}
-                                  €1,430
-                                </span>
-                                <span className={classNames(classes.price, classes.priceNew)}>
-                                  {" "}
-                                  €743
-                                </span>
-                              </div>
-*/}
                               <div className={classNames(classes.stats, classes.mlAuto)}>
-                                <Tooltip
-                                  id="tooltip-top"
-                                  title="Saved to Wishlist"
-                                  placement="top"
-                                  classes={{ tooltip: classes.tooltip }}
-                                >
-                                  <Button justIcon simple color="rose">
-                                    <Favorite />
-                                  </Button>
-                                </Tooltip>
+                                {/* footer placeholder*/}
                               </div>
                             </CardFooter>
                           </Card>
                         </GridItem>
-
-
 
 
                       )

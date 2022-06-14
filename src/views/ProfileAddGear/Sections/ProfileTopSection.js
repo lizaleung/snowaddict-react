@@ -30,7 +30,6 @@ import Button from "components/CustomButtons/Button.js";
 import Badge from "components/Badge/Badge.js";
 import Table from "components/Table/Table.js";
 
-import PromptNewProfile from "./PromptNewProfile.js";
 
 import LoadingAnimation from "views/LoadingAnimation.js";
 
@@ -119,46 +118,13 @@ class ProfileTopSection extends React.Component {
                     sm={6}
                     md={6}
                   >
-
                     <div className={classes.profile}>
                       <div>
                         <img src={thisPerson.avatar} alt="..." className={imageClasses} />
                       </div>
                       <div className={classes.name}>
                         <h3 className={classes.title}>{thisPerson.full_name}</h3>
-                        {/*<h6>@{thisPerson.display_name}</h6>*/}
-                        <h6>
-                          {
-                            thisPerson.badge.map(eachBadge => {
-                              return (
-                                <Badge color="primary">{eachBadge.name}</Badge>
-                              );
-                            })
-                          }
-                        </h6>
-  
-                        <Button
-                          justIcon
-                          simple
-                          color="instagram"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-instagram"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          simple
-                          color="twitter"
-                          className={classes.margin5}
-                        >
-                          <i className={classes.socials + " fab fa-twitter"} />
-                        </Button>
-  
                       </div>
-                      <div className={classes.description}>
-                        <p>{thisPerson.bio}{" "}</p>
-                      </div>
-  
                     </div>
                   </GridItem>
                   <GridItem
@@ -168,70 +134,11 @@ class ProfileTopSection extends React.Component {
                     md={3}
                   >
 
-                    <Table
-                      tableData={[
-                        [
-                          "Gears Spotted " , <b>{thisPerson.owns_count}</b>
-                        ],
-                        [
-                          "Gears Liked " , <b>{thisPerson.gear_follows_count}</b>
-                        ],
-                        [
-                          "Followed By " , <b>{thisPerson.profile_display_followed_by_count}</b>
-                        ],
-                        [
-                          "Following " , <b>{thisPerson.profile_display_follows_count}</b>
-                        ]
-
-                      ]}
-
-                    />
 
                   </GridItem>
                 </GridContainer>
                 
-                <div className={classes.follow}>
 
-                  { thisPerson.followed ? 
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Unfollow"
-                      placement="top"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button
-                        justIcon
-                        round
-                        color="info"
-                        className={classes.followButton}
-                        onClick={() => this.handleClickUnfollow(thisPerson.display_name)}
-
-                      >
-                        <Remove className={classes.followIcon} />
-                      </Button>
-                    </Tooltip>
-
-                    :
-
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Follow"
-                      placement="top"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button
-                        justIcon
-                        round
-                        color="info"
-                        className={classes.followButton}
-                        onClick={() => this.handleClickFollow(thisPerson.display_name)}
-                      >
-                        <Add className={classes.followIcon} />
-                      </Button>
-                    </Tooltip>
-                  }
-
-                </div>
               </GridItem>
             </GridContainer>
           </div>
