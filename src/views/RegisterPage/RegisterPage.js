@@ -157,7 +157,7 @@ class RegisterPage extends React.Component {
                         </fieldset>
 
                         <div className={classes.textCenter}>
-                          <Button size="md" color="warning" type="submit"
+                          <Button size="md" color="primary" type="submit"
                             disabled={this.props.inProgress}>
                             SUBMIT
                           </Button>

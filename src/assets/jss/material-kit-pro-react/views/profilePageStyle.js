@@ -7,11 +7,11 @@ import {
   main,
   whiteColor,
   mainRaised,
-  grayColor
+  grayColor,
+  hexToRgb,
+  blackColor
 } from "assets/jss/material-kit-pro-react.js";
-
 import imagesStyle from "assets/jss/material-kit-pro-react/imagesStyles.js";
-
 import tooltipsStyle from "assets/jss/material-kit-pro-react/tooltipsStyle.js";
 
 const profilePageStyle = {
@@ -23,6 +23,30 @@ const profilePageStyle = {
     color: whiteColor + "  !important"
   },
   cardTitle,
+  pageHeader: {
+    color: whiteColor,
+    border: "0",
+    height: "100%",
+    margin: "0",
+    display: "flex!important",
+    padding: "120px 0",
+    position: "relative",
+    minHeight: "100vh",
+    alignItems: "center",
+    "&:before": {
+      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)"
+    },
+    "&:before,&:after": {
+      position: "absolute",
+      zIndex: "1",
+      width: "100%",
+      height: "100%",
+      display: "block",
+      left: "0",
+      top: "0",
+      content: '""'
+    }
+  },
   profile: {
     textAlign: "left",
     marginLeft: "50px",
@@ -149,10 +173,7 @@ const profilePageStyle = {
     top: "3px",
     position: "relative"
   },
-  cardHeader: {
-    width: "auto",
-    textAlign: "center"
-  },
+
   snowboardImg: {
     "& img": {
       width: "auto",

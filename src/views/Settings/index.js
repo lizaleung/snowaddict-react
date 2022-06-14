@@ -94,7 +94,7 @@ class SettingsForm extends React.Component {
       <form onSubmit={this.submitForm}>
         <fieldset>
 
-
+          <h3>Avatar</h3>
           <fieldset className="form-group">
             <input type="file"
                    id="avatar"
@@ -102,7 +102,7 @@ class SettingsForm extends React.Component {
                    onChange={this.handleImageChange} />
           </fieldset>
 
-
+          <h3>Username</h3>
           <fieldset className="form-group">
             <input
               className="form-control form-control-lg"
@@ -111,16 +111,8 @@ class SettingsForm extends React.Component {
               value={this.state.username}
               onChange={this.updateState('username')} />
           </fieldset>
-
-          <fieldset className="form-group">
-            <input
-              className="form-control form-control-lg"
-              type="text"
-              placeholder="Full name"
-              value={this.state.full_name}
-              onChange={this.updateState('full_name')} />
-          </fieldset>
-
+          
+          <h3>Bio</h3>
           <fieldset className="form-group">
             <textarea
               className="form-control form-control-lg"
@@ -194,8 +186,7 @@ class ProfileSettingForm extends React.Component {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
     
-              <h1 className="text-xs-center">Your Settings Here</h1>
-              <h1> hi { this.props.people } </h1>
+              <h1 >Your Settings Here</h1>
               <ListErrors errors={this.props.errors}></ListErrors>
 
               <SettingsForm

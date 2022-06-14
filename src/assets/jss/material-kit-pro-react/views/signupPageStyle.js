@@ -83,6 +83,10 @@ const signupPageStyle = {
   textCenter: {
     textAlign: "center"
   },
+  cardHeader: {
+    width: "auto",
+    textAlign: "center"
+  },
   inputAdornment: {
     marginRight: "18px",
     position: "relative"

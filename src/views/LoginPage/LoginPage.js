@@ -93,11 +93,11 @@ class Login extends React.Component {
               <Card>
                 <form className={classes.form} onSubmit={this.submitForm(email, password)}>
                   <CardHeader
-                    color="warning"
+                    color="primary"
                     signup
                     className={classes.cardHeader}
                   >
-                    <h4 className={classes.cardTitle}>Login</h4>
+                    <h4 className={classes.cardTitle}>Sign In</h4>
 
                   </CardHeader>
 
@@ -123,11 +123,10 @@ class Login extends React.Component {
 
                   </CardBody>
                   <div className={classes.textCenter}>
-                    <Button color="warning" size="lg"
+                    <Button color="primary" size="lg"
                       type="submit"
                       disabled={this.props.inProgress}
                     >
-
                       Get started
                     </Button>
 
