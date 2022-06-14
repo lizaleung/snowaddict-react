@@ -15,8 +15,9 @@ import Accordion from "components/Accordion/Accordion.js";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "components/CustomButtons/Button.js";
 import Badge from "components/Badge/Badge.js";
-
 import Favorite from "@material-ui/icons/Favorite";
+
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Add from "@material-ui/icons/Add";
 
 
@@ -27,24 +28,8 @@ const useStyles = makeStyles(productStyle);
 export default function SectionBasicInfo(props) {
   const classes = useStyles();
 
-  // const images = [
-  //   {
-  //     original: product3,
-  //     thumbnail: product3
-  //   },
-  //   {
-  //     original: product4,
-  //     thumbnail: product4
-  //   },
-  //   {
-  //     original: product1,
-  //     thumbnail: product1
-  //   },
-  //   {
-  //     original: product2,
-  //     thumbnail: product2
-  //   }
-  // ];
+  console.log(props)
+  console.log(props.ownsThisGear)
   const images = [
     {
       original: props.gear.image,
@@ -68,16 +53,38 @@ export default function SectionBasicInfo(props) {
         <GridItem md={6} sm={6}>
           <h2 className={classes.title}>{ props.gear.title }</h2>
           <h3 className={classes.mainPrice}>{ props.gear.brand_name } { props.gear.year}</h3>
-          <div >
+          <h3>{props.ownsThisGear}</h3>
+
+          <div>
             <Tooltip
               id="tooltip-top"
               title="Save to wishlist"
               placement="top"
               classes={{ tooltip: classes.tooltip }}
             >
-              <Button justIcon simple color="rose">
-                <Favorite />
-              </Button>
+              { props.gear.isFollowedByCurrentUser ? 
+
+                <Button
+                  justIcon
+                  simple
+                  color="rose"
+                  onClick={()=>props.onUnfollow(props.gear.slug)}
+                  
+                >
+                  <Favorite />
+                </Button>
+                :
+                <Button
+                  justIcon
+                  simple
+                  color="rose"
+                  onClick={()=>props.onFollow(props.gear.slug)}
+                >
+                  <FavoriteBorder />
+                </Button> 
+
+              }
+
             </Tooltip>
             <Tooltip
               id="tooltip-top"

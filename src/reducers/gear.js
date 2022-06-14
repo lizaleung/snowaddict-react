@@ -2,6 +2,8 @@ import {
   GEAR_ITEM_PAGE_LOADED,
   GEAR_ITEM_PAGE_UNLOADED,
   CHANGE_DETAIL_TAB,
+  GEAR_FOLLOW,
+  GEAR_UNFOLLOW
 } from '../constants/actionTypes';
 
 export default (state = {}, action) => {
@@ -21,6 +23,16 @@ export default (state = {}, action) => {
       };
     case GEAR_ITEM_PAGE_UNLOADED:
       return {};
+    case GEAR_FOLLOW:
+      return {
+        ...state,
+        gear: action.payload
+      }
+    case GEAR_UNFOLLOW:
+      return {
+        ...state,
+        gear: action.payload
+      };
     default:
       return state;
   }

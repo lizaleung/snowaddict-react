@@ -130,7 +130,13 @@ const People = {
   trending: page =>
     requests.get(`/people?view=trending`),
   create: formdata =>
-    requests.postwithfile('/people',  formdata )
+    requests.postwithfile('/people',  formdata ),
+  addGear: (name, gear_slug) =>
+    requests.post(`/addgear?name=${name}&gear=${gear_slug}`),    
+  follow_gear: gear_slug =>
+    requests.post(`/gear_follow?gear=${gear_slug}`),
+  unfollow_gear: gear_slug =>
+    requests.del(`/gear_follow?gear=${gear_slug}`),
 };
 
 
@@ -149,6 +155,10 @@ const Gears = {
     requests.get(`/trending/gears?${limit(10, page)}`)
 };
 
+
+const Gear = {
+
+};
 
 
 const Categories = {
